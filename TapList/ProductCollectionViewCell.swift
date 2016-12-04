@@ -17,14 +17,19 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productImageView: UIImageView!
     
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
     func configureCell(product: Product) {
         self.product = product
         setImage()
+        productNameLabel.text = product.name
     }
     
     private func setImage() {
@@ -38,6 +43,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
                 self.productImageView.image = image
             }
         })
+    }
+    
+    @IBAction func productCountChanged(_ sender: UIStepper) {
+        productCountLabel.text = "\(sender.value)"
     }
 
 }

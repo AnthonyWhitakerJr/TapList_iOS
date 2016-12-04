@@ -65,8 +65,11 @@
                         <subviews>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Fjl-Hy-Ey9">
                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                <connections>
+                                    <action selector="productCountChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="IID-Pp-INp"/>
+                                </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-h6-4ea">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-h6-4ea">
                                 <rect key="frame" x="104" y="0.0" width="8" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -112,7 +115,9 @@
             </constraints>
             <size key="customSize" width="432" height="361"/>
             <connections>
+                <outlet property="productCountLabel" destination="KtD-h6-4ea" id="5YK-6K-Xi1"/>
                 <outlet property="productImageView" destination="Xqb-nP-5el" id="Hnu-vL-sio"/>
+                <outlet property="productNameLabel" destination="S0m-0T-GCb" id="YL2-uB-Mni"/>
             </connections>
             <point key="canvasLocation" x="216" y="207"/>
         </collectionViewCell>
