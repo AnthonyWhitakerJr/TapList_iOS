@@ -12,15 +12,28 @@ import UIKit
 
 class ImageService {
     
+    enum Size: String {
+        case small
+        case medium
+        case large
+    }
+    
+    enum Direction: String {
+        case front
+        case back
+        case left
+        case top
+    }
+    
     let instance = ImageService()
     
-    let baseUrl = "https://www.kroger.com/product/images/medium/front/"
+    let baseUrl = "https://www.kroger.com/product/images/"
     
     let imageCache = NSCache<NSString, UIImage>()
     
     private init(){}
     
-    func image(for product: Product, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
+    func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
         guard let id = product.id else {
             completion(nil)
             return nil
@@ -31,7 +44,7 @@ class ImageService {
         if let image = imageCache.object(forKey: id as NSString) {
             completion(image)
         } else {
-            let url = "\(baseUrl)\(id)"
+            let url = "\(baseUrl)/\(size.rawValue)/\(direction.rawValue)/\(id)"
             request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
                 if let data = responseData.data {
                     if let image = UIImage(data: data) {
