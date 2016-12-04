@@ -9,7 +9,7 @@
 import Foundation
 
 class Product {
-    // 14 digit product id. Stored as String to preserve preceeding zeros.
-    var id: String?
+    // 14 digit product upc. Stored as String to preserve preceeding zeros.
+    var upc: String?
     
 }

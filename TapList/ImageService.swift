@@ -25,7 +25,7 @@ class ImageService {
         case top
     }
     
-    let instance = ImageService()
+    static let instance = ImageService()
     
     let baseUrl = "https://www.kroger.com/product/images/"
     
@@ -34,17 +34,17 @@ class ImageService {
     private init(){}
     
     func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
-        guard let id = product.id else {
+        guard let upc = product.upc else {
             completion(nil)
             return nil
         }
         
         var request: DataRequest? = nil
         
-        if let image = imageCache.object(forKey: id as NSString) {
+        if let image = imageCache.object(forKey: upc as NSString) {
             completion(image)
         } else {
-            let url = "\(baseUrl)/\(size.rawValue)/\(direction.rawValue)/\(id)"
+            let url = "\(baseUrl)/\(size.rawValue)/\(direction.rawValue)/\(upc)"
             request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
                 if let data = responseData.data {
                     if let image = UIImage(data: data) {
