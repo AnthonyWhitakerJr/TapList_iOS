@@ -15,6 +15,10 @@
 		92E0ADE21DF468EF00D26606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */; };
 		92E0ADED1DF468F000D26606 /* TapListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADEC1DF468F000D26606 /* TapListTests.swift */; };
 		92E0ADF81DF468F000D26606 /* TapListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADF71DF468F000D26606 /* TapListUITests.swift */; };
+		92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */; };
+		92E0AE081DF480BB00D26606 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E0AE061DF480BB00D26606 /* ProductCollectionViewCell.xib */; };
+		92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE0B1DF488CB00D26606 /* Product.swift */; };
+		92E0AE0F1DF4898100D26606 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE0E1DF4898100D26606 /* ImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		92E0ADF31DF468F000D26606 /* TapListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E0ADF71DF468F000D26606 /* TapListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapListUITests.swift; sourceTree = "<group>"; };
 		92E0ADF91DF468F000D26606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		92E0AE061DF480BB00D26606 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		92E0AE0B1DF488CB00D26606 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		92E0AE0E1DF4898100D26606 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,9 @@
 		92E0ADD31DF468EF00D26606 /* TapList */ = {
 			isa = PBXGroup;
 			children = (
+				92E0AE0D1DF4896C00D26606 /* Service */,
+				92E0AE0A1DF488B900D26606 /* Model */,
+				92E0AE091DF4838D00D26606 /* View */,
 				92E0ADD41DF468EF00D26606 /* AppDelegate.swift */,
 				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
 				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
@@ -126,6 +137,31 @@
 				92E0ADF91DF468F000D26606 /* Info.plist */,
 			);
 			path = TapListUITests;
+			sourceTree = "<group>";
+		};
+		92E0AE091DF4838D00D26606 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
+				92E0AE061DF480BB00D26606 /* ProductCollectionViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		92E0AE0A1DF488B900D26606 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92E0AE0B1DF488CB00D26606 /* Product.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		92E0AE0D1DF4896C00D26606 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				92E0AE0E1DF4898100D26606 /* ImageService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +276,7 @@
 			files = (
 				92E0ADE21DF468EF00D26606 /* LaunchScreen.storyboard in Resources */,
 				92E0ADDF1DF468EF00D26606 /* Assets.xcassets in Resources */,
+				92E0AE081DF480BB00D26606 /* ProductCollectionViewCell.xib in Resources */,
 				92E0ADDA1DF468EF00D26606 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +304,10 @@
 			files = (
 				92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */,
 				92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */,
+				92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */,
+				92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */,
 				92E0ADDD1DF468EF00D26606 /* TapList.xcdatamodeld in Sources */,
+				92E0AE0F1DF4898100D26606 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
