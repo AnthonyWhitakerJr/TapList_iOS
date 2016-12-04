@@ -10,6 +10,7 @@
 		0179788FB3BA1D38BAE4699C /* Pods_TapList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5F33273CB491CF4DC53C22 /* Pods_TapList.framework */; };
 		560C6D938DE35F80F45BA62F /* Pods_TapListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295FB93A7D29E3B071373E6D /* Pods_TapListUITests.framework */; };
 		6440992F62F6D32BD3B9F86A /* Pods_TapListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055DA8AA1ED84220608AAE52 /* Pods_TapListTests.framework */; };
+		929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929043051DF4C8DF005AF5BF /* CustomButton.swift */; };
 		92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD41DF468EF00D26606 /* AppDelegate.swift */; };
 		92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD61DF468EF00D26606 /* ViewController.swift */; };
 		92E0ADDA1DF468EF00D26606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E0ADD81DF468EF00D26606 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		295FB93A7D29E3B071373E6D /* Pods_TapListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TapListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F2E13C595E311FFE28B9A3 /* Pods-TapListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapListTests/Pods-TapListTests.release.xcconfig"; sourceTree = "<group>"; };
 		875A1743AE33696E27B2D702 /* Pods-TapListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapListUITests/Pods-TapListUITests.release.xcconfig"; sourceTree = "<group>"; };
+		929043051DF4C8DF005AF5BF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		92E0ADD11DF468EF00D26606 /* TapList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E0ADD41DF468EF00D26606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E0ADD61DF468EF00D26606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
 				92E0AE061DF480BB00D26606 /* ProductCollectionViewCell.xib */,
+				929043051DF4C8DF005AF5BF /* CustomButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */,
 				92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */,
 				92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */,
+				929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */,
 				92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */,
 				92E0ADDD1DF468EF00D26606 /* TapList.xcdatamodeld in Sources */,
 				92E0AE0F1DF4898100D26606 /* ImageService.swift in Sources */,

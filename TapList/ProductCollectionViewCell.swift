@@ -29,7 +29,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     private func setImage() {
         if let imageRequest = imageRequest {
-            imageRequest.cancel()
+            imageRequest.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
         }
         
         self.productImageView.image = nil // TODO: Replace with placeholder image.

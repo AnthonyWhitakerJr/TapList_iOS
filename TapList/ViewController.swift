@@ -23,3 +23,24 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UICollectionViewDelegate {
+    
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let post = posts[indexPath.row]
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as? ProductCollectionViewCell {
+            cell.configureCell(product: Product())
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+}
+
