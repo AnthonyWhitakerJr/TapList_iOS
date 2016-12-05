@@ -12,7 +12,6 @@ class Product {
     // 14 digit product upc. Stored as String to preserve preceeding zeros.
     var upc: String?
     var name: String?
-    var price: Double?
     var listPrice: Double?
     var offerPrice: Double?
     var regularPrice: Double?
@@ -29,14 +28,13 @@ class Product {
         case unit
     }
     
-    convenience init(upc: String, name: String, price: Double? = nil,
-                     listPrice: Double? = nil, offerPrice: Double? = nil,
+    convenience init(upc: String, name: String,
+                     listPrice: Double, offerPrice: Double? = nil,
                      detail: String,
                      soldBy: TempName1? = nil, orderBy: TempName2? = nil) {
         self.init()
         self.upc = upc
         self.name = name
-        self.price = price
         self.listPrice = listPrice
         self.offerPrice = offerPrice
         self.detail = detail

@@ -49,27 +49,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
             aboutLabel.isHidden = true
             eachLabel.isHidden = true
         }
-        
-        if let price = product.price {
-            priceLabel.isHidden = false
-            priceLabel.text = formatter.string(from: NSNumber(value: price))
-        } else {
-            priceLabel.isHidden = true
-        }
-        
-        if let listPrice = product.listPrice {
-            listPriceLabel.isHidden = false
-            listPriceLabel.attributedText = NSAttributedString(string: formatter.string(from: NSNumber(value: listPrice))!,
-                                                               attributes: [NSStrikethroughStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue])
-        } else {
-            listPriceLabel.isHidden = true
-        }
-        
+
         if let offerPrice = product.offerPrice {
+            priceLabel.isHidden = true
+            listPriceLabel.isHidden = false
+            listPriceLabel.attributedText = NSAttributedString(string: formatter.string(from: NSNumber(value: product.listPrice!))!, attributes: [NSStrikethroughStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue])
+            
             offerPriceLabel.isHidden = false
             offerPriceLabel.text = formatter.string(from: NSNumber(value: offerPrice))!
         } else {
+            priceLabel.isHidden = false
+            priceLabel.text = formatter.string(from: NSNumber(value: product.listPrice!))
+            
             offerPriceLabel.isHidden = true
+            listPriceLabel.isHidden = true
         }
         
         detailLabel.text = product.detail

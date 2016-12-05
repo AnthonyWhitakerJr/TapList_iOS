@@ -18,9 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var product = Product(upc: "0021065600000", name: "Heritage Farm Boneless Skinless Chicken Breasts With Rib Meat (5-6 per Pack)", price: 8.76, detail: "price $1.99/lb", soldBy: .weight, orderBy: .unit)
+        var product = Product(upc: "0021065600000", name: "Heritage Farm Boneless Skinless Chicken Breasts With Rib Meat (5-6 per Pack)", listPrice: 8.76, detail: "price $1.99/lb", soldBy: .weight, orderBy: .unit)
         products.append(product)
         product = Product(upc: "0001111016222", name: "Kroger Glazed Sour Cream Cake Donut Holes", listPrice: 2.49, offerPrice: 1.50, detail: "14 oz")
+        products.append(product)
+        product = Product(upc: "0001111041600", name: "Kroger 2% Reduced Fat Milk", listPrice: 1.69, offerPrice: 1.49, detail: "1/2 gal")
+        products.append(product)
+        product = Product(upc: "0001111060933", name: "Kroger Grade A Large Eggs", listPrice: 1.99, detail: "18 count")
         products.append(product)
         
         collectionView.delegate = self
