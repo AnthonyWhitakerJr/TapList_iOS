@@ -17,7 +17,7 @@ class Product {
     var regularPrice: Double?
     var soldBy: TempName1?
     var orderBy: TempName2?
-    // Catch-all for additional text. TODO: Refactor into specific fields.
+    // Catch-all for additional text. TODO: Refactor into specific fields?
     var detail: String?
     
     enum TempName1: String {

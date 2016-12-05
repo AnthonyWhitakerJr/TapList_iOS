@@ -111,6 +111,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		922F2E671DF5D1BF00B7FAF6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		92E0ADC81DF468EF00D26606 = {
 			isa = PBXGroup;
 			children = (
@@ -136,14 +144,12 @@
 		92E0ADD31DF468EF00D26606 /* TapList */ = {
 			isa = PBXGroup;
 			children = (
+				922F2E671DF5D1BF00B7FAF6 /* Controller */,
 				92E0AE0D1DF4896C00D26606 /* Service */,
 				92E0AE0A1DF488B900D26606 /* Model */,
 				92E0AE091DF4838D00D26606 /* View */,
 				92E0ADD41DF468EF00D26606 /* AppDelegate.swift */,
-				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
-				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
 				92E0ADDE1DF468EF00D26606 /* Assets.xcassets */,
-				92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */,
 				92E0ADE31DF468EF00D26606 /* Info.plist */,
 				92E0ADDB1DF468EF00D26606 /* TapList.xcdatamodeld */,
 			);
@@ -171,9 +177,11 @@
 		92E0AE091DF4838D00D26606 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				929043051DF4C8DF005AF5BF /* CustomButton.swift */,
+				92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */,
+				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
 				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
 				92E0AE061DF480BB00D26606 /* ProductCollectionViewCell.xib */,
-				929043051DF4C8DF005AF5BF /* CustomButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
