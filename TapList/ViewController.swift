@@ -29,8 +29,6 @@ class ViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
-        collectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
     }
 
     override func didReceiveMemoryWarning() {
