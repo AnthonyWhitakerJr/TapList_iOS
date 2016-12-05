@@ -22,6 +22,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var eachLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var cartQuantityLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +31,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configureCell(product: Product) {
+    func configureCell(product: Product, quantityInCart: Int = 0) {
         self.product = product
         setImage()
         productNameLabel.text = product.name
@@ -45,6 +47,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
         priceLabel.text = "$\(product.price!)"
         
         detailLabel.text = product.detail
+        
+        if quantityInCart == 0 {
+            cartQuantityLabel.isHidden = true
+        } else {
+            cartQuantityLabel.text = "\(quantityInCart) in Cart"
+        }
     }
     
     private func setImage() {

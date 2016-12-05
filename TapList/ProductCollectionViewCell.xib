@@ -37,7 +37,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dL-0z-pUf">
                                 <rect key="frame" x="0.0" y="19.5" width="45" height="20.5"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-pm-3s5">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-pm-3s5">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
@@ -49,13 +49,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="each" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-XU-obH">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="each" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-XU-obH">
                                         <rect key="frame" x="46" y="0.0" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fs-G9O">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fs-G9O">
                                         <rect key="frame" x="46" y="0.0" width="0.0" height="20.5"/>
                                         <color key="backgroundColor" red="0.99902635812759399" green="0.89185887575149536" blue="0.00095378304831683636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -110,26 +110,37 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 in Cart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw7-xZ-FkL">
+                        <rect key="frame" x="0.0" y="0.0" width="101" height="19.5"/>
+                        <color key="backgroundColor" red="0.0013225463917478919" green="0.65146523714065552" blue="0.31578841805458069" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="Dw7-xZ-FkL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DW2-Xl-1fI"/>
                 <constraint firstItem="Si7-Rw-LUc" firstAttribute="height" secondItem="TeO-FR-P1u" secondAttribute="height" id="EKN-MN-iEz"/>
                 <constraint firstItem="Si7-Rw-LUc" firstAttribute="top" secondItem="YSV-Hn-Xdz" secondAttribute="bottom" constant="8" id="GBX-J6-usa"/>
                 <constraint firstItem="YSV-Hn-Xdz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="GaO-J1-nnT"/>
                 <constraint firstAttribute="trailing" secondItem="Xqb-nP-5el" secondAttribute="trailing" id="Hva-vc-tjZ"/>
                 <constraint firstItem="YSV-Hn-Xdz" firstAttribute="top" secondItem="Xqb-nP-5el" secondAttribute="bottom" constant="8" id="QcB-yl-904"/>
                 <constraint firstItem="TeO-FR-P1u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="UNH-qm-ar3"/>
+                <constraint firstItem="Dw7-xZ-FkL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Yd7-am-ASu"/>
                 <constraint firstAttribute="trailing" secondItem="YSV-Hn-Xdz" secondAttribute="trailing" constant="8" id="bjI-yr-a54"/>
                 <constraint firstAttribute="trailingMargin" secondItem="Si7-Rw-LUc" secondAttribute="trailing" id="dEu-W9-hL4"/>
                 <constraint firstItem="Si7-Rw-LUc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TeO-FR-P1u" secondAttribute="trailing" constant="8" id="eOs-N6-iRg"/>
                 <constraint firstItem="Xqb-nP-5el" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gsl-83-Bcd"/>
                 <constraint firstAttribute="bottomMargin" secondItem="TeO-FR-P1u" secondAttribute="bottom" id="oZy-3J-vIS"/>
                 <constraint firstAttribute="bottomMargin" secondItem="Si7-Rw-LUc" secondAttribute="bottom" id="oqt-nj-Uwt"/>
+                <constraint firstItem="Dw7-xZ-FkL" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" multiplier="0.4" constant="1" id="q1h-V7-0iX"/>
                 <constraint firstItem="Xqb-nP-5el" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xHM-qE-elA"/>
             </constraints>
             <size key="customSize" width="283" height="71"/>
             <connections>
                 <outlet property="aboutLabel" destination="3Qy-pm-3s5" id="PYj-FR-j2r"/>
+                <outlet property="cartQuantityLabel" destination="Dw7-xZ-FkL" id="zjV-qF-gm9"/>
                 <outlet property="detailLabel" destination="OwG-uV-vqa" id="Fvh-rY-LRT"/>
                 <outlet property="eachLabel" destination="KEH-XU-obH" id="oRL-BR-jqt"/>
                 <outlet property="priceLabel" destination="T8A-EP-BmK" id="Fvr-uE-2Kk"/>
@@ -137,7 +148,7 @@
                 <outlet property="productNameLabel" destination="S0m-0T-GCb" id="YL2-uB-Mni"/>
                 <outlet property="quantityLabel" destination="KtD-h6-4ea" id="cb0-WT-Dqb"/>
             </connections>
-            <point key="canvasLocation" x="131.5" y="29"/>
+            <point key="canvasLocation" x="131" y="29"/>
         </collectionViewCell>
     </objects>
 </document>
