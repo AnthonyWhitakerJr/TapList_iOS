@@ -16,8 +16,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var imageRequest: DataRequest?
     
     @IBOutlet weak var productImageView: UIImageView!
-    
     @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var eachLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var productCountLabel: UILabel!
     
     override func awakeFromNib() {
@@ -30,6 +33,18 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.product = product
         setImage()
         productNameLabel.text = product.name
+        
+        if product.soldBy == Product.TempName1.weight, product.orderBy == Product.TempName2.unit { //TODO: Refactor me: extract method.
+            aboutLabel.isHidden = false
+            eachLabel.isHidden = false
+        } else {
+            aboutLabel.isHidden = true
+            eachLabel.isHidden = true
+        }
+        
+        priceLabel.text = "$\(product.price!)"
+        
+        detailLabel.text = product.detail
     }
     
     private func setImage() {
@@ -46,7 +61,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func productCountChanged(_ sender: UIStepper) {
-        productCountLabel.text = "\(sender.value)"
+        productCountLabel.text = "\(Int(sender.value))"
     }
 
 }

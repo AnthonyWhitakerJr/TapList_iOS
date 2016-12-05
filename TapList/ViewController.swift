@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let product = Product(upc: "0021065600000", name: "Heritage Farm Boneless Skinless Chicken Breasts With Rib Meat (5-6 per Pack)")
+        let product = Product(upc: "0021065600000", name: "Heritage Farm Boneless Skinless Chicken Breasts With Rib Meat (5-6 per Pack)", price: 8.76, detail: "price $1.99/lb", soldBy: .weight, orderBy: .unit)
         products.append(product)
         
         collectionView.delegate = self
