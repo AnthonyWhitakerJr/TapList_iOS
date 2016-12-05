@@ -21,7 +21,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var eachLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var productCountLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,8 +60,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         })
     }
     
-    @IBAction func productCountChanged(_ sender: UIStepper) {
-        productCountLabel.text = "\(Int(sender.value))"
+    @IBAction func quantityChanged(_ sender: UIStepper) {
+        quantityLabel.text = "\(Int(sender.value))"
     }
 
 }

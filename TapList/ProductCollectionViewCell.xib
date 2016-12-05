@@ -35,28 +35,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dL-0z-pUf">
-                                <rect key="frame" x="0.0" y="19.5" width="156" height="20.5"/>
+                                <rect key="frame" x="0.0" y="19.5" width="45" height="20.5"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-pm-3s5">
-                                        <rect key="frame" x="0.0" y="0.0" width="32.5" height="20.5"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-pm-3s5">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-EP-BmK">
-                                        <rect key="frame" x="34.5" y="0.0" width="45" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="each" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-XU-obH">
-                                        <rect key="frame" x="81.5" y="0.0" width="27.5" height="20.5"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="each" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEH-XU-obH">
+                                        <rect key="frame" x="46" y="0.0" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fs-G9O">
-                                        <rect key="frame" x="111" y="0.0" width="45" height="20.5"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fs-G9O">
+                                        <rect key="frame" x="46" y="0.0" width="0.0" height="20.5"/>
                                         <color key="backgroundColor" red="0.99902635812759399" green="0.89185887575149536" blue="0.00095378304831683636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.88313502073287964" green="0.028976727277040482" blue="0.058585472404956818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,7 +78,7 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Fjl-Hy-Ey9">
                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
                                 <connections>
-                                    <action selector="productCountChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="IID-Pp-INp"/>
+                                    <action selector="quantityChanged:" destination="gTV-IL-0wX" eventType="valueChanged" id="oHa-uc-h5o"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-h6-4ea">
@@ -133,9 +133,9 @@
                 <outlet property="detailLabel" destination="OwG-uV-vqa" id="Fvh-rY-LRT"/>
                 <outlet property="eachLabel" destination="KEH-XU-obH" id="oRL-BR-jqt"/>
                 <outlet property="priceLabel" destination="T8A-EP-BmK" id="Fvr-uE-2Kk"/>
-                <outlet property="productCountLabel" destination="KtD-h6-4ea" id="5YK-6K-Xi1"/>
                 <outlet property="productImageView" destination="Xqb-nP-5el" id="Hnu-vL-sio"/>
                 <outlet property="productNameLabel" destination="S0m-0T-GCb" id="YL2-uB-Mni"/>
+                <outlet property="quantityLabel" destination="KtD-h6-4ea" id="cb0-WT-Dqb"/>
             </connections>
             <point key="canvasLocation" x="131.5" y="29"/>
         </collectionViewCell>
