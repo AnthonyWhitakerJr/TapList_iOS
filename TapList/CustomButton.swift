@@ -21,24 +21,4 @@ class CustomButton: UIButton {
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = borderWidth
-        }
-    }
-    @IBInspectable var borderColor: UIColor? {
-        get {
-            guard let color = layer.borderColor  else {
-                return nil
-            }
-            return UIColor(cgColor: color)
-        }
-        set {
-            layer.borderColor = borderColor?.cgColor
-        }
-    }
-    
 }
