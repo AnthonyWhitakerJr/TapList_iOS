@@ -20,10 +20,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var eachLabel: UILabel!
+    @IBOutlet weak var listPriceLabel: UILabel!
+    @IBOutlet weak var offerPriceLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +34,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     func configureCell(product: Product, quantityInCart: Int = 0) {
         self.product = product
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        
         setImage()
+        
         productNameLabel.text = product.name
         
         if product.soldBy == Product.TempName1.weight, product.orderBy == Product.TempName2.unit { //TODO: Refactor me: extract method.
@@ -44,13 +50,34 @@ class ProductCollectionViewCell: UICollectionViewCell {
             eachLabel.isHidden = true
         }
         
-        priceLabel.text = "$\(product.price!)"
+        if let price = product.price {
+            priceLabel.isHidden = false
+            priceLabel.text = formatter.string(from: NSNumber(value: price))
+        } else {
+            priceLabel.isHidden = true
+        }
+        
+        if let listPrice = product.listPrice {
+            listPriceLabel.isHidden = false
+            listPriceLabel.attributedText = NSAttributedString(string: formatter.string(from: NSNumber(value: listPrice))!,
+                                                               attributes: [NSStrikethroughStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue])
+        } else {
+            listPriceLabel.isHidden = true
+        }
+        
+        if let offerPrice = product.offerPrice {
+            offerPriceLabel.isHidden = false
+            offerPriceLabel.text = formatter.string(from: NSNumber(value: offerPrice))!
+        } else {
+            offerPriceLabel.isHidden = true
+        }
         
         detailLabel.text = product.detail
         
         if quantityInCart == 0 {
             cartQuantityLabel.isHidden = true
         } else {
+            cartQuantityLabel.isHidden = false
             cartQuantityLabel.text = "\(quantityInCart) in Cart"
         }
     }

@@ -13,6 +13,8 @@ class Product {
     var upc: String?
     var name: String?
     var price: Double?
+    var listPrice: Double?
+    var offerPrice: Double?
     var regularPrice: Double?
     var soldBy: TempName1?
     var orderBy: TempName2?
@@ -27,12 +29,16 @@ class Product {
         case unit
     }
     
-    convenience init(upc: String, name: String, price: Double, detail: String,
-                     soldBy: TempName1, orderBy: TempName2) {
+    convenience init(upc: String, name: String, price: Double? = nil,
+                     listPrice: Double? = nil, offerPrice: Double? = nil,
+                     detail: String,
+                     soldBy: TempName1? = nil, orderBy: TempName2? = nil) {
         self.init()
         self.upc = upc
         self.name = name
         self.price = price
+        self.listPrice = listPrice
+        self.offerPrice = offerPrice
         self.detail = detail
         self.soldBy = soldBy
         self.orderBy = orderBy
