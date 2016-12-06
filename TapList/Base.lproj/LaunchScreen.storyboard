@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,11 +21,17 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchBgrd" translatesAutoresizingMaskIntoConstraints="NO" id="aCT-bP-Xwf">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="20" y="20" width="984" height="1346"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TapListLogo" translatesAutoresizingMaskIntoConstraints="NO" id="P62-or-srq">
+                                <rect key="frame" x="40" y="73" width="944" height="402.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P62-or-srq" secondAttribute="height" multiplier="75:32" id="S9V-ym-s9g"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -31,7 +39,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="aCT-bP-Xwf" secondAttribute="trailing" id="ICo-vl-fGG"/>
                             <constraint firstItem="aCT-bP-Xwf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="Mwx-se-bO8"/>
                             <constraint firstItem="aCT-bP-Xwf" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="STH-ux-UXG"/>
+                            <constraint firstItem="P62-or-srq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="20" id="osu-BI-A1c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P62-or-srq" secondAttribute="trailing" constant="20" id="q1j-hH-Vsr"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="aCT-bP-Xwf" secondAttribute="bottom" id="qGs-vf-stb"/>
+                            <constraint firstItem="P62-or-srq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.4" constant="1" id="yzW-9h-KCS"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,6 +52,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TapListLogo" width="300" height="128"/>
         <image name="launchBgrd" width="414" height="736"/>
     </resources>
 </document>
