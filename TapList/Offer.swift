@@ -28,6 +28,7 @@ class Offer {
     init(productSku: String, endDate: String?, offerType: OfferType?, offerQuantity: Int?, stringDivider: String? = "/", currency: String? = "$",
          offerPriceTitle: String?, offerDescription: String?, offerShortDescription: String?) {
         self.productSku = productSku
+        self.endDate = endDate
         self.offerType = offerType
         self.offerQuantity = offerQuantity
         self.stringDivider = stringDivider

@@ -28,6 +28,7 @@ class SalePriceViewController: UIViewController {
         var offer = Offer(productSku: "0001111016222", endDate: "12/06/2016", offerType: .n, offerQuantity: 2, offerPriceTitle: "3", offerDescription: "Discounted yellow tag price.", offerShortDescription: "Buy 2 For $3")
         offers[offer.productSku] = offer
         offer = Offer(productSku: "0001111041600", endDate: nil, offerType: nil, offerQuantity: nil, offerPriceTitle: nil, offerDescription: "Great Deal! Look for more Yellow tag offers to save.", offerShortDescription: nil)
+        offers[offer.productSku] = offer
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,14 +43,14 @@ class SalePriceViewController: UIViewController {
             offerShortDescriptionLabel.isHidden = true
             expirationDateLabel.isHidden = true
         } else if offer.offerType == .n {
-            saleTitleLabel.text = "\(offer.offerQuantity)\(offer.stringDivider)\(offer.currency)\(offer.offerPriceTitle)"
+            saleTitleLabel.text = "\(offer.offerQuantity!)\(offer.stringDivider!)\(offer.currency!)\(offer.offerPriceTitle!)" // TODO: Determine best way to handle failure here.
             offerDescriptionLabel.text = offer.offerDescription
             
             offerShortDescriptionLabel.isHidden = false
             offerShortDescriptionLabel.text = offer.offerShortDescription
             
             expirationDateLabel.isHidden = false
-            expirationDateLabel.text = "exp \(offer.endDate)"
+            expirationDateLabel.text = "exp \(offer.endDate!)"
         } else {
             print("Unexpected offer type")
         }
