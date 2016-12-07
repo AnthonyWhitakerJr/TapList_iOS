@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     var products = Array<Product>()
+    var productForSalePriceController: Product? // Certainly there is a better way of doing this...
+    var indexPathForSalePriceController: IndexPath?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -35,6 +37,54 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func offerPriceTapped(_ sender: UITapGestureRecognizer) {
+        print("Offer Price Tapped")
+        guard let indexPath = collectionView.indexPathForItem(at: sender.location(in: collectionView)) else {
+            return
+        }
+        
+        indexPathForSalePriceController = indexPath
+        productForSalePriceController = products[indexPath.row]
+        
+        performSegue(withIdentifier: "offerPopover", sender: self)
+    }
+    
+    @IBAction func offerPriceHeld(recognizer: UILongPressGestureRecognizer) {
+        
+    }
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "offerPopover" {
+            guard let productForSalePriceController = productForSalePriceController else {
+                print("product not set before segue to sale price controller.")
+                return
+            }
+            guard let controller = segue.destination as? SalePriceViewController else {
+                print("improper controller for this segue")
+                return
+            }
+            
+            controller.product = productForSalePriceController
+            
+            controller.modalPresentationStyle = .popover
+            
+            let presentationController = controller.popoverPresentationController
+            presentationController?.permittedArrowDirections = .down
+            
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPathForSalePriceController!) as? ProductCollectionViewCell {
+                presentationController?.sourceView = cell.offerPriceLabel
+                presentationController?.sourceRect = cell.offerPriceLabel.frame
+            }
+            
+            
+            
+        }
+    }
+ 
 
 
 }
@@ -53,6 +103,7 @@ extension ViewController: UICollectionViewDataSource {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as? ProductCollectionViewCell {
             cell.configureCell(product: product)
+//            let tap = UITapGestureRecognizer(target: cell., action: Selector?)
             return cell
         }
         

@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 
-@IBDesignable
 class ProductCollectionViewCell: UICollectionViewCell {
 
     var product: Product!
