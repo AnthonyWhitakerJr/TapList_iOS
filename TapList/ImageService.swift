@@ -34,10 +34,7 @@ class ImageService {
     private init(){}
     
     func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
-        guard let upc = product.upc else {
-            completion(nil)
-            return nil
-        }
+        let upc = product.upc
         
         var request: DataRequest? = nil
         

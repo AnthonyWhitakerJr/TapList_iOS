@@ -10,8 +10,8 @@ import Foundation
 
 class Product {
     // 14 digit product upc. Stored as String to preserve preceeding zeros.
-    var upc: String?
-    var name: String?
+    var upc: String
+    var name: String
     var listPrice: Double?
     var offerPrice: Double?
     var regularPrice: Double?
@@ -28,11 +28,10 @@ class Product {
         case unit
     }
     
-    convenience init(upc: String, name: String,
+    init(upc: String, name: String,
                      listPrice: Double, offerPrice: Double? = nil,
                      detail: String,
                      soldBy: TempName1? = nil, orderBy: TempName2? = nil) {
-        self.init()
         self.upc = upc
         self.name = name
         self.listPrice = listPrice
