@@ -12,6 +12,7 @@
 		6440992F62F6D32BD3B9F86A /* Pods_TapListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055DA8AA1ED84220608AAE52 /* Pods_TapListTests.framework */; };
 		921094141DF626E800333464 /* SalePriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921094131DF626E800333464 /* SalePriceViewController.swift */; };
 		921094161DF7938C00333464 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921094151DF7938C00333464 /* Offer.swift */; };
+		921094401DF8804300333464 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210943F1DF8804300333464 /* TestViewController.swift */; };
 		922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */; };
 		929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929043051DF4C8DF005AF5BF /* CustomButton.swift */; };
 		92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD41DF468EF00D26606 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		875A1743AE33696E27B2D702 /* Pods-TapListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapListUITests/Pods-TapListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		921094131DF626E800333464 /* SalePriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalePriceViewController.swift; sourceTree = "<group>"; };
 		921094151DF7938C00333464 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		9210943F1DF8804300333464 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		929043051DF4C8DF005AF5BF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		92E0ADD11DF468EF00D26606 /* TapList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 			children = (
 				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
 				921094131DF626E800333464 /* SalePriceViewController.swift */,
+				9210943F1DF8804300333464 /* TestViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			files = (
 				92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */,
 				92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */,
+				921094401DF8804300333464 /* TestViewController.swift in Sources */,
 				922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */,
 				921094141DF626E800333464 /* SalePriceViewController.swift in Sources */,
 				921094161DF7938C00333464 /* Offer.swift in Sources */,
