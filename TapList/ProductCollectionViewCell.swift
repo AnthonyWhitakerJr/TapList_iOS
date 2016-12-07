@@ -20,7 +20,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var eachLabel: UILabel!
     @IBOutlet weak var listPriceLabel: UILabel!
-    @IBOutlet weak var offerPriceLabel: UILabel!
+    @IBOutlet weak var offerPriceButton: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
@@ -54,13 +54,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
             listPriceLabel.isHidden = false
             listPriceLabel.attributedText = NSAttributedString(string: formatter.string(from: NSNumber(value: product.listPrice!))!, attributes: [NSStrikethroughStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue])
             
-            offerPriceLabel.isHidden = false
-            offerPriceLabel.text = formatter.string(from: NSNumber(value: offerPrice))!
+            offerPriceButton.isHidden = false
+            offerPriceButton.setTitle(formatter.string(from: NSNumber(value: offerPrice))!, for: .normal)
         } else {
             priceLabel.isHidden = false
             priceLabel.text = formatter.string(from: NSNumber(value: product.listPrice!))
             
-            offerPriceLabel.isHidden = true
+            offerPriceButton.isHidden = true
             listPriceLabel.isHidden = true
         }
         

@@ -57,33 +57,33 @@ class ViewController: UIViewController {
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "offerPopover" {
-            guard let productForSalePriceController = productForSalePriceController else {
-                print("product not set before segue to sale price controller.")
-                return
-            }
-            guard let controller = segue.destination as? SalePriceViewController else {
-                print("improper controller for this segue")
-                return
-            }
-            
-            controller.product = productForSalePriceController
-            
-            controller.modalPresentationStyle = .popover
-            
-            let presentationController = controller.popoverPresentationController
-            presentationController?.permittedArrowDirections = .down
-            
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPathForSalePriceController!) as? ProductCollectionViewCell {
-                presentationController?.sourceView = cell.offerPriceLabel
-                presentationController?.sourceRect = cell.offerPriceLabel.frame
-            }
-            
-            
-            
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "offerPopover" {
+//            guard let productForSalePriceController = productForSalePriceController else {
+//                print("product not set before segue to sale price controller.")
+//                return
+//            }
+//            guard let controller = segue.destination as? SalePriceViewController else {
+//                print("improper controller for this segue")
+//                return
+//            }
+//            
+//            controller.product = productForSalePriceController
+//            
+//            controller.modalPresentationStyle = .popover
+//            
+//            let presentationController = controller.popoverPresentationController
+//            presentationController?.permittedArrowDirections = .down
+//            
+////            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPathForSalePriceController!) as? ProductCollectionViewCell {
+////                presentationController?.sourceView = cell.offerPriceLabel
+////                presentationController?.sourceRect = cell.offerPriceLabel.frame
+////            }
+//            
+//            
+//            
+//        }
+//    }
  
 
 
