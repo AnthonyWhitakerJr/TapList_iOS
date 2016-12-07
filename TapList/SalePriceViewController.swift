@@ -55,6 +55,7 @@ class SalePriceViewController: UIViewController {
             print("Unexpected offer type")
         }
         
+        self.popoverPresentationController?.backgroundColor = .yellow // TODO: Change to the specific color in use.
     }
 
     override func didReceiveMemoryWarning() {
