@@ -15,8 +15,7 @@ class TestViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "popover1" || segue.identifier == "popover2" {
             let popoverViewController = segue.destination as! SalePriceViewController
-            popoverViewController.modalPresentationStyle = .popover
-            popoverViewController.popoverPresentationController!.delegate = self
+            popoverViewController.popoverPresentationController?.delegate = self
             
             // Set bounds for arrow placement.
             if let sender = sender as? UIButton {
@@ -42,5 +41,4 @@ extension TestViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
-
 }

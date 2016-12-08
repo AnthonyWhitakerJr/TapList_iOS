@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -225,10 +224,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOq-kn-nvE" userLabel="Product 1">
-                                <rect key="frame" x="62.5" y="20" width="250" height="300"/>
+                                <rect key="frame" x="63" y="20" width="250" height="300"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tq5-7W-YyG">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="190"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="190.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHv-wE-Z8Y" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
                                         <rect key="frame" x="144" y="263" width="98" height="29"/>
@@ -305,8 +304,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="popover1" popoverAnchorView="gCY-tG-6QF" id="N3a-Se-Qgm">
-                                                                        <segue key="commit" inheritsFrom="parent" id="4BD-03-GRz"/>
-                                                                        <segue key="preview" inheritsFrom="commit" id="IRv-EK-fkc"/>
                                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                                     </segue>
                                                                 </connections>
@@ -339,10 +336,10 @@
                                     <constraint firstItem="Ojc-IQ-UFw" firstAttribute="top" secondItem="tq5-7W-YyG" secondAttribute="bottom" constant="8" id="zLf-1X-xjE"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghp-zp-ufx" userLabel="Product 1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghp-zp-ufx" userLabel="Product 2">
                                 <rect key="frame" x="62" y="347" width="250" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZmE-MO-1DL">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZmE-MO-1DL">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="190"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ur6-Bb-Ls2" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
@@ -420,8 +417,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="popover2" popoverAnchorView="N2i-s8-eo3" id="jRJ-lP-gin">
-                                                                        <segue key="commit" inheritsFrom="parent" id="q9n-w6-kks"/>
-                                                                        <segue key="preview" inheritsFrom="commit" id="B36-rM-k0P"/>
                                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                                                     </segue>
                                                                 </connections>
