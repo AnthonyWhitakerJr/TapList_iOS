@@ -55,6 +55,7 @@ class ViewController: UIViewController {
             
             // Set bounds for arrow placement.
             if let sender = sender as? UIButton {
+                controller.popoverPresentationController?.sourceView = sender
                 controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
             }
             
