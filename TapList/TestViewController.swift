@@ -10,35 +10,32 @@ import UIKit
 
 class TestViewController: UIViewController {
 
-    // MARK: - Navigation
+    @IBOutlet weak var tiledView: UIView!
+    @IBOutlet weak var soloImage: UIImageView!
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "popover1" || segue.identifier == "popover2" {
-            let popoverViewController = segue.destination as! SalePriceViewController
-            popoverViewController.popoverPresentationController?.delegate = self
-            
-            // Set bounds for arrow placement.
-            if let sender = sender as? UIButton {
-                popoverViewController.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
-            }
-            
-            switch segue.identifier! {
-            case "popover1":
-                let product = Product(upc: "0001111016222", name: "Kroger Glazed Sour Cream Cake Donut Holes", listPrice: 2.49, offerPrice: 1.50, detail: "14 oz")
-                popoverViewController.product = product
-            case "popover2":
-                let product = Product(upc: "0001111041600", name: "Kroger 2% Reduced Fat Milk", listPrice: 1.69, offerPrice: 1.49, detail: "1/2 gal")
-                popoverViewController.product = product
-            default: break
-            }
-        }
+    @IBOutlet weak var tiledView2: UIView!
+    @IBOutlet weak var soloImage2: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configure(image: #imageLiteral(resourceName: "donutHoles"), imageView: soloImage, view: tiledView)
+        configure(image: #imageLiteral(resourceName: "banana"), imageView: soloImage2, view: tiledView2)
     }
-
-}
-
-extension TestViewController: UIPopoverPresentationControllerDelegate {
- 
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
+    
+    func configure(image: UIImage, imageView: UIImageView, view: UIView) {
+        view.backgroundColor = UIColor(patternImage: image)
+        imageView.image = image
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+//        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+//        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+//        vibrancyEffectView.frame = view.bounds
+//        vibrancyEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+//        blurEffectView.addSubview(vibrancyEffectView)
+        view.addSubview(blurEffectView)
     }
 }
