@@ -25,6 +25,7 @@ class SalePriceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Load Offer data.
         var offer = Offer(productSku: "0001111016222", endDate: "12/06/2016", offerType: .n, offerQuantity: 2, offerPriceTitle: "3", offerDescription: "Discounted yellow tag price.", offerShortDescription: "Buy 2 For $3")
         offers[offer.productSku] = offer
         offer = Offer(productSku: "0001111041600", endDate: nil, offerType: nil, offerQuantity: nil, offerPriceTitle: nil, offerDescription: "Great Deal! Look for more Yellow tag offers to save.", offerShortDescription: nil)
@@ -55,23 +56,17 @@ class SalePriceViewController: UIViewController {
             print("Unexpected offer type")
         }
         
-        self.popoverPresentationController?.backgroundColor = .yellow // TODO: Change to the specific color in use.
+
+        // Set color of arrow pointing to popover anchor.
+        let backgroundColor: UIColor
+        if self.popoverPresentationController?.arrowDirection == .up {
+            backgroundColor = UIColor(red: 241.0/255, green: 10.0/255, blue: 10.0/255, alpha: 1) // Red
+        } else {
+            backgroundColor = UIColor(red: 1, green: 227.0/255, blue: 0, alpha: 1) // Yellow
+        }
+        
+        self.popoverPresentationController?.backgroundColor = backgroundColor
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
