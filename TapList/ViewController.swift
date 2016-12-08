@@ -38,54 +38,31 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func offerPriceTapped(_ sender: UITapGestureRecognizer) {
-        print("Offer Price Tapped")
-        guard let indexPath = collectionView.indexPathForItem(at: sender.location(in: collectionView)) else {
-            return
-        }
-        
-        indexPathForSalePriceController = indexPath
-        productForSalePriceController = products[indexPath.row]
-        
-        performSegue(withIdentifier: "offerPopover", sender: self)
-    }
-    
-    @IBAction func offerPriceHeld(recognizer: UILongPressGestureRecognizer) {
-        
-    }
-    
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "offerPopover" {
-//            guard let productForSalePriceController = productForSalePriceController else {
-//                print("product not set before segue to sale price controller.")
-//                return
-//            }
-//            guard let controller = segue.destination as? SalePriceViewController else {
-//                print("improper controller for this segue")
-//                return
-//            }
-//            
-//            controller.product = productForSalePriceController
-//            
-//            controller.modalPresentationStyle = .popover
-//            
-//            let presentationController = controller.popoverPresentationController
-//            presentationController?.permittedArrowDirections = .down
-//            
-////            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPathForSalePriceController!) as? ProductCollectionViewCell {
-////                presentationController?.sourceView = cell.offerPriceLabel
-////                presentationController?.sourceRect = cell.offerPriceLabel.frame
-////            }
-//            
-//            
-//            
-//        }
-//    }
- 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "offerPopover" {
+            guard let productForSalePriceController = productForSalePriceController else {
+                print("product not set before segue to sale price controller.")
+                return
+            }
+            guard let controller = segue.destination as? SalePriceViewController else {
+                print("improper controller for this segue")
+                return
+            }
+            
+            controller.popoverPresentationController?.delegate = self
+            
+            // Set bounds for arrow placement.
+            if let sender = sender as? UIButton {
+                controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
+            }
+            
+            controller.product = productForSalePriceController
+            
+            controller.modalPresentationStyle = .popover
+        }
+    }
 
 }
 
@@ -103,11 +80,26 @@ extension ViewController: UICollectionViewDataSource {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as? ProductCollectionViewCell {
             cell.configureCell(product: product)
-//            let tap = UITapGestureRecognizer(target: cell., action: Selector?)
+            cell.delegate = self
             return cell
         }
         
         return UICollectionViewCell()
+    }
+}
+
+extension ViewController: ProductCellDelegate {
+    func handleOfferButtonTapped(product: Product, sender: UIButton) {
+        productForSalePriceController = product
+        performSegue(withIdentifier: "offerPopover", sender: sender)
+    }
+
+}
+
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
 

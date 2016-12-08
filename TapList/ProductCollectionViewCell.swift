@@ -13,6 +13,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     var product: Product!
     var imageRequest: DataRequest?
+    var delegate: ProductCellDelegate?
     
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -90,5 +91,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBAction func quantityChanged(_ sender: UIStepper) {
         quantityLabel.text = "\(Int(sender.value))"
     }
+    
+    @IBAction func offerButtonTapped(_ sender: UIButton) {
+        delegate?.handleOfferButtonTapped(product: product, sender: sender)
+    }
 
+}
+
+protocol ProductCellDelegate {
+    func handleOfferButtonTapped(product: Product, sender: UIButton)
 }

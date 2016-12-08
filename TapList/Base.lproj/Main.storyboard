@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="68b-R6-fSw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,7 +46,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="oWx-d3-Dg4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eTy-CU-kcV">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eTy-CU-kcV" userLabel="Product Info">
                                                     <rect key="frame" x="8" y="198.5" width="234" height="56.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gp-Fr-NRD">
@@ -55,10 +55,10 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-a4-d2X">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MY6-a4-d2X" userLabel="Product Price">
                                                             <rect key="frame" x="0.0" y="19.5" width="199" height="21"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-wF-t8x">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-wF-t8x" userLabel="Price">
                                                                     <rect key="frame" x="0.0" y="0.0" width="109" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYv-8v-CAd">
@@ -81,7 +81,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-Uy-iTb">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-Uy-iTb" userLabel="Sale Price">
                                                                     <rect key="frame" x="109" y="0.0" width="90" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24H-IX-rqA">
@@ -103,6 +103,9 @@
                                                                                     <real key="value" value="1"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="offerButtonTapped:" destination="jFG-Ls-NuB" eventType="touchUpInside" id="mx4-6D-xp7"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -182,7 +185,7 @@
                                             <outlet property="detailLabel" destination="uWN-rw-LuS" id="4kd-bF-rAJ"/>
                                             <outlet property="eachLabel" destination="gqR-VT-kMF" id="bH6-uS-R04"/>
                                             <outlet property="listPriceLabel" destination="24H-IX-rqA" id="a5l-rS-mAv"/>
-                                            <outlet property="offerPriceButton" destination="RyN-Yd-dsd" id="G4n-Zh-V7X"/>
+                                            <outlet property="offerPriceButton" destination="RyN-Yd-dsd" id="Wsp-Vs-SXM"/>
                                             <outlet property="priceLabel" destination="ZQY-Q3-xft" id="KTZ-qP-tes"/>
                                             <outlet property="productImageView" destination="Sxs-Wh-5MQ" id="HTX-0C-e0W"/>
                                             <outlet property="productNameLabel" destination="9gp-Fr-NRD" id="QdP-1R-66J"/>
@@ -202,8 +205,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="AkS-CJ-MZA" id="9hX-lv-u3u"/>
-                        <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="offerPopover" popoverAnchorView="AkS-CJ-MZA" id="lRP-iT-1wW">
-                            <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
+                        <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="offerPopover" popoverAnchorView="AkS-CJ-MZA" id="tEi-tF-fic">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
                 </viewController>
@@ -214,7 +217,7 @@
         <!--Test View Controller-->
         <scene sceneID="o4u-NS-jwa">
             <objects>
-                <viewController id="68b-R6-fSw" customClass="TestViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="68b-R6-fSw" customClass="TestViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qUP-5H-JlK"/>
                         <viewControllerLayoutGuide type="bottom" id="iDG-Db-ltq"/>
@@ -340,7 +343,7 @@
                                 <rect key="frame" x="62" y="347" width="250" height="300"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZmE-MO-1DL">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="190"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="190.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ur6-Bb-Ls2" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
                                         <rect key="frame" x="144" y="263" width="98" height="29"/>
@@ -466,7 +469,7 @@
         <!--Sale Price View Controller-->
         <scene sceneID="A2s-Mh-k3e">
             <objects>
-                <viewController id="IPj-Xg-M87" customClass="SalePriceViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SalePriceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IPj-Xg-M87" customClass="SalePriceViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOs-f9-pc7"/>
                         <viewControllerLayoutGuide type="bottom" id="8P4-sZ-MUH"/>
@@ -564,6 +567,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N3a-Se-Qgm"/>
+        <segue reference="tEi-tF-fic"/>
     </inferredMetricsTieBreakers>
 </document>
