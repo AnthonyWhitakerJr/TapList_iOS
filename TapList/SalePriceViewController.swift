@@ -33,7 +33,7 @@ class SalePriceViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard let offer = offers[product.upc] else {
+        guard let offer = offers[product.sku] else {
             print("Offer data unavailable.")
             return
         }
