@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="68b-R6-fSw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F7p-KG-5nh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -267,10 +267,10 @@
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="-648.12593703148434"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Detail View Controller-->
         <scene sceneID="Pmh-gC-lXf">
             <objects>
-                <viewController id="F7p-KG-5nh" sceneMemberID="viewController">
+                <viewController id="F7p-KG-5nh" customClass="ProductDetailViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kus-Nf-2UX"/>
                         <viewControllerLayoutGuide type="bottom" id="8bU-16-8Sf"/>
@@ -378,12 +378,16 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-XX-ziR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-XX-ziR" customClass="PlaceholderTextView" customModule="TapList" customModuleProvider="target">
                                 <rect key="frame" x="16" y="411.5" width="343" height="166.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText">
+                                        <string key="value">Any special instructions for this item? Customize your order by using comments like "green bananas" or "1/2 lb. thinnly sliced ham."</string>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c3D-7B-YDK" userLabel="Quantity">
                                 <rect key="frame" x="16" y="618" width="112" height="29"/>
@@ -448,6 +452,9 @@
                             <constraint firstItem="Qag-Ti-MhA" firstAttribute="top" secondItem="Kus-Nf-2UX" secondAttribute="bottom" id="y7N-wS-QPf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="specialInstructionTextView" destination="vjo-XX-ziR" id="ZG2-iK-6hC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KH-j6-2q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

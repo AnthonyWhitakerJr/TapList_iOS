@@ -24,6 +24,11 @@ class PlaceholderTextView: UITextView {
         }
     }
     
+    override init(frame: CGRect, textContainer: NSTextContainer? = nil) {
+        super.init(frame: frame, textContainer: textContainer)
+        placeholder = PlaceholderLabel(textView: self)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         placeholder = PlaceholderLabel(textView: self)
