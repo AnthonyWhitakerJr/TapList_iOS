@@ -42,7 +42,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         productNameLabel.text = product.name
         
-        if product.soldBy == Product.TempName1.weight, product.orderBy == Product.TempName2.unit { //TODO: Refactor me: extract method.
+        if product.soldBy == .weight, product.orderBy == .unit { //TODO: Refactor me: extract method.
             aboutLabel.isHidden = false
             eachLabel.isHidden = false
         } else {

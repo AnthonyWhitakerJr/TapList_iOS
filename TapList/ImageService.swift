@@ -34,14 +34,14 @@ class ImageService {
     private init(){}
     
     func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
-        let upc = product.upc
+        let sku = product.sku
         
         var request: DataRequest? = nil
         
-        if let image = imageCache.object(forKey: upc as NSString) {
+        if let image = imageCache.object(forKey: sku as NSString) {
             completion(image)
         } else {
-            let url = "\(baseUrl)/\(size.rawValue)/\(direction.rawValue)/\(upc)"
+            let url = "\(baseUrl)/\(size.rawValue)/\(direction.rawValue)/\(sku)"
             request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
                 if let data = responseData.data {
                     if let image = UIImage(data: data) {

@@ -10,9 +10,18 @@ import Foundation
 
 class Offer {
     
-    enum OfferType {
+    enum OfferType: String {
         case n
         case b
+    }
+    
+    enum DataKey: String {
+        case endDate
+        case offerType
+        case offerQuantity
+        case offerPriceTitle
+        case offerDescription
+        case offerShortDescription
     }
     
     var productSku: String
@@ -25,7 +34,8 @@ class Offer {
     var offerDescription: String?
     var offerShortDescription: String?
     
-    init(productSku: String, endDate: String?, offerType: OfferType?, offerQuantity: Int?, stringDivider: String? = "/", currency: String? = "$",
+    init(productSku: String, endDate: String?, offerType: OfferType?, offerQuantity: Int?,
+         stringDivider: String? = "/", currency: String? = "$",
          offerPriceTitle: String?, offerDescription: String?, offerShortDescription: String?) {
         self.productSku = productSku
         self.endDate = endDate
@@ -37,4 +47,23 @@ class Offer {
         self.offerDescription = offerDescription
         self.offerShortDescription = offerShortDescription
     }
+    
+    convenience init?(productSku: String, data: Dictionary<String, Any>) {
+        let endDate = data[DataKey.endDate.rawValue] as? String
+        let offerTypeString = data[DataKey.offerType.rawValue] as? String
+        
+        var offerType: OfferType? = nil
+        if let offerTypeString = offerTypeString {
+             offerType = OfferType(rawValue: offerTypeString)
+        }
+        
+        let offerQuantity = data[DataKey.offerQuantity.rawValue] as? Int
+        let offerPriceTitle = data[DataKey.offerPriceTitle.rawValue] as? String
+        let offerDescription = data[DataKey.offerDescription.rawValue] as? String
+        let offerShortDescription = data[DataKey.offerShortDescription.rawValue] as? String
+        
+        self.init(productSku: productSku, endDate: endDate, offerType: offerType, offerQuantity: offerQuantity,
+                  offerPriceTitle: offerPriceTitle, offerDescription: offerDescription, offerShortDescription: offerShortDescription)
+    }
+
 }

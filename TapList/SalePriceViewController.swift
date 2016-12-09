@@ -12,7 +12,7 @@ import UIKit
 /// Set product before segue to this controller.
 class SalePriceViewController: UIViewController {
 
-    var offers = Dictionary<String,Offer>()
+    var offer: Offer?
     
     /// Set before segue to this controller.
     var product: Product!
@@ -24,16 +24,15 @@ class SalePriceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Load Offer data.
-        var offer = Offer(productSku: "0001111016222", endDate: "12/06/2016", offerType: .n, offerQuantity: 2, offerPriceTitle: "3", offerDescription: "Discounted yellow tag price.", offerShortDescription: "Buy 2 For $3")
-        offers[offer.productSku] = offer
-        offer = Offer(productSku: "0001111041600", endDate: nil, offerType: nil, offerQuantity: nil, offerPriceTitle: nil, offerDescription: "Great Deal! Look for more Yellow tag offers to save.", offerShortDescription: nil)
-        offers[offer.productSku] = offer
+        
+        DataService.instance.offer(for: product.sku, completion: { result in
+            self.offer = result
+            self.configureSalePrice()
+        })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        guard let offer = offers[product.upc] else {
+    private func configureSalePrice() {
+        guard let offer = offer else {
             print("Offer data unavailable.")
             return
         }
@@ -58,8 +57,9 @@ class SalePriceViewController: UIViewController {
         } else {
             print("Unexpected offer type")
         }
-        
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Set color of arrow pointing to popover anchor.
         let backgroundColor: UIColor
         if self.popoverPresentationController?.arrowDirection == .up {
