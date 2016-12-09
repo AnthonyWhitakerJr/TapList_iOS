@@ -17,9 +17,9 @@ class TestViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
     }
 
-//    func textViewDidChange(_ textView: UITextView) {
-//        if let textView = textView as? PlaceholderTextView {
-//            textView.placeholder.isHidden = !textView.text.isEmpty
-//        }
-//    }
+    func textViewDidChange(_ textView: UITextView) {
+        if let textView = textView as? PlaceholderTextView {
+            textView.placeholder.isHidden = !textView.text.isEmpty
+        }
+    }
 }
