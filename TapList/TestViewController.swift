@@ -10,24 +10,16 @@ import UIKit
 
 class TestViewController: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var textView: UITextView!
-    var placeholderLabel : UILabel!
-    
+    @IBOutlet weak var textView: PlaceholderTextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         textView.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "Enter some text..."
-        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
-        placeholderLabel.sizeToFit()
-        textView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = .gray //UIColor(white: 0, alpha: 0.3)
-        placeholderLabel.isHidden = !textView.text.isEmpty
     }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !textView.text.isEmpty
-    }
+
+//    func textViewDidChange(_ textView: UITextView) {
+//        if let textView = textView as? PlaceholderTextView {
+//            textView.placeholder.isHidden = !textView.text.isEmpty
+//        }
+//    }
 }
