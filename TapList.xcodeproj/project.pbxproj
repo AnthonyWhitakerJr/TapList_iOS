@@ -18,6 +18,7 @@
 		926D89CD1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
 		926D89CE1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
 		926D89D01DFA24E500C0E26C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D89CF1DFA24E500C0E26C /* DataService.swift */; };
+		926D89D21DFA50E800C0E26C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */; };
 		929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929043051DF4C8DF005AF5BF /* CustomButton.swift */; };
 		92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD41DF468EF00D26606 /* AppDelegate.swift */; };
 		92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD61DF468EF00D26606 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926D89CF1DFA24E500C0E26C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		929043051DF4C8DF005AF5BF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		92E0ADD11DF468EF00D26606 /* TapList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E0ADD41DF468EF00D26606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */,
 				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
 				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
+				926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */,
 				92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */,
 				92E0ADDD1DF468EF00D26606 /* TapList.xcdatamodeld in Sources */,
+				926D89D21DFA50E800C0E26C /* PlaceholderTextView.swift in Sources */,
 				92E0AE0F1DF4898100D26606 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
