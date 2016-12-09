@@ -13,10 +13,11 @@ class DataService {
     
     static let instance = DataService()
     
-    let database = FIRDatabase.database().reference()
-    private(set) var product : FIRDatabaseReference
+    let database: FIRDatabaseReference
+    let product: FIRDatabaseReference
     
     private init(){
+        database = FIRDatabase.database().reference()
         product = database.child("product")
     }
 }
