@@ -9,8 +9,7 @@
 import UIKit
 import Alamofire
 
-//FIXME: Disgusting amout of duplication in this class. Extract protocol for common logic.
-class ProductDetailViewController: UIViewController {
+class ProductDetailViewController: UIViewController, ProductView {
 
     @IBOutlet weak var productImageCollectionView: UICollectionView!
     @IBOutlet weak var specialInstructionTextView: PlaceholderTextView!
@@ -32,7 +31,7 @@ class ProductDetailViewController: UIViewController {
     
     var imageRequests = Array<DataRequest?>()
     
-    var quantityInCart: Int = 0
+    var quantityInCart: Int! = 0
 
     
     override func viewDidLoad() {
@@ -82,47 +81,8 @@ class ProductDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureView()
+        configureProductView()
         skuLabel.text = "SKU:\(product.sku)"
-    }
-    
-    func configureView() {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        
-        productNameLabel.text = product.name
-        
-        if product.soldBy == .weight, product.orderBy == .unit { //TODO: Refactor me: extract method.
-            aboutLabel.isHidden = false
-            eachLabel.isHidden = false
-        } else {
-            aboutLabel.isHidden = true
-            eachLabel.isHidden = true
-        }
-        
-        if let offerPrice = product.offerPrice {
-            priceLabel.isHidden = true
-            listPriceLabel.isHidden = false
-            listPriceLabel.attributedText = NSAttributedString(string: formatter.string(from: NSNumber(value: product.listPrice!))!, attributes: [NSStrikethroughStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue])
-            
-            offerPriceButton.isHidden = false
-            offerPriceButton.setTitle(formatter.string(from: NSNumber(value: offerPrice))!, for: .normal)
-        } else {
-            priceLabel.isHidden = false
-            priceLabel.text = formatter.string(from: NSNumber(value: product.listPrice!))
-            
-            offerPriceButton.isHidden = true
-            listPriceLabel.isHidden = true
-        }
-        
-        detailLabel.text = product.detail
-        
-//        if quantityInCart == 0 {
-//            cartQuantityLabel.isHidden = true
-//        } else {
-//            cartQuantityLabel.isHidden = false
-//            cartQuantityLabel.text = "\(quantityInCart) in Cart"
-//        }
     }
     
     @IBAction func quantityChanged(_ sender: UIStepper) {

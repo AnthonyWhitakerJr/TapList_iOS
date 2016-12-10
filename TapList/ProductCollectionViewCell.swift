@@ -9,9 +9,10 @@
 import UIKit
 import Alamofire
 
-class ProductCollectionViewCell: UICollectionViewCell {
+class ProductCollectionViewCell: UICollectionViewCell, ProductView {
 
     var product: Product!
+    var quantityInCart: Int!
     var imageRequest: DataRequest?
     var delegate: ProductCellDelegate?
     
@@ -34,6 +35,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     func configureCell(product: Product, quantityInCart: Int = 0) {
         self.product = product
+        self.quantityInCart = quantityInCart
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -42,37 +44,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         productNameLabel.text = product.name
         
-        if product.soldBy == .weight, product.orderBy == .unit { //TODO: Refactor me: extract method.
-            aboutLabel.isHidden = false
-            eachLabel.isHidden = false
-        } else {
-            aboutLabel.isHidden = true
-            eachLabel.isHidden = true
-        }
-
-        if let offerPrice = product.offerPrice {
-            priceLabel.isHidden = true
-            listPriceLabel.isHidden = false
-            listPriceLabel.attributedText = NSAttributedString(string: formatter.string(from: NSNumber(value: product.listPrice!))!, attributes: [NSStrikethroughStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue])
-            
-            offerPriceButton.isHidden = false
-            offerPriceButton.setTitle(formatter.string(from: NSNumber(value: offerPrice))!, for: .normal)
-        } else {
-            priceLabel.isHidden = false
-            priceLabel.text = formatter.string(from: NSNumber(value: product.listPrice!))
-            
-            offerPriceButton.isHidden = true
-            listPriceLabel.isHidden = true
-        }
-        
-        detailLabel.text = product.detail
-        
-        if quantityInCart == 0 {
-            cartQuantityLabel.isHidden = true
-        } else {
-            cartQuantityLabel.isHidden = false
-            cartQuantityLabel.text = "\(quantityInCart) in Cart"
-        }
+        configureProductView()
     }
     
     private func setImage() {
