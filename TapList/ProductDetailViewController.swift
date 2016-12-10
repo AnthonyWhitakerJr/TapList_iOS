@@ -36,9 +36,7 @@ class ProductDetailViewController: UIViewController, ProductView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        product = Product(sku: "0001111041600", name: "Kroger 2% Reduced Fat Milk", listPrice: 1.69, offerPrice: 1.49, detail: "1/2 gal")
-        
+                
         setImages()
         
         productImageCollectionView.delegate = self
@@ -59,8 +57,6 @@ class ProductDetailViewController: UIViewController, ProductView {
         for direction in ImageService.Direction.values {
             let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
                 imagesByDirection[direction] = image
-                print("\(direction.rawValue) finished.")
-                print("\(imagesByDirection.count) vs \(ImageService.Direction.values.count)")
                 
                 //TODO: Refactor to use semaphores.
                 // After all images have been fetched:

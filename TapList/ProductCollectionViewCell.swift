@@ -65,9 +65,14 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     @IBAction func offerButtonTapped(_ sender: UIButton) {
         delegate?.handleOfferButtonTapped(product: product, sender: sender)
     }
+    
+    @IBAction func productImageButtonPressed(_ sender: UIButton) {
+        delegate?.handleProductImageButtonTapped(product: product, sender: sender)
+    }
 
 }
 
 protocol ProductCellDelegate {
     func handleOfferButtonTapped(product: Product, sender: UIButton)
+    func handleProductImageButtonTapped(product: Product, sender: UIButton)
 }

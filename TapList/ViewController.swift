@@ -117,6 +117,10 @@ extension ViewController: ProductCellDelegate {
         performSegue(withIdentifier: "offerPopover", sender: sender)
     }
 
+    func handleProductImageButtonTapped(product: Product, sender: UIButton) {
+        productForSegue = product
+        performSegue(withIdentifier: "productDetail", sender: sender)
+    }
 }
 
 extension ViewController: UIPopoverPresentationControllerDelegate {
