@@ -241,7 +241,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labeldfasfasdfdfasf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNF-Re-H9L">
-                                <rect key="frame" x="77" y="281" width="263" height="396"/>
+                                <rect key="frame" x="77" y="291" width="263" height="396"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -285,20 +285,34 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="rPa-ST-DiB"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pxj-2E-I5o">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pxj-2E-I5o">
                                     <size key="itemSize" width="300" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productImage" id="WE1-Mv-YLS">
-                                        <rect key="frame" x="22" y="0.0" width="300" height="200"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productImage" id="WE1-Mv-YLS" customClass="ImageCollectionViewCell" customModule="TapList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="15" width="300" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-5q-a1j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="nuI-5q-a1j" secondAttribute="trailing" id="30n-Cv-4Oi"/>
+                                            <constraint firstItem="nuI-5q-a1j" firstAttribute="top" secondItem="WE1-Mv-YLS" secondAttribute="top" id="kMO-64-Zov"/>
+                                            <constraint firstAttribute="bottom" secondItem="nuI-5q-a1j" secondAttribute="bottom" id="v5J-0S-99k"/>
+                                            <constraint firstItem="nuI-5q-a1j" firstAttribute="leading" secondItem="WE1-Mv-YLS" secondAttribute="leading" id="w0I-Vm-NWG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="nuI-5q-a1j" id="e80-NK-M94"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -309,13 +323,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcO-Xe-ydD">
-                                <rect key="frame" x="16" y="287" width="343" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="287" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-Dq-99w" userLabel="Product Info">
-                                <rect key="frame" x="16" y="316" width="343" height="37"/>
+                                <rect key="frame" x="16" y="311.5" width="343" height="37"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4RV-mR-RLS" userLabel="Product Price">
                                         <rect key="frame" x="0.0" y="0.0" width="199" height="21"/>
@@ -365,6 +379,9 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="offerButtonTapped:" destination="F7p-KG-5nh" eventType="touchUpInside" id="yJO-9H-ewn"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -379,7 +396,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-XX-ziR" customClass="PlaceholderTextView" customModule="TapList" customModuleProvider="target">
-                                <rect key="frame" x="16" y="411.5" width="343" height="166.5"/>
+                                <rect key="frame" x="16" y="407" width="343" height="171"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -394,6 +411,9 @@
                                 <subviews>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="5QV-ep-Byv">
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="quantityChanged:" destination="F7p-KG-5nh" eventType="valueChanged" id="boX-5f-3A0"/>
+                                        </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="DaP-M7-xeZ">
                                         <rect key="frame" x="104" y="0.0" width="8" height="29"/>
@@ -419,7 +439,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Special Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93U-qX-7wG">
-                                <rect key="frame" x="16" y="383" width="194.5" height="20.5"/>
+                                <rect key="frame" x="16" y="378.5" width="194.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -453,6 +473,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutLabel" destination="581-t6-fRg" id="PKZ-k7-baD"/>
+                        <outlet property="detailLabel" destination="tSF-8x-3Ye" id="GY1-02-0KZ"/>
+                        <outlet property="eachLabel" destination="FEp-Hx-vXe" id="MOo-M5-7j6"/>
+                        <outlet property="listPriceLabel" destination="KSa-Ua-wmF" id="uAt-S9-oVD"/>
+                        <outlet property="offerPriceButton" destination="66p-kA-Jgy" id="8Ex-X6-JVI"/>
+                        <outlet property="priceLabel" destination="bfH-Iy-cVR" id="zQm-Oa-CXq"/>
+                        <outlet property="productImageCollectionView" destination="4Mi-4L-Emn" id="BJC-Kt-1R7"/>
+                        <outlet property="productNameLabel" destination="Qag-Ti-MhA" id="4Kd-Vy-413"/>
+                        <outlet property="quantityLabel" destination="DaP-M7-xeZ" id="yth-KM-ecM"/>
+                        <outlet property="skuLabel" destination="IcO-Xe-ydD" id="hut-eu-af8"/>
                         <outlet property="specialInstructionTextView" destination="vjo-XX-ziR" id="ZG2-iK-6hC"/>
                     </connections>
                 </viewController>

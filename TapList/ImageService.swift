@@ -16,18 +16,27 @@ class ImageService {
         case small
         case medium
         case large
+        
+        static var values: Array<Size> {
+            return [.small, .medium, .large]
+        }
     }
     
     enum Direction: String {
         case front
         case back
         case left
+        case right
         case top
+        
+        static var values: Array<Direction> {
+            return [.front, .back, .left, .right, .top]
+        }
     }
     
     static let instance = ImageService()
     
-    let baseUrl = "https://www.kroger.com/product/images/"
+    let baseUrl = "https://www.kroger.com/product/images"
     
     let imageCache = NSCache<NSString, UIImage>()
     
@@ -38,7 +47,7 @@ class ImageService {
         
         var request: DataRequest? = nil
         
-        if let image = imageCache.object(forKey: sku as NSString) {
+        if let image = imageCache.object(forKey: "\(size.rawValue)/\(direction.rawValue)/\(sku)" as NSString) {
             completion(image)
         } else {
             let url = "\(baseUrl)/\(size.rawValue)/\(direction.rawValue)/\(sku)"

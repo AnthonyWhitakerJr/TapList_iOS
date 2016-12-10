@@ -12,7 +12,7 @@ import Firebase
 class ViewController: UIViewController {
 
     var products = Array<Product>()
-    var productForSalePriceController: Product? // Certainly there is a better way of doing this...
+    var productForSegue: Product? // Certainly there is a better way of doing this...
     var indexPathForSalePriceController: IndexPath?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
      
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "offerPopover" {
-            guard let productForSalePriceController = productForSalePriceController else {
+            guard let productForSegue = productForSegue else {
                 print("product not set before segue to sale price controller.")
                 return
             }
@@ -70,9 +70,20 @@ class ViewController: UIViewController {
                 controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
             }
             
-            controller.product = productForSalePriceController
+            controller.product = productForSegue
             
             controller.modalPresentationStyle = .popover
+        } else if segue.identifier == "productDetail" {
+            guard let productForSegue = productForSegue else {
+                print("product not set before segue to sale price controller.")
+                return
+            }
+            guard let controller = segue.destination as? ProductDetailViewController else {
+                print("improper controller for this segue")
+                return
+            }
+            
+            controller.product = productForSegue
         }
     }
 
@@ -102,14 +113,13 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: ProductCellDelegate {
     func handleOfferButtonTapped(product: Product, sender: UIButton) {
-        productForSalePriceController = product
+        productForSegue = product
         performSegue(withIdentifier: "offerPopover", sender: sender)
     }
 
 }
 
 extension ViewController: UIPopoverPresentationControllerDelegate {
-    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }

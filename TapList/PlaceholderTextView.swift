@@ -27,11 +27,20 @@ class PlaceholderTextView: UITextView {
     override init(frame: CGRect, textContainer: NSTextContainer? = nil) {
         super.init(frame: frame, textContainer: textContainer)
         placeholder = PlaceholderLabel(textView: self)
+        setBorder()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         placeholder = PlaceholderLabel(textView: self)
+        setBorder()
+    }
+    
+    private func setBorder() {
+        self.layer.cornerRadius = 5
+        self.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
+        self.layer.borderWidth = 0.5
+        self.clipsToBounds = true
     }
     
 }

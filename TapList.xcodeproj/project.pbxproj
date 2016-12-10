@@ -21,6 +21,7 @@
 		926D89D21DFA50E800C0E26C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */; };
 		929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929043051DF4C8DF005AF5BF /* CustomButton.swift */; };
 		92C2C9F81DFB263900FA8E3D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */; };
+		92C2C9FA1DFB2A5400FA8E3D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */; };
 		92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD41DF468EF00D26606 /* AppDelegate.swift */; };
 		92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADD61DF468EF00D26606 /* ViewController.swift */; };
 		92E0ADDA1DF468EF00D26606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E0ADD81DF468EF00D26606 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		929043051DF4C8DF005AF5BF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		92E0ADD11DF468EF00D26606 /* TapList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E0ADD41DF468EF00D26606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E0ADD61DF468EF00D26606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
 				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
 				926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */,
+				92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				926D89D01DFA24E500C0E26C /* DataService.swift in Sources */,
 				922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */,
 				921094141DF626E800333464 /* SalePriceViewController.swift in Sources */,
+				92C2C9FA1DFB2A5400FA8E3D /* ImageCollectionViewCell.swift in Sources */,
 				921094161DF7938C00333464 /* Offer.swift in Sources */,
 				92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */,
 				929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */,
