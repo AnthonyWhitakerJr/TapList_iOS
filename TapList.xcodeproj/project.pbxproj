@@ -134,20 +134,12 @@
 		922F2E671DF5D1BF00B7FAF6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
+				92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */,
 				921094131DF626E800333464 /* SalePriceViewController.swift */,
 				9210943F1DF8804300333464 /* TestViewController.swift */,
-				92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */,
+				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		92C2C9FB1DFB862E00FA8E3D /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				92C2C9FC1DFB868600FA8E3D /* ProductView.swift */,
-			);
-			name = Util;
 			sourceTree = "<group>";
 		};
 		92E0ADC81DF468EF00D26606 = {
@@ -178,7 +170,6 @@
 				922F2E671DF5D1BF00B7FAF6 /* Controller */,
 				92E0AE0D1DF4896C00D26606 /* Service */,
 				92E0AE0A1DF488B900D26606 /* Model */,
-				92C2C9FB1DFB862E00FA8E3D /* Util */,
 				92E0AE091DF4838D00D26606 /* View */,
 				92E0ADD41DF468EF00D26606 /* AppDelegate.swift */,
 				92E0ADDE1DF468EF00D26606 /* Assets.xcassets */,
@@ -211,11 +202,12 @@
 			isa = PBXGroup;
 			children = (
 				929043051DF4C8DF005AF5BF /* CustomButton.swift */,
+				92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */,
 				92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */,
 				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
-				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
 				926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */,
-				92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */,
+				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
+				92C2C9FC1DFB868600FA8E3D /* ProductView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -223,9 +215,9 @@
 		92E0AE0A1DF488B900D26606 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				92E0AE0B1DF488CB00D26606 /* Product.swift */,
 				922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */,
 				921094151DF7938C00333464 /* Offer.swift */,
+				92E0AE0B1DF488CB00D26606 /* Product.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
