@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meb-5p-dqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="-648.12593703148434"/>
+            <point key="canvasLocation" x="977" y="-679"/>
         </scene>
         <!--TapList-->
         <scene sceneID="Pmh-gC-lXf">
@@ -303,7 +303,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-Dq-99w" userLabel="Product Info">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Yqc-Dq-99w" userLabel="Product Info">
                                 <rect key="frame" x="16" y="387" width="343" height="37"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4RV-mR-RLS" userLabel="Product Price">
@@ -612,6 +612,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tEi-tF-fic"/>
+        <segue reference="S72-pj-xsK"/>
     </inferredMetricsTieBreakers>
 </document>
