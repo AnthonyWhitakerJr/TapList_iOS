@@ -12,7 +12,7 @@ import Firebase
 class ViewController: UIViewController {
 
     var products = Array<Product>()
-    var productForSalePriceController: Product? // Certainly there is a better way of doing this...
+    var productForSegue: Product? // Certainly there is a better way of doing this...
     var indexPathForSalePriceController: IndexPath?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,7 +20,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // FIXME: Loads every product ever made. Limit to a subset.
+        loadProducts()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    // FIXME: Loads every product ever made. Limit to a subset.
+    func loadProducts() {
         DataService.instance.product.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous database updates.
                 self.products.removeAll()
@@ -39,9 +46,6 @@ class ViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         })
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +57,7 @@ class ViewController: UIViewController {
      
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "offerPopover" {
-            guard let productForSalePriceController = productForSalePriceController else {
+            guard let productForSegue = productForSegue else {
                 print("product not set before segue to sale price controller.")
                 return
             }
@@ -62,25 +66,32 @@ class ViewController: UIViewController {
                 return
             }
             
+            controller.product = productForSegue
             controller.popoverPresentationController?.delegate = self
+            controller.modalPresentationStyle = .popover
             
-            // Set bounds for arrow placement.
+            // Set anchor & bounds for arrow placement.
             if let sender = sender as? UIButton {
                 controller.popoverPresentationController?.sourceView = sender
                 controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
             }
+        } else if segue.identifier == "productDetail" {
+            guard let productForSegue = productForSegue else {
+                print("product not set before segue to sale price controller.")
+                return
+            }
+            guard let controller = segue.destination as? ProductDetailViewController else {
+                print("improper controller for this segue")
+                return
+            }
             
-            controller.product = productForSalePriceController
-            
-            controller.modalPresentationStyle = .popover
+            controller.product = productForSegue
         }
     }
 
 }
 
-extension ViewController: UICollectionViewDelegate {
-    
-}
+extension ViewController: UICollectionViewDelegate {}
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -102,14 +113,17 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: ProductCellDelegate {
     func handleOfferButtonTapped(product: Product, sender: UIButton) {
-        productForSalePriceController = product
+        productForSegue = product
         performSegue(withIdentifier: "offerPopover", sender: sender)
     }
 
+    func handleProductImageButtonTapped(product: Product, sender: UIButton) {
+        productForSegue = product
+        performSegue(withIdentifier: "productDetail", sender: sender)
+    }
 }
 
 extension ViewController: UIPopoverPresentationControllerDelegate {
-    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
