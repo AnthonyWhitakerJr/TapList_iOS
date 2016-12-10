@@ -115,6 +115,13 @@ class ProductDetailViewController: UIViewController, ProductView {
 
 }
 
+extension ProductDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+
+}
+
 extension ProductDetailViewController: UICollectionViewDelegate {}
 
 extension ProductDetailViewController: UICollectionViewDataSource {
