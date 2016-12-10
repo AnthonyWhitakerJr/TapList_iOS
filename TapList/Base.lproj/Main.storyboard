@@ -380,7 +380,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="offerButtonTapped:" destination="F7p-KG-5nh" eventType="touchUpInside" id="yJO-9H-ewn"/>
+                                                            <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="offerPopover" popoverAnchorView="66p-kA-Jgy" id="S72-pj-xsK">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -587,7 +589,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umR-Dh-xoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="813" y="113"/>
+            <point key="canvasLocation" x="792" y="227"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="S72-pj-xsK"/>
+    </inferredMetricsTieBreakers>
 </document>

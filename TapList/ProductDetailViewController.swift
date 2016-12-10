@@ -130,10 +130,6 @@ class ProductDetailViewController: UIViewController {
     @IBAction func quantityChanged(_ sender: UIStepper) {
         quantityLabel.text = "\(Int(sender.value))"
     }
-    
-    @IBAction func offerButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "offerPopover", sender: sender)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
