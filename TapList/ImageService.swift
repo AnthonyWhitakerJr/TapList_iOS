@@ -38,11 +38,14 @@ class ImageService {
     
     let baseUrl = "https://www.kroger.com/product/images"
     
-    let imageCache = NSCache<NSString, UIImage>()
+    private let imageCache = NSCache<NSString, UIImage>()
     
     private init(){}
     
-    func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
+    /// Asynchronus request for product image. If image does not exist, completion block will NOT be executed.
+    /// - completion: Code to be executed once image has been retrieved.
+    /// - returns: The request used to feth the image. Can be used to prematurely cancel if image is no longer needed.
+    func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage) -> ()) -> DataRequest? {
         let sku = product.sku
         
         var request: DataRequest? = nil
@@ -62,5 +65,10 @@ class ImageService {
         }
         
         return request
+    }
+    
+    /// Empties the image cache.
+    func clearCache() {
+        imageCache.removeAllObjects()
     }
 }

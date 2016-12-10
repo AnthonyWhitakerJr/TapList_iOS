@@ -55,7 +55,7 @@ class ProductDetailViewController: UIViewController {
         self.imageRequests.removeAll()
         
         
-        var imagesByDirection = Dictionary<ImageService.Direction, UIImage?>()
+        var imagesByDirection = Dictionary<ImageService.Direction, UIImage>()
         
         for direction in ImageService.Direction.values {
             let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
@@ -65,13 +65,11 @@ class ProductDetailViewController: UIViewController {
                 
                 //TODO: Refactor to use semaphores.
                 // After all images have been fetched:
-//                if imagesByDirection.count == ImageService.Direction.values.count { //FIXME: Failed
+//                if imagesByDirection.count == ImageService.Direction.values.count { //FIXME: Failed requests do NOT return nil ergo this does not work as expected.
                     self.productImages.removeAll()
                     for direction in ImageService.Direction.values { // Provides predetermined order, vs order of fetches finishing. Filters out missing pictures.
                         if let image = imagesByDirection[direction] {
-                            if let image = image {
-                                self.productImages.append(image)
-                            }
+                            self.productImages.append(image)
                         }
                     }
                     self.productImageCollectionView.reloadData()

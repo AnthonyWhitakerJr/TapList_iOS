@@ -82,9 +82,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         self.productImageView.image = nil // TODO: Replace with placeholder image.
         imageRequest = ImageService.instance.image(for: product, completion: {image in
-            if let image = image {
-                self.productImageView.image = image
-            }
+            self.productImageView.image = image
         })
     }
     
