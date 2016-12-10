@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 protocol ProductView {
+    
     weak var productNameLabel: UILabel! {get set}
     weak var aboutLabel: UILabel! {get set}
     weak var priceLabel: UILabel! {get set}

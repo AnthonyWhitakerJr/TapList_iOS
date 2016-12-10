@@ -8,18 +8,6 @@
 
 import UIKit
 
-class TestViewController: UIViewController, UITextViewDelegate {
+class TestViewController: UIViewController {
 
-    @IBOutlet weak var textView: PlaceholderTextView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        textView.delegate = self
-    }
-
-    func textViewDidChange(_ textView: UITextView) {
-        if let textView = textView as? PlaceholderTextView {
-            textView.placeholder.isHidden = !textView.text.isEmpty
-        }
-    }
 }

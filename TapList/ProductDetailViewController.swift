@@ -115,9 +115,7 @@ class ProductDetailViewController: UIViewController, ProductView {
 
 }
 
-extension ProductDetailViewController: UICollectionViewDelegate {
- 
-}
+extension ProductDetailViewController: UICollectionViewDelegate {}
 
 extension ProductDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
