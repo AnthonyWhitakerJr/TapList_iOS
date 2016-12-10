@@ -20,7 +20,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // FIXME: Loads every product ever made. Limit to a subset.
+        loadProducts()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    // FIXME: Loads every product ever made. Limit to a subset.
+    func loadProducts() {
         DataService.instance.product.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous database updates.
                 self.products.removeAll()
@@ -39,9 +46,6 @@ class ViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         })
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,17 +66,15 @@ class ViewController: UIViewController {
                 return
             }
             
+            controller.product = productForSegue
             controller.popoverPresentationController?.delegate = self
+            controller.modalPresentationStyle = .popover
             
-            // Set bounds for arrow placement.
+            // Set anchor & bounds for arrow placement.
             if let sender = sender as? UIButton {
                 controller.popoverPresentationController?.sourceView = sender
                 controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
             }
-            
-            controller.product = productForSegue
-            
-            controller.modalPresentationStyle = .popover
         } else if segue.identifier == "productDetail" {
             guard let productForSegue = productForSegue else {
                 print("product not set before segue to sale price controller.")
@@ -89,9 +91,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UICollectionViewDelegate {
-    
-}
+extension ViewController: UICollectionViewDelegate {}
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
