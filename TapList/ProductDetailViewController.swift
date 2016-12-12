@@ -112,6 +112,8 @@ class ProductDetailViewController: UIViewController, ProductView {
         
         let cartItem = CartItem(sku: product.sku, quantity: Int(quantityStepper.value), specialInstructions: specialInstructions)
         DataService.instance.update(cartItem: cartItem)
+        
+//        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
     }
     
     
