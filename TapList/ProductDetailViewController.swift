@@ -77,6 +77,12 @@ class ProductDetailViewController: UIViewController, ProductView {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+            self.quantityInCart = cartItem.quantity
+        } else {
+            self.quantityInCart = 0
+        }
+        
         configureProductView()
         skuLabel.text = "SKU:\(product.sku)"
     }
