@@ -79,7 +79,12 @@ class DataService {
     
     func update(cartItem: CartItem) {
         let itemRef = DataService.ref.cart?.child("cartItems").child(cartItem.sku)
-        itemRef?.setValue(cartItem.asDictionary)
+
+        if cartItem.quantity != 0 {
+            itemRef?.setValue(cartItem.asDictionary)
+        } else {
+            itemRef?.removeValue()
+        }
     }
 
 }

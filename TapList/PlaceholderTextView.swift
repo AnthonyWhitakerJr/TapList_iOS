@@ -43,6 +43,10 @@ class PlaceholderTextView: UITextView {
         self.clipsToBounds = true
     }
     
+    func refresh() {
+        placeholder.isHidden = !text.isEmpty
+    }
+    
 }
 
 class PlaceholderLabel: UILabel {

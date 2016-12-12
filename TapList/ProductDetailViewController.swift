@@ -89,6 +89,7 @@ class ProductDetailViewController: UIViewController, ProductView {
         if let cartItem = DataService.instance.cart.cartItems[product.sku] {
             if let specialInstructions = cartItem.specialInstructions {
                 specialInstructionTextView.text = specialInstructions
+                specialInstructionTextView.refresh()
             }
         }
         
