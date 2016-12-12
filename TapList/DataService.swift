@@ -96,8 +96,7 @@ struct Ref {
     let user: FIRDatabaseReference
     
     var cart: FIRDatabaseReference? {
-        return user.child("test").child("cart")
-//        return currentUser?.child("cart")
+        return currentUser?.child("cart")
     }
     
     var currentUser: FIRDatabaseReference? {
