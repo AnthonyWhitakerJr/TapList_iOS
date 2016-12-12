@@ -14,9 +14,26 @@ class CartItem {
     var quantity: Int
     var specialInstructions: String?
     
+    var asDictionary: Dictionary<String, Any> {
+        var result: Dictionary<String, Any> = [
+            DataKey.quantity.rawValue: quantity
+        ]
+        
+        if let specialInstructions = specialInstructions {
+            result[DataKey.specialInstructions.rawValue] = specialInstructions
+        }
+        
+        return result
+    }
+    
     enum DataKey: String {
         case quantity
         case specialInstructions
+    }
+    
+    enum UnitPriceType {
+        case offerPrice
+        case listPrice
     }
     
     init(sku: String, quantity: Int, specialInstructions: String? = nil) {
@@ -35,6 +52,26 @@ class CartItem {
             return nil
         }
     }
+    
+    // Fetches most up-to-date price for this item. C
+    func unitPrice(completion: @escaping (Double, UnitPriceType) -> ()) {
+        DataService.instance.product(for: sku, completion: { product in
+            if let product = product {
+                if let offerPrice = product.offerPrice {
+                    completion(offerPrice, UnitPriceType.offerPrice)
+                }
+            }
+        })
+    }
+    
+    func itemTotal(completion: @escaping (Double) -> ()) {
+        unitPrice { unitPrice, _ in
+            let result = unitPrice * Double(self.quantity)
+            completion(result)
+        }
+    }
+    
+    
 
 }
 

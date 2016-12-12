@@ -64,29 +64,11 @@ class DataService {
 //        DataService.ref.user.child(uid).
 //    }
     
-    func addToCart(product: Product, quantity: Int) {
-        addToCart(productSku: product.sku, quantity: quantity)
+    func update(cartItem: CartItem) {
+        let itemRef = DataService.ref.cart?.child("cartItems").child(cartItem.sku)
+        itemRef?.setValue(cartItem.asDictionary)
     }
-    
-    func addToCart(productSku sku: String, quantity: Int) {
-        
-    }
-    
-    // FIXME: Corruptable by concurrent mods. Implement transaction block.
-//    func updateLikes(for post: Post, wasLiked: Bool) {
-//        let userLikeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
-//        if wasLiked {
-//            userLikeRef?.setValue(true)
-//            REF_POSTS.child(post.postKey).child(Post.DataKey.likes.rawValue).setValue(post.likes + 1)
-//        } else {
-//            userLikeRef?.removeValue()
-//            REF_POSTS.child(post.postKey).child(Post.DataKey.likes.rawValue).setValue(post.likes - 1)
-//        }
-//    }
-    
-    func quantityInCart(of product: Product, completion: @escaping (Int) -> ()) {
-        
-    }
+
 }
 
 struct Ref {

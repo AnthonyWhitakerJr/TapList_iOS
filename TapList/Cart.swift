@@ -11,18 +11,20 @@ import Foundation
 class Cart {
     
     var cartItems: Array<CartItem>
-    var quantityTotal: Int
-    var subtotal: Double
     
-    init(cartItems: Array<CartItem> = Array<CartItem>(), quantityTotal: Int = 0, subtotal: Double = 0) {
+    var quantityTotal: Int {
+        var total: Int = 0
+        for cartItem in cartItems {
+            total += cartItem.quantity
+        }
+        return total
+    }
+    
+    init(cartItems: Array<CartItem> = Array<CartItem>()) {
         self.cartItems = cartItems
-        self.quantityTotal = quantityTotal
-        self.subtotal = subtotal
     }
     
     convenience init(data: Dictionary<String, Any>) {
-        let quantityTotal = data["quantityTotal"] as? Int
-        let subtotal = data["subtotal"] as? Double
         let cartItemDict = data["cartItems"] as? Dictionary<String, Dictionary<String, Any>>
         
         var cartItemArray = Array<CartItem>()
@@ -32,13 +34,29 @@ class Cart {
                 cartItemArray.append(cartItem)
             }
         }
-        if let quantityTotal = quantityTotal, let subtotal = subtotal {
-            self.init(cartItems: cartItemArray, quantityTotal: quantityTotal, subtotal: subtotal)
-        } else {
-            self.init()
+        
+        self.init(cartItems: cartItemArray)
+
+    }
+    
+    func subtotal(completion: @escaping (Double) -> ()) {
+        var subtotal: Double = 0
+        let subtotalDispatch = DispatchGroup()
+        
+        for cartItem in cartItems {
+            subtotalDispatch.enter()
+            cartItem.itemTotal(completion: { itemTotal in
+                subtotal += itemTotal
+                subtotalDispatch.leave()
+            })
         }
         
+        subtotalDispatch.notify(queue: DispatchQueue.main, execute: {
+            completion(subtotal)
+        })
     }
+    
+
 }
 
 extension Cart: CustomStringConvertible {
