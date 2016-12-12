@@ -14,6 +14,26 @@ class DataService {
     static let instance = DataService()
     static let ref = Ref()
     
+    var cart: Cart // This may be moved to a more suitable location later.
+    
+    private init() {
+        cart = Cart()
+        loadCart()
+    }
+    
+    func loadCart() {
+        DataService.ref.cart?.observe(.value, with: { snapshot in
+            if snapshot.value != nil {
+                //Clear cart?
+                
+                if let cartData = snapshot.value as? Dictionary<String, Any> {
+                    self.cart = Cart(data: cartData)
+                    print(self.cart)
+                }
+            }
+        })
+    }
+    
     func offer(for productSku: String, completion: @escaping (_: Offer?) -> ()) {
         let offerRef = DataService.ref.offer.child(productSku)
         
@@ -40,7 +60,33 @@ class DataService {
         })
     }
     
+//    func touchUser(uid: String) {
+//        DataService.ref.user.child(uid).
+//    }
     
+    func addToCart(product: Product, quantity: Int) {
+        addToCart(productSku: product.sku, quantity: quantity)
+    }
+    
+    func addToCart(productSku sku: String, quantity: Int) {
+        
+    }
+    
+    // FIXME: Corruptable by concurrent mods. Implement transaction block.
+//    func updateLikes(for post: Post, wasLiked: Bool) {
+//        let userLikeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
+//        if wasLiked {
+//            userLikeRef?.setValue(true)
+//            REF_POSTS.child(post.postKey).child(Post.DataKey.likes.rawValue).setValue(post.likes + 1)
+//        } else {
+//            userLikeRef?.removeValue()
+//            REF_POSTS.child(post.postKey).child(Post.DataKey.likes.rawValue).setValue(post.likes - 1)
+//        }
+//    }
+    
+    func quantityInCart(of product: Product, completion: @escaping (Int) -> ()) {
+        
+    }
 }
 
 struct Ref {
@@ -50,7 +96,8 @@ struct Ref {
     let user: FIRDatabaseReference
     
     var cart: FIRDatabaseReference? {
-        return currentUser?.child("cart")
+        return user.child("test").child("cart")
+//        return currentUser?.child("cart")
     }
     
     var currentUser: FIRDatabaseReference? {
