@@ -24,18 +24,22 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     @IBOutlet weak var listPriceLabel: UILabel!
     @IBOutlet weak var offerPriceButton: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        layer.cornerRadius = 1
     }
     
-    func configureCell(product: Product, quantityInCart: Int = 0) {
+    func configureCell(product: Product) {
         self.product = product
-        self.quantityInCart = quantityInCart
+        
+        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+            self.quantityInCart = cartItem.quantity
+        } else {
+            self.quantityInCart = 0
+        }
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -58,10 +62,6 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
         })
     }
     
-    @IBAction func quantityChanged(_ sender: UIStepper) {
-        quantityLabel.text = "\(Int(sender.value))"
-    }
-    
     @IBAction func offerButtonTapped(_ sender: UIButton) {
         delegate?.handleOfferButtonTapped(product: product, sender: sender)
     }
@@ -69,6 +69,14 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     @IBAction func productImageButtonPressed(_ sender: UIButton) {
         delegate?.handleProductImageButtonTapped(product: product, sender: sender)
     }
+    
+    @IBAction func addToCartPressed(_ sender: UIButton) {
+        self.quantityInCart = quantityInCart + 1
+        updateCartQuantityLabel()
+        
+        DataService.instance.addToCart(productSku: product.sku)
+    }
+    
 
 }
 

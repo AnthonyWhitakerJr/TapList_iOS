@@ -26,9 +26,13 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     // FIXME: Loads every product ever made. Limit to a subset.
     func loadProducts() {
-        DataService.instance.product.observe(.value, with: {snapshot in
+        DataService.ref.product.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous database updates.
                 self.products.removeAll()
                 

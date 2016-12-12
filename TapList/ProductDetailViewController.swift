@@ -25,6 +25,7 @@ class ProductDetailViewController: UIViewController, ProductView {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
+    @IBOutlet weak var quantityStepper: UIStepper!
     
     var product: Product!
     var productImages = Array<UIImage>()
@@ -32,7 +33,6 @@ class ProductDetailViewController: UIViewController, ProductView {
     var imageRequests = Array<DataRequest?>()
     
     var quantityInCart: Int! = 0
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,14 +77,46 @@ class ProductDetailViewController: UIViewController, ProductView {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+            self.quantityInCart = cartItem.quantity
+        } else {
+            self.quantityInCart = 0
+        }
+        
         configureProductView()
         skuLabel.text = "SKU:\(product.sku)"
+        
+        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+            if let specialInstructions = cartItem.specialInstructions {
+                specialInstructionTextView.text = specialInstructions
+                specialInstructionTextView.refresh()
+            }
+        }
+        
+        quantityLabel.text = "\(quantityInCart!)"
+        quantityStepper.value = Double(quantityInCart!)
     }
     
     @IBAction func quantityChanged(_ sender: UIStepper) {
         quantityLabel.text = "\(Int(sender.value))"
     }
 
+    @IBAction func updateCartPressed(_ sender: UIButton) {
+        var specialInstructions: String? = nil
+        if let newInstructions = specialInstructionTextView.text, !newInstructions.isEmpty {
+            specialInstructions = newInstructions
+        }
+        
+        quantityInCart = Int(quantityStepper.value)
+        updateCartQuantityLabel()
+        
+        let cartItem = CartItem(sku: product.sku, quantity: Int(quantityStepper.value), specialInstructions: specialInstructions)
+        DataService.instance.update(cartItem: cartItem)
+        
+//        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

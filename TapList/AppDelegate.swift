@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // ...
         }
         
+        DataService.instance.loadCart()
+        
         return true
     }
 
