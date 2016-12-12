@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     // FIXME: Loads every product ever made. Limit to a subset.
     func loadProducts() {
         DataService.ref.product.observe(.value, with: {snapshot in

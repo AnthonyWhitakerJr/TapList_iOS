@@ -391,12 +391,15 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
-                                <state key="normal" title="Add To Cart"/>
+                                <state key="normal" title="Update Cart"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="updateCartPressed:" destination="F7p-KG-5nh" eventType="touchUpInside" id="Lgu-St-Cjb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Special Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93U-qX-7wG">
                                 <rect key="frame" x="16" y="454" width="194.5" height="20.5"/>
@@ -464,6 +467,7 @@
                         <outlet property="productImageCollectionView" destination="4Mi-4L-Emn" id="BJC-Kt-1R7"/>
                         <outlet property="productNameLabel" destination="Qag-Ti-MhA" id="4Kd-Vy-413"/>
                         <outlet property="quantityLabel" destination="DaP-M7-xeZ" id="yth-KM-ecM"/>
+                        <outlet property="quantityStepper" destination="5QV-ep-Byv" id="fba-W8-iAq"/>
                         <outlet property="skuLabel" destination="IcO-Xe-ydD" id="hut-eu-af8"/>
                         <outlet property="specialInstructionTextView" destination="vjo-XX-ziR" id="ZG2-iK-6hC"/>
                     </connections>
@@ -635,6 +639,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tEi-tF-fic"/>
+        <segue reference="S72-pj-xsK"/>
     </inferredMetricsTieBreakers>
 </document>
