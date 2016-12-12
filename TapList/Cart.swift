@@ -10,32 +10,32 @@ import Foundation
 
 class Cart {
     
-    var cartItems: Array<CartItem>
+    var cartItems: Dictionary<String, CartItem>
     
     var quantityTotal: Int {
         var total: Int = 0
-        for cartItem in cartItems {
+        for (_, cartItem) in cartItems {
             total += cartItem.quantity
         }
         return total
     }
     
-    init(cartItems: Array<CartItem> = Array<CartItem>()) {
+    init(cartItems: Dictionary<String, CartItem> = Dictionary<String, CartItem>()) {
         self.cartItems = cartItems
     }
     
     convenience init(data: Dictionary<String, Any>) {
-        let cartItemDict = data["cartItems"] as? Dictionary<String, Dictionary<String, Any>>
+        let cartItemData = data["cartItems"] as? Dictionary<String, Dictionary<String, Any>>
         
-        var cartItemArray = Array<CartItem>()
-        for item in cartItemDict! {
+        var cartItemDict = Dictionary<String, CartItem>()
+        for item in cartItemData! {
             let cartItem = CartItem(sku: item.key, data: item.value)
             if let cartItem = cartItem {
-                cartItemArray.append(cartItem)
+                cartItemDict[cartItem.sku] = cartItem
             }
         }
         
-        self.init(cartItems: cartItemArray)
+        self.init(cartItems: cartItemDict)
 
     }
     
@@ -43,7 +43,7 @@ class Cart {
         var subtotal: Double = 0
         let subtotalDispatch = DispatchGroup()
         
-        for cartItem in cartItems {
+        for (_, cartItem) in cartItems {
             subtotalDispatch.enter()
             cartItem.itemTotal(completion: { itemTotal in
                 subtotal += itemTotal

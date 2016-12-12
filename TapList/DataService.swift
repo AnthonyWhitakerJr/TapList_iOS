@@ -64,6 +64,19 @@ class DataService {
 //        DataService.ref.user.child(uid).
 //    }
     
+    func addToCart(productSku: String, quantity: Int = 1, specialInstructions: String? = nil) {
+        if let existingCartItem = cart.cartItems[productSku] {
+            existingCartItem.quantity += 1
+            if let specialInstructions = specialInstructions {
+                existingCartItem.specialInstructions = specialInstructions
+            }
+            update(cartItem: existingCartItem)
+        } else {
+            let cartItem = CartItem(sku: productSku, quantity: quantity, specialInstructions: specialInstructions)
+            update(cartItem: cartItem)
+        }
+    }
+    
     func update(cartItem: CartItem) {
         let itemRef = DataService.ref.cart?.child("cartItems").child(cartItem.sku)
         itemRef?.setValue(cartItem.asDictionary)

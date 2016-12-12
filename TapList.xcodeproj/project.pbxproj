@@ -16,6 +16,7 @@
 		922053891DFCAF09000FC993 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922053881DFCAF09000FC993 /* Cart.swift */; };
 		9220538B1DFF26AE000FC993 /* QuantityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */; };
 		9220538D1DFF2F1A000FC993 /* QuantityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */; };
+		9220538F1DFF3BE0000FC993 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538E1DFF3BE0000FC993 /* Constants.swift */; };
 		922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */; };
 		926D89CC1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
 		926D89CD1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
@@ -70,6 +71,7 @@
 		922053881DFCAF09000FC993 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewCell.swift; sourceTree = "<group>"; };
 		9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewController.swift; sourceTree = "<group>"; };
+		9220538E1DFF3BE0000FC993 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926D89CF1DFA24E500C0E26C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		922053901DFF3BE5000FC993 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				9220538E1DFF3BE0000FC993 /* Constants.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		922F2E671DF5D1BF00B7FAF6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 				922F2E671DF5D1BF00B7FAF6 /* Controller */,
 				92E0AE0D1DF4896C00D26606 /* Service */,
 				92E0AE0A1DF488B900D26606 /* Model */,
+				922053901DFF3BE5000FC993 /* Util */,
 				92E0AE091DF4838D00D26606 /* View */,
 				92E0ADD41DF468EF00D26606 /* AppDelegate.swift */,
 				92E0ADDE1DF468EF00D26606 /* Assets.xcassets */,
@@ -555,6 +566,7 @@
 				929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */,
 				92C2C9F81DFB263900FA8E3D /* ProductDetailViewController.swift in Sources */,
 				922053891DFCAF09000FC993 /* Cart.swift in Sources */,
+				9220538F1DFF3BE0000FC993 /* Constants.swift in Sources */,
 				92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */,
 				92E0ADDD1DF468EF00D26606 /* TapList.xcdatamodeld in Sources */,
 				926D89D21DFA50E800C0E26C /* PlaceholderTextView.swift in Sources */,

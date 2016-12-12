@@ -11,6 +11,7 @@ import UIKit
 class QuantityTableViewController: UITableViewController {
     
     var cartItem: CartItem!
+    var selectedQuantity: String = "0"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +50,7 @@ class QuantityTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! QuantityTableViewCell
-        print(cell.quantityLabel!.text!)
-        
-        cartItem.quantity = 
-        
-        DataService.instance.update(cartItem: cartItem)
+        selectedQuantity = cell.quantityLabel.text!
         
         dismiss(animated: true)
     }

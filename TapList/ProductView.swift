@@ -18,14 +18,12 @@ protocol ProductView {
     weak var listPriceLabel: UILabel! {get set}
     weak var offerPriceButton: UIButton! {get set}
     weak var detailLabel: UILabel! {get set}
-    weak var quantityLabel: UILabel! {get set}
     weak var cartQuantityLabel: UILabel! {get set}
     
     var product: Product! {get set}
     var quantityInCart: Int! {get set}
     
     func configureProductView()
-    func quantityChanged(_ sender: UIStepper)
 }
 
 extension ProductView {
@@ -61,11 +59,15 @@ extension ProductView {
         
         detailLabel.text = product.detail
         
+        updateCartQuantityLabel()
+    }
+    
+    func updateCartQuantityLabel() {
         if quantityInCart == 0 {
             cartQuantityLabel.isHidden = true
         } else {
             cartQuantityLabel.isHidden = false
-            cartQuantityLabel.text = "\(quantityInCart) in Cart"
+            cartQuantityLabel.text = "\(quantityInCart!) in Cart"
         }
     }
     
