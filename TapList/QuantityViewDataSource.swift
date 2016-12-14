@@ -12,6 +12,7 @@ import UIKit
 protocol QuantityViewDataSource: QuantityTableViewControllerDelegate, UITextFieldDelegate {
     weak var quantityButton: UIButton! {get set}
     weak var quantityTextField: UITextField! {get set}
+    var quantity: Int? {get}
     
     func configureQuantityView(previousQuantity: Int)
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool //FIXME: Swift bug - This should not be necessary.
@@ -19,7 +20,20 @@ protocol QuantityViewDataSource: QuantityTableViewControllerDelegate, UITextFiel
 
 extension QuantityViewDataSource {
     
-    func configureQuantityView(previousQuantity: Int) {
+    var quantity: Int? {
+        if quantityButton.isHidden {
+            if let text = quantityTextField.text {
+                return Int(text)
+            }
+        } else {
+            if let text = quantityButton.currentTitle {
+                return Int(text)
+            }
+        }
+        return nil
+    }
+    
+    func configureQuantityView(previousQuantity: Int = 1) {
         quantityTextField.delegate = self
         
         if previousQuantity < 10 {
@@ -43,7 +57,6 @@ extension QuantityViewDataSource {
         } else {
             quantityButton.setTitle(selectedQuantity, for: .normal)
         }
-        print("Selected: \(selectedQuantity)")
     }
     
     // FIXME: Should be: func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool

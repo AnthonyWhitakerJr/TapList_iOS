@@ -14,7 +14,7 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     @IBOutlet weak var quantityTextField: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
-        configureQuantityView(previousQuantity: 13)
+        configureQuantityView(previousQuantity: 4)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
