@@ -225,10 +225,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k88-yT-OJO">
-                                <rect key="frame" x="16" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWS-1t-wfp">
+                                <rect key="frame" x="16" y="20" width="45" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="W0S-hT-9h2"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k88-yT-OJO" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="45" height="30"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="2mA-t0-UTe" kind="popoverPresentation" identifier="quantityPopover" popoverAnchorView="k88-yT-OJO" id="yYX-A8-iE2">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -237,9 +252,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NWS-1t-wfp" firstAttribute="centerY" secondItem="k88-yT-OJO" secondAttribute="centerY" id="BEQ-en-5kQ"/>
+                            <constraint firstItem="NWS-1t-wfp" firstAttribute="top" secondItem="qUP-5H-JlK" secondAttribute="bottom" id="RLt-Ym-lz2"/>
+                            <constraint firstItem="k88-yT-OJO" firstAttribute="width" secondItem="NWS-1t-wfp" secondAttribute="width" id="Zho-03-HPb"/>
+                            <constraint firstItem="k88-yT-OJO" firstAttribute="height" secondItem="NWS-1t-wfp" secondAttribute="height" id="mmt-S4-ScZ"/>
+                            <constraint firstItem="NWS-1t-wfp" firstAttribute="centerX" secondItem="k88-yT-OJO" secondAttribute="centerX" id="o3o-LR-sM7"/>
+                            <constraint firstItem="NWS-1t-wfp" firstAttribute="leading" secondItem="xpq-v4-r4V" secondAttribute="leadingMargin" id="uOA-Wb-g1O"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="quantityButton" destination="k88-yT-OJO" id="uci-6j-BuJ"/>
+                        <outlet property="quantityTextField" destination="NWS-1t-wfp" id="vcc-vt-SkJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meb-5p-dqU" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,9 +11,14 @@ import UIKit
 class TestViewController: UIViewController {
 
     @IBOutlet weak var quantityButton: UIButton!
+    @IBOutlet weak var quantityTextField: UITextField!
     
     var selectedQuantity: String?
 
+    override func viewWillAppear(_ animated: Bool) {
+        quantityTextField.delegate = self
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "quantityPopover" {
             guard let controller = segue.destination as? QuantityTableViewController else {
@@ -23,7 +28,7 @@ class TestViewController: UIViewController {
             
             controller.popoverPresentationController?.delegate = self
             controller.delegate = self
-            controller.previousQuantity = quantityButton.currentTitle
+            controller.previousQuantity = quantityTextField.text!.isEmpty ? quantityButton.currentTitle : quantityTextField.text
             
             // Set bounds for arrow placement.
             if let sender = sender as? UIButton {
@@ -45,7 +50,29 @@ extension TestViewController: UIPopoverPresentationControllerDelegate {
 extension TestViewController: QuantityTableViewControllerDelegate {
     func update(selectedQuantity: String) {
         self.selectedQuantity = selectedQuantity
-        quantityButton.setTitle(selectedQuantity, for: .normal)
+        if selectedQuantity == "10+" {
+            quantityButton.isHidden = true
+            
+            quantityTextField.isEnabled = true
+            quantityTextField.text = "10"
+            quantityTextField.becomeFirstResponder()
+            quantityTextField.selectedTextRange = quantityTextField.textRange(from: quantityTextField.beginningOfDocument, to: quantityTextField.endOfDocument)
+        } else {
+            quantityButton.setTitle(selectedQuantity, for: .normal)
+        }
         print("Selected: \(selectedQuantity)")
+    }
+}
+
+extension TestViewController: UITextFieldDelegate {
+    // Restricts input to 2 or less numbers.
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacters.isSuperset(of: characterSet) && newLength <= 2
     }
 }
