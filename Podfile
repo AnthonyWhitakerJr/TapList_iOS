@@ -3,6 +3,8 @@ platform :ios, '10.0'
 target 'TapList' do
   use_frameworks!
 
+  inhibit_all_warnings!
+
   # Pods for TapList
   pod 'Alamofire', '~> 4.0'
   pod 'Firebase/Core', :inhibit_warnings => true
