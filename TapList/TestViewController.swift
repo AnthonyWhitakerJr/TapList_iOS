@@ -23,7 +23,7 @@ class TestViewController: UIViewController {
             
             controller.popoverPresentationController?.delegate = self
             controller.delegate = self
-            controller.preSelectedQuantity = quantityButton.currentTitle
+            controller.previousQuantity = quantityButton.currentTitle
             
             // Set bounds for arrow placement.
             if let sender = sender as? UIButton {

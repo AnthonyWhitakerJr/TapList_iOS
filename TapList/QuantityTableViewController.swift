@@ -11,24 +11,13 @@ import UIKit
 class QuantityTableViewController: UITableViewController {
     
     /// Set before segue to this controller to mark user's previous selection.
-    var preSelectedQuantity: String?
+    var previousQuantity: String?
     var delegate: QuantityTableViewControllerDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
-//        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
         tableView.sizeToFit()
-//            CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, tableView.contentSize.height);
+        self.popoverPresentationController?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.2)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,9 +37,9 @@ class QuantityTableViewController: UITableViewController {
                 label = "\(num + 1)"
             }
             
-            let isSelected = label == preSelectedQuantity
+            let wasSelected = label == previousQuantity
             
-            cell.configureCell(label: label, isSelected: isSelected)
+            cell.configureCell(label: label, wasSelected: wasSelected)
             
             return cell
         }
