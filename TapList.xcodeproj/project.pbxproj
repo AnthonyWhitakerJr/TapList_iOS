@@ -13,6 +13,7 @@
 		921094141DF626E800333464 /* SalePriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921094131DF626E800333464 /* SalePriceViewController.swift */; };
 		921094161DF7938C00333464 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921094151DF7938C00333464 /* Offer.swift */; };
 		921094401DF8804300333464 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210943F1DF8804300333464 /* TestViewController.swift */; };
+		921820161E020C270065BDDD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921820151E020C270065BDDD /* Extensions.swift */; };
 		922053891DFCAF09000FC993 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922053881DFCAF09000FC993 /* Cart.swift */; };
 		9220538B1DFF26AE000FC993 /* QuantityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */; };
 		9220538D1DFF2F1A000FC993 /* QuantityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */; };
@@ -69,6 +70,7 @@
 		921094131DF626E800333464 /* SalePriceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalePriceViewController.swift; sourceTree = "<group>"; };
 		921094151DF7938C00333464 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		9210943F1DF8804300333464 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		921820151E020C270065BDDD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		922053881DFCAF09000FC993 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewCell.swift; sourceTree = "<group>"; };
 		9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				9210943F1DF8804300333464 /* TestViewController.swift */,
 				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
 				9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */,
+				921820151E020C270065BDDD /* Extensions.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				9220538B1DFF26AE000FC993 /* QuantityTableViewCell.swift in Sources */,
 				9220538D1DFF2F1A000FC993 /* QuantityTableViewController.swift in Sources */,
 				92C2C9FA1DFB2A5400FA8E3D /* ImageCollectionViewCell.swift in Sources */,
+				921820161E020C270065BDDD /* Extensions.swift in Sources */,
 				921094161DF7938C00333464 /* Offer.swift in Sources */,
 				92C2C9FD1DFB868600FA8E3D /* ProductView.swift in Sources */,
 				92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */,

@@ -13,6 +13,11 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     @IBOutlet weak var quantityButton: UIButton!
     @IBOutlet weak var quantityTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configureDismissKeyboardOnTap()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         configureQuantityView(previousQuantity: 4)
     }
@@ -46,6 +51,10 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     //FIXME: Swift bug - This should not be necessary.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return fitsTwoDigitMax(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
