@@ -14,11 +14,14 @@ protocol QuantityViewDataSource: QuantityTableViewControllerDelegate, UITextFiel
     weak var quantityTextField: UITextField! {get set}
     
     func configureQuantityView(previousQuantity: Int)
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool //FIXME: Swift bug - This should not be necessary.
 }
 
 extension QuantityViewDataSource {
     
     func configureQuantityView(previousQuantity: Int) {
+        quantityTextField.delegate = self
+        
         if previousQuantity < 10 {
             quantityButton.setTitle("\(previousQuantity)", for: .normal)
         } else {
@@ -43,8 +46,9 @@ extension QuantityViewDataSource {
         print("Selected: \(selectedQuantity)")
     }
     
-    // Restricts input to 2 or less numbers (0 - 99).
-    func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    // FIXME: Should be: func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    /// Restricts input to 2 or less numbers (0 - 99).
+    func fitsTwoDigitMax(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         

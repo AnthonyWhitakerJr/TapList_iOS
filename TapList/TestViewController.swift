@@ -14,7 +14,6 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     @IBOutlet weak var quantityTextField: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
-        quantityTextField.delegate = self
         configureQuantityView(previousQuantity: 13)
     }
     
@@ -29,7 +28,6 @@ class TestViewController: UIViewController, QuantityViewDataSource {
             
             controller.delegate = self
             controller.previousQuantity = quantityButton.currentTitle
-            
         }
     }
     
@@ -43,6 +41,11 @@ class TestViewController: UIViewController, QuantityViewDataSource {
         }
         
         controller.modalPresentationStyle = .popover
+    }
+    
+    //FIXME: Swift bug - This should not be necessary.
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return fitsTwoDigitMax(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
     }
 }
 
