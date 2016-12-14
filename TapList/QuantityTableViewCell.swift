@@ -17,8 +17,11 @@ class QuantityTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureCell(label: String) {
+    func configureCell(label: String, isSelected: Bool = false) {
         quantityLabel.text = label
+        if isSelected {
+            self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
