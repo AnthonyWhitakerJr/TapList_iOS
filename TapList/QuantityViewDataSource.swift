@@ -15,7 +15,7 @@ protocol QuantityViewDataSource: QuantityTableViewControllerDelegate, UITextFiel
     var quantity: Int? {get}
     
     func configureQuantityView(previousQuantity: Int)
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool //FIXME: Swift bug - This should not be necessary.
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool // Because swift protocol extensions cannot use *any* Objective-C
 }
 
 extension QuantityViewDataSource {
@@ -59,9 +59,8 @@ extension QuantityViewDataSource {
         }
     }
     
-    // FIXME: Should be: func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     /// Restricts input to 2 or less numbers (0 - 99).
-    func fitsTwoDigitMax(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func matchesTwoDigitMax(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         

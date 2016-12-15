@@ -19,6 +19,7 @@
 		9220538D1DFF2F1A000FC993 /* QuantityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */; };
 		9220538F1DFF3BE0000FC993 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220538E1DFF3BE0000FC993 /* Constants.swift */; };
 		922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */; };
+		9241E5571E0239AF00CB81C7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */; };
 		926D89CC1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
 		926D89CD1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
 		926D89CE1DFA14A300C0E26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */; };
@@ -76,6 +77,7 @@
 		9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewController.swift; sourceTree = "<group>"; };
 		9220538E1DFF3BE0000FC993 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		926D89CB1DFA14A300C0E26C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		926D89CF1DFA24E500C0E26C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
 				9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */,
 				921820151E020C270065BDDD /* Extensions.swift */,
+				9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				92E0ADD71DF468EF00D26606 /* ViewController.swift in Sources */,
 				92E0ADD51DF468EF00D26606 /* AppDelegate.swift in Sources */,
 				921094401DF8804300333464 /* TestViewController.swift in Sources */,
+				9241E5571E0239AF00CB81C7 /* KeyboardHandler.swift in Sources */,
 				926D89D01DFA24E500C0E26C /* DataService.swift in Sources */,
 				922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */,
 				921094141DF626E800333464 /* SalePriceViewController.swift in Sources */,

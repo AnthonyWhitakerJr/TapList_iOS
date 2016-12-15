@@ -16,34 +16,17 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureDismissKeyboardOnTap()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        configureDismissKeyboardOnTap()
+        startObservingKeyboardEvents()
     }
         
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        stopObservingKeyboardEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         configureQuantityView(previousQuantity: 4)
-    }
-    
-    func keyboardWillShow(notification:NSNotification){
-        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
-        self.scrollView.contentInset = contentInset
-    }
-    
-    func keyboardWillHide(notification:NSNotification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        self.scrollView.contentInset = contentInset
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,9 +55,8 @@ class TestViewController: UIViewController, QuantityViewDataSource {
         controller.modalPresentationStyle = .popover
     }
     
-    //FIXME: Swift bug - This should not be necessary.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return fitsTwoDigitMax(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
+        return matchesTwoDigitMax(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -85,5 +67,15 @@ class TestViewController: UIViewController, QuantityViewDataSource {
 extension TestViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+extension TestViewController: KeyboardHandler {
+    func keyboardWillShow(notification:NSNotification) {
+        moveScrollViewUpForKeyboard(notification: notification)
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        moveScrollViewDownAfterHidingKeyboard(notification: notification)
     }
 }
