@@ -70,6 +70,8 @@ class KeyboardHandler {
         }
     }
     
+    var currentKeyboardHeight: CGFloat = 0
+    
     func moveScrollViewUpForKeyboard(notification:NSNotification) {
         guard let scrollView = scrollView else {
             return
@@ -80,8 +82,9 @@ class KeyboardHandler {
         var keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = contextView.convert(keyboardFrame, from: nil)
         
-        let scrollPoint = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y + keyboardFrame.size.height)
+        let scrollPoint = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y + keyboardFrame.size.height - currentKeyboardHeight)
         scrollView.setContentOffset(scrollPoint, animated: true)
+        currentKeyboardHeight = keyboardFrame.size.height
     }
     
     func moveScrollViewDownAfterHidingKeyboard(notification:NSNotification) {
@@ -95,5 +98,6 @@ class KeyboardHandler {
         
         let scrollPoint = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y - keyboardFrame.size.height)
         scrollView.setContentOffset(scrollPoint, animated: true)
+        currentKeyboardHeight = 0
     }
 }
