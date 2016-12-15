@@ -10,18 +10,14 @@ import UIKit
 
 class QuantityTableViewController: UITableViewController {
     
-    var cartItem: CartItem!
-    var selectedQuantity: String = "0"
+    /// Set before segue to this controller to mark user's previous selection.
+    var previousQuantity: String?
+    var delegate: QuantityTableViewControllerDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.sizeToFit()
+        self.popoverPresentationController?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.2)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,13 +30,16 @@ class QuantityTableViewController: UITableViewController {
             let num = indexPath.row
             
             let label: String
-            if num == 9 {
+            switch num {
+            case 9:
                 label = "10+"
-            } else {
+            default:
                 label = "\(num + 1)"
             }
             
-            cell.configureCell(label: label)
+            let wasSelected = label == previousQuantity
+            
+            cell.configureCell(label: label, wasSelected: wasSelected)
             
             return cell
         }
@@ -50,19 +49,13 @@ class QuantityTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! QuantityTableViewCell
-        selectedQuantity = cell.quantityLabel.text!
+        delegate?.update(selectedQuantity: cell.quantityLabel.text!)
         
         dismiss(animated: true)
     }
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+protocol QuantityTableViewControllerDelegate {
+    func update(selectedQuantity: String)
 }

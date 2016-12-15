@@ -21,7 +21,7 @@ protocol ProductView {
     weak var cartQuantityLabel: UILabel! {get set}
     
     var product: Product! {get set}
-    var quantityInCart: Int! {get set}
+    var quantityInCart: Int {get set}
     
     func configureProductView()
 }
@@ -67,7 +67,7 @@ extension ProductView {
             cartQuantityLabel.isHidden = true
         } else {
             cartQuantityLabel.isHidden = false
-            cartQuantityLabel.text = "\(quantityInCart!) in Cart"
+            cartQuantityLabel.text = "\(quantityInCart) in Cart"
         }
     }
     

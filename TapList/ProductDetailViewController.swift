@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ProductDetailViewController: UIViewController, ProductView {
+class ProductDetailViewController: UIViewController, ProductView, QuantityViewDataSource {
 
     @IBOutlet weak var productImageCollectionView: UICollectionView!
     @IBOutlet weak var specialInstructionTextView: PlaceholderTextView!
@@ -23,16 +23,20 @@ class ProductDetailViewController: UIViewController, ProductView {
     @IBOutlet weak var listPriceLabel: UILabel!
     @IBOutlet weak var offerPriceButton: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
-    @IBOutlet weak var quantityStepper: UIStepper!
+    
+    @IBOutlet weak var quantityButton: UIButton!
+    @IBOutlet weak var quantityTextField: QuantityTextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var keyboardHandler: KeyboardHandler!
     
     var product: Product!
     var productImages = Array<UIImage>()
     
     var imageRequests = Array<DataRequest?>()
     
-    var quantityInCart: Int! = 0
+    var quantityInCart: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +45,10 @@ class ProductDetailViewController: UIViewController, ProductView {
         
         productImageCollectionView.delegate = self
         productImageCollectionView.dataSource = self
-        
-        specialInstructionTextView.delegate = self
+                
+        keyboardHandler = KeyboardHandler(contextView: self.view, scrollView: scrollView, onlyScrollForKeyboard: true)
+        keyboardHandler.startDismissingKeyboardOnTap()
+        keyboardHandler.startObservingKeyboardEvents()
     }
     
     private func setImages() {
@@ -93,12 +99,7 @@ class ProductDetailViewController: UIViewController, ProductView {
             }
         }
         
-        quantityLabel.text = "\(quantityInCart!)"
-        quantityStepper.value = Double(quantityInCart!)
-    }
-    
-    @IBAction func quantityChanged(_ sender: UIStepper) {
-        quantityLabel.text = "\(Int(sender.value))"
+        configureQuantityView(previousQuantity: quantityInCart)
     }
 
     @IBAction func updateCartPressed(_ sender: UIButton) {
@@ -107,10 +108,10 @@ class ProductDetailViewController: UIViewController, ProductView {
             specialInstructions = newInstructions
         }
         
-        quantityInCart = Int(quantityStepper.value)
+        quantityInCart = quantity
         updateCartQuantityLabel()
         
-        let cartItem = CartItem(sku: product.sku, quantity: Int(quantityStepper.value), specialInstructions: specialInstructions)
+        let cartItem = CartItem(sku: product.sku, quantity: quantity, specialInstructions: specialInstructions)
         DataService.instance.update(cartItem: cartItem)
         
 //        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
@@ -131,18 +132,30 @@ class ProductDetailViewController: UIViewController, ProductView {
                 return
             }
             
-            controller.popoverPresentationController?.delegate = self
-            
-            // Set bounds for arrow placement.
-            if let sender = sender as? UIButton {
-                controller.popoverPresentationController?.sourceView = sender
-                controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
+            controller.product = product
+            preparePopover(for: controller, sender: sender)
+        } else if segue.identifier == "quantityPopover" {
+            guard let controller = segue.destination as? QuantityTableViewController else {
+                print("improper controller for this segue")
+                return
             }
             
-            controller.product = product
-            
-            controller.modalPresentationStyle = .popover
+            controller.delegate = self
+            controller.previousQuantity = quantityButton.currentTitle
+            preparePopover(for: controller, sender: sender)
         }
+    }
+    
+    func preparePopover(for controller: UIViewController, sender: Any?) {
+        controller.popoverPresentationController?.delegate = self
+        
+        // Set bounds for arrow placement.
+        if let sender = sender as? UIButton {
+            controller.popoverPresentationController?.sourceView = sender
+            controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
+        }
+        
+        controller.modalPresentationStyle = .popover
     }
 
 }
@@ -170,15 +183,6 @@ extension ProductDetailViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
-    }
-}
-
-extension ProductDetailViewController: UITextViewDelegate {
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if let textView = textView as? PlaceholderTextView {
-            textView.placeholder.isHidden = !textView.text.isEmpty
-        }
     }
 }
 

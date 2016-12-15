@@ -12,19 +12,11 @@ class QuantityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var quantityLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    func configureCell(label: String) {
+    func configureCell(label: String, wasSelected: Bool = false) {
         quantityLabel.text = label
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if wasSelected {
+            self.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        }
     }
 
 }
