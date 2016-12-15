@@ -15,6 +15,7 @@ class KeyboardHandler {
     weak var scrollView: UIScrollView?
     var onlyScrollForKeyboard: Bool
     private var dismissKeyboardRecognizer: UITapGestureRecognizer?
+    private var previousInset: UIEdgeInsets = UIEdgeInsets.zero
     
     init(contextView: UIView, scrollView: UIScrollView? = nil, onlyScrollForKeyboard: Bool = false) {
         self.contextView = contextView
@@ -80,6 +81,7 @@ class KeyboardHandler {
         var keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = contextView.convert(keyboardFrame, from: nil)
         
+        previousInset = scrollView.contentInset
         var contentInset = scrollView.contentInset
         contentInset.bottom += keyboardFrame.size.height
         scrollView.contentInset = contentInset
@@ -90,7 +92,7 @@ class KeyboardHandler {
             return
         }
         
-        let contentInset = UIEdgeInsets.zero
+        let contentInset = previousInset
         scrollView.contentInset = contentInset
     }
 }
