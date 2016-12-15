@@ -9,19 +9,39 @@
 import Foundation
 import UIKit
 
-@objc
-protocol KeyboardHandler {
-    weak var scrollView: UIScrollView! {get set}
+class KeyboardHandler {
     
-    @objc func keyboardWillShow(notification:NSNotification) // Because swift protocol extensions cannot use *any* Objective-C
-    @objc func keyboardWillHide(notification:NSNotification) // Because swift protocol extensions cannot use *any* Objective-C
-}
-
-extension KeyboardHandler where Self: UIViewController {
-    func configureDismissKeyboardOnTap() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+    weak var contextView: UIView!
+    weak var scrollView: UIScrollView?
+    var onlyScrollForKeyboard: Bool
+    private var dismissKeyboardRecognizer: UITapGestureRecognizer?
+    
+    init(contextView: UIView, scrollView: UIScrollView? = nil, onlyScrollForKeyboard: Bool = false) {
+        self.contextView = contextView
+        self.scrollView = scrollView
+        self.onlyScrollForKeyboard = onlyScrollForKeyboard
+    }
+    
+    deinit {
+        stopObservingKeyboardEvents()
+    }
+    
+    @objc func dismissKeyboard() {
+        contextView.endEditing(true)
+    }
+    
+    func startDismissingKeyboardOnTap() {
+        dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        dismissKeyboardRecognizer!.cancelsTouchesInView = false
+        contextView.addGestureRecognizer(dismissKeyboardRecognizer!)
+    }
+    
+    func stopDismissingKeyboardOnTap(){
+        guard let dismissKeyboardRecognizer = dismissKeyboardRecognizer else {
+            return
+        }
+        
+        contextView.removeGestureRecognizer(dismissKeyboardRecognizer)
     }
     
     func startObservingKeyboardEvents() {
@@ -34,6 +54,22 @@ extension KeyboardHandler where Self: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    @objc func keyboardWillShow(notification:NSNotification) {
+        if onlyScrollForKeyboard {
+            scrollView?.isScrollEnabled = true
+        }
+        
+        moveScrollViewUpForKeyboard(notification: notification)
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        moveScrollViewDownAfterHidingKeyboard(notification: notification)
+        
+        if onlyScrollForKeyboard {
+            scrollView?.isScrollEnabled = false
+        }
+    }
+    
     func moveScrollViewUpForKeyboard(notification:NSNotification) {
         guard let scrollView = scrollView else {
             return
@@ -41,11 +77,11 @@ extension KeyboardHandler where Self: UIViewController {
         
         // Give room at bottom of scroll view so it doesn't cover anything the user needs to tap.
         var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        var keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = contextView.convert(keyboardFrame, from: nil)
         
-        var contentInset:UIEdgeInsets = scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height
+        var contentInset = scrollView.contentInset
+        contentInset.bottom += keyboardFrame.size.height
         scrollView.contentInset = contentInset
     }
     
@@ -54,9 +90,7 @@ extension KeyboardHandler where Self: UIViewController {
             return
         }
         
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        let contentInset = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
-    
-    
 }

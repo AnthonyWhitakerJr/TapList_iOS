@@ -14,15 +14,14 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var keyboardHandler: KeyboardHandler!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDismissKeyboardOnTap()
-        startObservingKeyboardEvents()
-    }
-        
-    deinit {
-        stopObservingKeyboardEvents()
+        keyboardHandler = KeyboardHandler(contextView: self.view, scrollView: scrollView, onlyScrollForKeyboard: true)
+        keyboardHandler.startDismissingKeyboardOnTap()
+        keyboardHandler.startObservingKeyboardEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +57,7 @@ class TestViewController: UIViewController, QuantityViewDataSource {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return matchesTwoDigitMax(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -67,18 +67,5 @@ class TestViewController: UIViewController, QuantityViewDataSource {
 extension TestViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
-    }
-}
-
-extension TestViewController: KeyboardHandler {
-    func keyboardWillShow(notification:NSNotification) {
-        scrollView.isScrollEnabled = true
-        moveScrollViewUpForKeyboard(notification: notification)
-
-    }
-    
-    func keyboardWillHide(notification:NSNotification) {
-        moveScrollViewDownAfterHidingKeyboard(notification: notification)
-        scrollView.isScrollEnabled = false
     }
 }
