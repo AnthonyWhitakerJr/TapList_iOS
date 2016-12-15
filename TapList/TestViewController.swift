@@ -72,10 +72,13 @@ extension TestViewController: UIPopoverPresentationControllerDelegate {
 
 extension TestViewController: KeyboardHandler {
     func keyboardWillShow(notification:NSNotification) {
+        scrollView.isScrollEnabled = true
         moveScrollViewUpForKeyboard(notification: notification)
+
     }
     
     func keyboardWillHide(notification:NSNotification) {
         moveScrollViewDownAfterHidingKeyboard(notification: notification)
+        scrollView.isScrollEnabled = false
     }
 }
