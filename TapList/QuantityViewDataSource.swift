@@ -58,7 +58,6 @@ extension QuantityViewDataSource {
             quantityTextField.isEnabled = true
             quantityTextField.text = "10"
             quantityTextField.becomeFirstResponder()
-            quantityTextField.selectedTextRange = quantityTextField.textRange(from: quantityTextField.beginningOfDocument, to: quantityTextField.endOfDocument)
         } else {
             quantityButton.setTitle(selectedQuantity, for: .normal)
         }

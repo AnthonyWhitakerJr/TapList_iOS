@@ -40,6 +40,12 @@ extension QuantityTextField: UITextFieldDelegate {
         return true
     }
     
+    /// Select contents before editing.
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+
+    }
+    
     /// Defaults contents to '0' if left blank
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else {
