@@ -15,6 +15,7 @@ class KeyboardHandler {
     weak var scrollView: UIScrollView?
     var onlyScrollForKeyboard: Bool
     private var dismissKeyboardRecognizer: UITapGestureRecognizer?
+    private var currentKeyboardHeight: CGFloat = 0
     
     init(contextView: UIView, scrollView: UIScrollView? = nil, onlyScrollForKeyboard: Bool = false) {
         self.contextView = contextView
@@ -69,8 +70,6 @@ class KeyboardHandler {
             scrollView?.isScrollEnabled = false
         }
     }
-    
-    var currentKeyboardHeight: CGFloat = 0
     
     func moveScrollViewUpForKeyboard(notification:NSNotification) {
         guard let scrollView = scrollView else {
