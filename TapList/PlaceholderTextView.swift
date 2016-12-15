@@ -28,12 +28,14 @@ class PlaceholderTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         placeholder = PlaceholderLabel(textView: self)
         setBorder()
+        self.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         placeholder = PlaceholderLabel(textView: self)
         setBorder()
+        self.delegate = self
     }
     
     private func setBorder() {
@@ -46,7 +48,20 @@ class PlaceholderTextView: UITextView {
     func refresh() {
         placeholder.isHidden = !text.isEmpty
     }
+}
+
+extension PlaceholderTextView: UITextViewDelegate {
     
+    func textViewDidChange(_ textView: UITextView) {
+        if let textView = textView as? PlaceholderTextView {
+            textView.placeholder.isHidden = !textView.text.isEmpty
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.text = textView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        refresh()
+    }
 }
 
 class PlaceholderLabel: UILabel {

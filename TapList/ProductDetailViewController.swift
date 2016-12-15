@@ -45,9 +45,7 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityViewDa
         
         productImageCollectionView.delegate = self
         productImageCollectionView.dataSource = self
-        
-        specialInstructionTextView.delegate = self
-        
+                
         keyboardHandler = KeyboardHandler(contextView: self.view, scrollView: scrollView, onlyScrollForKeyboard: true)
         keyboardHandler.startDismissingKeyboardOnTap()
         keyboardHandler.startObservingKeyboardEvents()
@@ -185,15 +183,6 @@ extension ProductDetailViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
-    }
-}
-
-extension ProductDetailViewController: UITextViewDelegate {
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if let textView = textView as? PlaceholderTextView {
-            textView.placeholder.isHidden = !textView.text.isEmpty
-        }
     }
 }
 
