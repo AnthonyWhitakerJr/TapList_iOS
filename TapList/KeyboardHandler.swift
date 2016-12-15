@@ -11,14 +11,14 @@ import UIKit
 
 class KeyboardHandler {
     
-    weak var contextView: UIView!
+    weak var contentView: UIView!
     weak var scrollView: UIScrollView?
     var onlyScrollForKeyboard: Bool
     private var dismissKeyboardRecognizer: UITapGestureRecognizer?
     private var currentKeyboardHeight: CGFloat = 0
     
     init(contextView: UIView, scrollView: UIScrollView? = nil, onlyScrollForKeyboard: Bool = false) {
-        self.contextView = contextView
+        self.contentView = contextView
         self.scrollView = scrollView
         self.onlyScrollForKeyboard = onlyScrollForKeyboard
     }
@@ -28,13 +28,13 @@ class KeyboardHandler {
     }
     
     @objc func dismissKeyboard() {
-        contextView.endEditing(true)
+        contentView.endEditing(true)
     }
     
     func startDismissingKeyboardOnTap() {
         dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         dismissKeyboardRecognizer!.cancelsTouchesInView = false
-        contextView.addGestureRecognizer(dismissKeyboardRecognizer!)
+        contentView.addGestureRecognizer(dismissKeyboardRecognizer!)
     }
     
     func stopDismissingKeyboardOnTap(){
@@ -42,7 +42,7 @@ class KeyboardHandler {
             return
         }
         
-        contextView.removeGestureRecognizer(dismissKeyboardRecognizer)
+        contentView.removeGestureRecognizer(dismissKeyboardRecognizer)
     }
     
     func startObservingKeyboardEvents() {
@@ -79,7 +79,7 @@ class KeyboardHandler {
         // Give room at bottom of scroll view so it doesn't cover anything the user needs to tap.
         var userInfo = notification.userInfo!
         var keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = contextView.convert(keyboardFrame, from: nil)
+        keyboardFrame = contentView.convert(keyboardFrame, from: nil)
         
         let scrollPoint = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y + keyboardFrame.size.height - currentKeyboardHeight)
         scrollView.setContentOffset(scrollPoint, animated: true)
@@ -93,7 +93,7 @@ class KeyboardHandler {
         
         var userInfo = notification.userInfo!
         var keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = contextView.convert(keyboardFrame, from: nil)
+        keyboardFrame = contentView.convert(keyboardFrame, from: nil)
         
         let scrollPoint = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y - keyboardFrame.size.height)
         scrollView.setContentOffset(scrollPoint, animated: true)
