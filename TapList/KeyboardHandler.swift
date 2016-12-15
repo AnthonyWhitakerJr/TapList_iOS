@@ -11,8 +11,8 @@ import UIKit
 
 class KeyboardHandler {
     
-    weak var contentView: UIView!
-    weak var scrollView: UIScrollView?
+    var contentView: UIView
+    var scrollView: UIScrollView?
     var onlyScrollForKeyboard: Bool
     private var dismissKeyboardRecognizer: UITapGestureRecognizer?
     private var currentKeyboardHeight: CGFloat = 0
