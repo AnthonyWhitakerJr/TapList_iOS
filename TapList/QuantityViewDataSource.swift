@@ -9,32 +9,37 @@
 import Foundation
 import UIKit
 
-protocol QuantityViewDataSource: QuantityTableViewControllerDelegate, UITextFieldDelegate {
+protocol QuantityViewDataSource: QuantityTableViewControllerDelegate {
     weak var quantityButton: UIButton! {get set}
-    weak var quantityTextField: UITextField! {get set}
-    var quantity: Int? {get}
+    weak var quantityTextField: QuantityTextField! {get set}
+    var quantity: Int {get}
     
     func configureQuantityView(previousQuantity: Int)
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool // Because swift protocol extensions cannot use *any* Objective-C
 }
 
 extension QuantityViewDataSource {
     
-    var quantity: Int? {
+    var quantity: Int {
+        var result: Int?
         if quantityButton.isHidden {
             if let text = quantityTextField.text {
-                return Int(text)
+                result = Int(text)
             }
         } else {
             if let text = quantityButton.currentTitle {
-                return Int(text)
+                result = Int(text)
             }
         }
-        return nil
+        
+        if let result = result {
+            return result
+        }
+        
+        return 0
     }
     
     func configureQuantityView(previousQuantity: Int = 1) {
-        quantityTextField.delegate = self
+        quantityTextField.delegate = quantityTextField
         
         if previousQuantity < 10 {
             quantityButton.setTitle("\(previousQuantity)", for: .normal)
@@ -59,14 +64,4 @@ extension QuantityViewDataSource {
         }
     }
     
-    /// Restricts input to 2 or less numbers (0 - 99).
-    func matchesTwoDigitMax(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
-        
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        
-        return allowedCharacters.isSuperset(of: characterSet) && newLength <= 2
-    }
 }

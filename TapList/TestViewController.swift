@@ -11,7 +11,7 @@ import UIKit
 class TestViewController: UIViewController, QuantityViewDataSource {
 
     @IBOutlet weak var quantityButton: UIButton!
-    @IBOutlet weak var quantityTextField: UITextField!
+    @IBOutlet weak var quantityTextField: QuantityTextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var keyboardHandler: KeyboardHandler!
@@ -52,15 +52,6 @@ class TestViewController: UIViewController, QuantityViewDataSource {
         }
         
         controller.modalPresentationStyle = .popover
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return matchesTwoDigitMax(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
 

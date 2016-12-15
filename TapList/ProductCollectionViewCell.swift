@@ -12,7 +12,7 @@ import Alamofire
 class ProductCollectionViewCell: UICollectionViewCell, ProductView {
 
     var product: Product!
-    var quantityInCart: Int!
+    var quantityInCart: Int = 0
     var imageRequest: DataRequest?
     var delegate: ProductCellDelegate?
     
