@@ -224,76 +224,12 @@
                     <view key="view" contentMode="scaleToFill" id="xpq-v4-r4V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2g-YL-YNi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWS-1t-wfp" customClass="QuantityTextField" customModule="TapList" customModuleProvider="target">
-                                        <rect key="frame" x="28" y="629" width="45" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="W0S-hT-9h2"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k88-yT-OJO">
-                                        <rect key="frame" x="28" y="629" width="45" height="30"/>
-                                        <state key="normal" title="1">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="2mA-t0-UTe" kind="popoverPresentation" identifier="quantityPopover" popoverAnchorView="k88-yT-OJO" id="yYX-A8-iE2">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-u2-3BY">
-                                        <rect key="frame" x="16" y="8" width="34" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIDDLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-vO-rpm">
-                                        <rect key="frame" x="16" y="323" width="62" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="k88-yT-OJO" firstAttribute="width" secondItem="NWS-1t-wfp" secondAttribute="width" id="DYr-BG-OpE"/>
-                                    <constraint firstItem="k88-yT-OJO" firstAttribute="height" secondItem="NWS-1t-wfp" secondAttribute="height" id="Dgv-qC-jki"/>
-                                    <constraint firstItem="NWS-1t-wfp" firstAttribute="leading" secondItem="i2g-YL-YNi" secondAttribute="leadingMargin" constant="12" id="J9j-2e-nUx"/>
-                                    <constraint firstItem="NWS-1t-wfp" firstAttribute="top" secondItem="i2g-YL-YNi" secondAttribute="top" constant="629" id="Klu-ms-B4S"/>
-                                    <constraint firstItem="VRX-u2-3BY" firstAttribute="top" secondItem="i2g-YL-YNi" secondAttribute="top" constant="8" id="Ks6-14-YEb"/>
-                                    <constraint firstAttribute="trailing" secondItem="NWS-1t-wfp" secondAttribute="trailing" constant="209" id="Mbw-S7-Lpb"/>
-                                    <constraint firstAttribute="bottom" secondItem="NWS-1t-wfp" secondAttribute="bottom" constant="20" id="RSL-du-HvQ"/>
-                                    <constraint firstItem="dM9-vO-rpm" firstAttribute="leading" secondItem="i2g-YL-YNi" secondAttribute="leading" constant="16" id="RvS-YC-gRF"/>
-                                    <constraint firstItem="dM9-vO-rpm" firstAttribute="centerY" secondItem="i2g-YL-YNi" secondAttribute="centerY" id="UKz-d9-9zW"/>
-                                    <constraint firstItem="VRX-u2-3BY" firstAttribute="leading" secondItem="i2g-YL-YNi" secondAttribute="leading" constant="16" id="coK-nW-TIk"/>
-                                    <constraint firstItem="NWS-1t-wfp" firstAttribute="centerX" secondItem="k88-yT-OJO" secondAttribute="centerX" id="xA5-j6-4i9"/>
-                                    <constraint firstItem="NWS-1t-wfp" firstAttribute="centerY" secondItem="k88-yT-OJO" secondAttribute="centerY" id="z2h-1s-9fP"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="i2g-YL-YNi" firstAttribute="top" secondItem="xpq-v4-r4V" secondAttribute="top" id="WnD-79-qa8"/>
-                            <constraint firstItem="i2g-YL-YNi" firstAttribute="bottom" secondItem="iDG-Db-ltq" secondAttribute="top" id="a41-5H-DRw"/>
-                            <constraint firstAttribute="trailing" secondItem="i2g-YL-YNi" secondAttribute="trailing" id="b4l-Fn-6jm"/>
-                            <constraint firstItem="i2g-YL-YNi" firstAttribute="leading" secondItem="xpq-v4-r4V" secondAttribute="leading" id="xYa-tq-Yph"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="quantityButton" destination="k88-yT-OJO" id="uci-6j-BuJ"/>
-                        <outlet property="quantityTextField" destination="NWS-1t-wfp" id="vcc-vt-SkJ"/>
-                        <outlet property="scrollView" destination="i2g-YL-YNi" id="Bgh-kw-Fld"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meb-5p-dqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="-643"/>
+            <point key="canvasLocation" x="977" y="-645"/>
         </scene>
         <!--Details-->
         <scene sceneID="Pmh-gC-lXf">
@@ -753,6 +689,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="S72-pj-xsK"/>
-        <segue reference="wh9-s1-rFo"/>
     </inferredMetricsTieBreakers>
 </document>
