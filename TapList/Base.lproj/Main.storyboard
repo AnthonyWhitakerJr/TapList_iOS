@@ -200,7 +200,13 @@
                             <constraint firstItem="AkS-CJ-MZA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pCc-A2-tMD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TapList" id="G4r-Mr-D8v"/>
+                    <navigationItem key="navigationItem" title="TapList" id="G4r-Mr-D8v">
+                        <barButtonItem key="rightBarButtonItem" image="cart" id="jk7-kx-Fcz">
+                            <connections>
+                                <segue destination="Fre-aD-YWf" kind="show" identifier="cart" id="AP6-HC-dne"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="AkS-CJ-MZA" id="9hX-lv-u3u"/>
                         <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="offerPopover" popoverAnchorView="AkS-CJ-MZA" id="tEi-tF-fic">
@@ -231,10 +237,10 @@
             </objects>
             <point key="canvasLocation" x="977" y="-645"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Manage Cart Table View Controller-->
         <scene sceneID="vIY-Gb-stu">
             <objects>
-                <tableViewController id="Fre-aD-YWf" sceneMemberID="viewController">
+                <tableViewController id="Fre-aD-YWf" customClass="ManageCartTableViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="WFa-qY-i7y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,7 +365,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGX-4E-Naf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-1013.3433283358322"/>
+            <point key="canvasLocation" x="1804" y="-645"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nxm-ZZ-vAv">
@@ -445,7 +451,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productImage" id="WE1-Mv-YLS" customClass="ImageCollectionViewCell" customModule="TapList" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="39.5" width="250" height="151"/>
+                                                        <rect key="frame" x="0.0" y="40" width="250" height="151"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="250" height="151"/>
@@ -678,6 +684,11 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Details" id="dlb-y0-gpf">
                         <barButtonItem key="backBarButtonItem" title="Back" id="zKV-b4-g9X"/>
+                        <barButtonItem key="rightBarButtonItem" image="cart" id="b35-ET-IBd">
+                            <connections>
+                                <segue destination="Fre-aD-YWf" kind="show" id="R6S-P3-OCS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="aboutLabel" destination="581-t6-fRg" id="PKZ-k7-baD"/>
@@ -698,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KH-j6-2q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792.8" y="-358.4707646176912"/>
+            <point key="canvasLocation" x="1804" y="30"/>
         </scene>
         <!--Sale Price View Controller-->
         <scene sceneID="A2s-Mh-k3e">
@@ -797,7 +808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umR-Dh-xoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731.2" y="226.6866566716642"/>
+            <point key="canvasLocation" x="1397" y="560"/>
         </scene>
         <!--Quantity Table View Controller-->
         <scene sceneID="rrw-K3-fvc">
@@ -813,7 +824,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hh3-jY-DR5" id="SsM-Wa-TTB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTT-Ed-5dq">
@@ -844,7 +855,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mbi-RK-skd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2665" y="-358"/>
+            <point key="canvasLocation" x="2932" y="-204"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9sT-L2-emx">
@@ -869,7 +880,11 @@
             <point key="canvasLocation" x="37.600000000000001" y="30.134932533733135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart" width="44" height="44"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="S72-pj-xsK"/>
+        <segue reference="R6S-P3-OCS"/>
     </inferredMetricsTieBreakers>
 </document>

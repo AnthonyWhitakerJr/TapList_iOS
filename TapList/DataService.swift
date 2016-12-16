@@ -28,7 +28,6 @@ class DataService {
                 
                 if let cartData = snapshot.value as? Dictionary<String, Any> {
                     self.cart = Cart(data: cartData)
-                    print(self.cart)
                 }
             }
         })
