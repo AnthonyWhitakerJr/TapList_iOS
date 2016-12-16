@@ -19,7 +19,7 @@ class CartItemTableViewCell: UITableViewCell, QuantityView {
     @IBOutlet weak var quantityTextField: QuantityTextField!
     @IBOutlet weak var offerPriceButton: UIButton!
     
-    var delegate: ProductCellDelegate?
+    var delegate: CartCellDelegate?
     var imageRequest: DataRequest?
     var cartItem: CartItem!
     var product: Product!
@@ -90,4 +90,12 @@ class CartItemTableViewCell: UITableViewCell, QuantityView {
         
         delegate?.handleProductImageButtonTapped(product: product, sender: sender)
     }
+    
+    @IBAction func quantityButtonTapped(_ sender: UIButton) {
+        delegate?.handleQuantityButtonTapped(sender)
+    }
+}
+
+protocol CartCellDelegate: ProductCellDelegate {
+    func handleQuantityButtonTapped(_ sender: UIButton)
 }

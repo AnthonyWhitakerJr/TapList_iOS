@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TapList-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
@@ -200,7 +200,7 @@
                             <constraint firstItem="AkS-CJ-MZA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pCc-A2-tMD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="TapList" id="G4r-Mr-D8v">
+                    <navigationItem key="navigationItem" id="G4r-Mr-D8v">
                         <barButtonItem key="rightBarButtonItem" image="cart" id="jk7-kx-Fcz">
                             <connections>
                                 <segue destination="Fre-aD-YWf" kind="show" identifier="cart" id="AP6-HC-dne"/>
@@ -217,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="30.134932533733135"/>
+            <point key="canvasLocation" x="894" y="-562"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="o4u-NS-jwa">
@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meb-5p-dqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="-645"/>
+            <point key="canvasLocation" x="-234" y="-1555"/>
         </scene>
         <!--Manage Cart Table View Controller-->
         <scene sceneID="vIY-Gb-stu">
@@ -244,7 +244,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="WFa-qY-i7y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.82745098039999998" green="0.2156862745" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cartCell" rowHeight="100" id="A5u-7w-OdM" customClass="CartItemTableViewCell" customModule="TapList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -292,7 +292,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P3-VF-Xvx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$000.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5P3-VF-Xvx">
                                             <rect key="frame" x="297" y="39.5" width="70" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="5Rl-QM-cQn"/>
@@ -302,7 +302,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyR-mP-4qE" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="40.5" width="70" height="21"/>
+                                            <rect key="frame" x="297" y="40" width="70" height="21"/>
                                             <color key="backgroundColor" red="0.99902635809999996" green="0.89185887580000001" blue="0.0009537830483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
@@ -345,7 +345,7 @@
                                         <constraint firstItem="T3F-4E-XKk" firstAttribute="leading" secondItem="0pF-c7-9ha" secondAttribute="leadingMargin" id="zBU-JO-z0K"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.076136000450000005" green="0.40674340720000002" blue="0.69885677099999999" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="detailLabel" destination="Ca6-EF-804" id="DrX-4y-Gqz"/>
                                     <outlet property="offerPriceButton" destination="XyR-mP-4qE" id="5YR-SN-WtB"/>
@@ -362,10 +362,19 @@
                             <outlet property="delegate" destination="Fre-aD-YWf" id="G5U-P9-CoT"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="IPj-Xg-M87" kind="popoverPresentation" identifier="offerPopover" popoverAnchorView="WFa-qY-i7y" id="rzj-eH-HL0">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="2mA-t0-UTe" kind="popoverPresentation" identifier="quantityPopover" popoverAnchorView="WFa-qY-i7y" id="Wzk-UR-1Bv">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                        <segue destination="F7p-KG-5nh" kind="show" identifier="productDetail" id="ut8-WC-K0I"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGX-4E-Naf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-645"/>
+            <point key="canvasLocation" x="3142" y="-586"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nxm-ZZ-vAv">
@@ -417,9 +426,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xd-Sm-AFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180" y="-1433"/>
+            <point key="canvasLocation" x="-1185" y="-1555"/>
         </scene>
-        <!--Details-->
+        <!--Product Detail View Controller-->
         <scene sceneID="Pmh-gC-lXf">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="F7p-KG-5nh" customClass="ProductDetailViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
@@ -682,7 +691,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Details" id="dlb-y0-gpf">
+                    <navigationItem key="navigationItem" id="dlb-y0-gpf">
                         <barButtonItem key="backBarButtonItem" title="Back" id="zKV-b4-g9X"/>
                         <barButtonItem key="rightBarButtonItem" image="cart" id="b35-ET-IBd">
                             <connections>
@@ -709,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KH-j6-2q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="30"/>
+            <point key="canvasLocation" x="926" y="356"/>
         </scene>
         <!--Sale Price View Controller-->
         <scene sceneID="A2s-Mh-k3e">
@@ -808,7 +817,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umR-Dh-xoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="560"/>
+            <point key="canvasLocation" x="2318" y="187"/>
         </scene>
         <!--Quantity Table View Controller-->
         <scene sceneID="rrw-K3-fvc">
@@ -855,7 +864,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mbi-RK-skd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932" y="-204"/>
+            <point key="canvasLocation" x="3142" y="356"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9sT-L2-emx">
@@ -877,14 +886,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqK-Hb-w76" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="30.134932533733135"/>
+            <point key="canvasLocation" x="86" y="-562"/>
         </scene>
     </scenes>
     <resources>
         <image name="cart" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S72-pj-xsK"/>
         <segue reference="R6S-P3-OCS"/>
+        <segue reference="ut8-WC-K0I"/>
+        <segue reference="S72-pj-xsK"/>
+        <segue reference="wh9-s1-rFo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -71,14 +71,7 @@ class ViewController: UIViewController {
             }
             
             controller.product = productForSegue
-            controller.popoverPresentationController?.delegate = self
-            controller.modalPresentationStyle = .popover
-            
-            // Set anchor & bounds for arrow placement.
-            if let sender = sender as? UIButton {
-                controller.popoverPresentationController?.sourceView = sender
-                controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
-            }
+            preparePopover(for: controller, sender: sender)
         } else if segue.identifier == "productDetail" {
             guard let productForSegue = productForSegue else {
                 print("product not set before segue to sale price controller.")
@@ -91,6 +84,18 @@ class ViewController: UIViewController {
             
             controller.product = productForSegue
         }
+    }
+    
+    func preparePopover(for controller: UIViewController, sender: Any?) {
+        controller.popoverPresentationController?.delegate = self
+        
+        // Set bounds for arrow placement.
+        if let sender = sender as? UIButton {
+            controller.popoverPresentationController?.sourceView = sender
+            controller.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.width, height: sender.frame.height)
+        }
+        
+        controller.modalPresentationStyle = .popover
     }
 
 }
