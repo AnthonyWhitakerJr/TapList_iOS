@@ -26,6 +26,8 @@
 		926D89D21DFA50E800C0E26C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */; };
 		926E25B01E032C7800BD48E6 /* QuantityTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */; };
 		929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929043051DF4C8DF005AF5BF /* CustomButton.swift */; };
+		92B5B89C1E045EF1002A1BFB /* ManageCartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5B89B1E045EF1002A1BFB /* ManageCartTableViewController.swift */; };
+		92B5B89E1E045F09002A1BFB /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */; };
 		92C2C9F81DFB263900FA8E3D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */; };
 		92C2C9FA1DFB2A5400FA8E3D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */; };
 		92C2C9FD1DFB868600FA8E3D /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2C9FC1DFB868600FA8E3D /* ProductView.swift */; };
@@ -82,6 +84,8 @@
 		926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTextField.swift; sourceTree = "<group>"; };
 		929043051DF4C8DF005AF5BF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		92B5B89B1E045EF1002A1BFB /* ManageCartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageCartTableViewController.swift; sourceTree = "<group>"; };
+		92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		92C2C9FC1DFB868600FA8E3D /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -156,12 +160,13 @@
 		922F2E671DF5D1BF00B7FAF6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */,
+				92B5B89B1E045EF1002A1BFB /* ManageCartTableViewController.swift */,
 				92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */,
+				9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */,
 				921094131DF626E800333464 /* SalePriceViewController.swift */,
 				9210943F1DF8804300333464 /* TestViewController.swift */,
 				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
-				9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */,
-				9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */,
 				92EF65081E01F448008B842B /* QuantityViewDataSource.swift */,
 				926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */,
+				92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -574,8 +580,10 @@
 				92C2C9FD1DFB868600FA8E3D /* ProductView.swift in Sources */,
 				92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */,
 				92EF65091E01F448008B842B /* QuantityViewDataSource.swift in Sources */,
+				92B5B89E1E045F09002A1BFB /* CartItemTableViewCell.swift in Sources */,
 				929043061DF4C8DF005AF5BF /* CustomButton.swift in Sources */,
 				92C2C9F81DFB263900FA8E3D /* ProductDetailViewController.swift in Sources */,
+				92B5B89C1E045EF1002A1BFB /* ManageCartTableViewController.swift in Sources */,
 				922053891DFCAF09000FC993 /* Cart.swift in Sources */,
 				9220538F1DFF3BE0000FC993 /* Constants.swift in Sources */,
 				92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */,
