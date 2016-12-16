@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ProductDetailViewController: UIViewController, ProductView, QuantityViewDataSource {
+class ProductDetailViewController: UIViewController, ProductView, QuantityView {
 
     @IBOutlet weak var productImageCollectionView: UICollectionView!
     @IBOutlet weak var specialInstructionTextView: PlaceholderTextView!

@@ -10,11 +10,6 @@ import UIKit
 import Alamofire
 
 class ProductCollectionViewCell: UICollectionViewCell, ProductView {
-
-    var product: Product!
-    var quantityInCart: Int = 0
-    var imageRequest: DataRequest?
-    var delegate: ProductCellDelegate?
     
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -26,9 +21,13 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
     
+    var delegate: ProductCellDelegate?
+    var imageRequest: DataRequest?
+    var product: Product!
+    var quantityInCart: Int = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         layer.cornerRadius = 1
     }
     
@@ -41,13 +40,7 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
             self.quantityInCart = 0
         }
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        
         setImage()
-        
-        productNameLabel.text = product.name
-        
         configureProductView()
     }
     

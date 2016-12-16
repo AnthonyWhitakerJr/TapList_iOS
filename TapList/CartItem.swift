@@ -53,7 +53,7 @@ class CartItem {
         }
     }
     
-    // Fetches most up-to-date price for this item. C
+    // Fetches most up-to-date price for this item.
     func unitPrice(completion: @escaping (Double, UnitPriceType) -> ()) {
         DataService.instance.product(for: sku, completion: { product in
             if let product = product {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol QuantityViewDataSource: QuantityTableViewControllerDelegate {
+protocol QuantityView: QuantityTableViewControllerDelegate {
     weak var quantityButton: UIButton! {get set}
     weak var quantityTextField: QuantityTextField! {get set}
     var quantity: Int {get}
@@ -17,7 +17,7 @@ protocol QuantityViewDataSource: QuantityTableViewControllerDelegate {
     func configureQuantityView(previousQuantity: Int)
 }
 
-extension QuantityViewDataSource {
+extension QuantityView {
     
     var quantity: Int {
         var result: Int?
@@ -39,8 +39,6 @@ extension QuantityViewDataSource {
     }
     
     func configureQuantityView(previousQuantity: Int = 1) {
-        quantityTextField.delegate = quantityTextField
-        
         if previousQuantity < 10 {
             quantityButton.setTitle("\(previousQuantity)", for: .normal)
         } else {

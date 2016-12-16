@@ -60,10 +60,6 @@ class DataService {
         })
     }
     
-//    func touchUser(uid: String) {
-//        DataService.ref.user.child(uid).
-//    }
-    
     func addToCart(productSku: String, quantity: Int = 1, specialInstructions: String? = nil) {
         if let existingCartItem = cart.cartItems[productSku] {
             existingCartItem.quantity += 1
