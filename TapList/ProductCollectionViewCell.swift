@@ -49,7 +49,7 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
             imageRequest.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
         }
         
-        self.productImageView.image = nil // TODO: Replace with placeholder image.
+        self.productImageView.image = #imageLiteral(resourceName: "PlaceholderImage")
         imageRequest = ImageService.instance.image(for: product, completion: {image in
             if let image = image {
                 self.productImageView.image = image

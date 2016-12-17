@@ -30,12 +30,9 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var keyboardHandler: KeyboardHandler!
-    
     var product: Product!
     var productImages = Array<UIImage>()
-    
     var imageRequests = Array<DataRequest?>()
-    
     var quantityInCart: Int = 0
     
     override func viewDidLoad() {
@@ -55,32 +52,9 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
         for imageRequest in imageRequests {
             imageRequest?.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
         }
-        self.imageRequests.removeAll()
         
-        
-        var imagesByDirection = Dictionary<ImageService.Direction, UIImage>()
-        
-        let imageDispatch = DispatchGroup()
-        
-        for direction in ImageService.Direction.values {
-            imageDispatch.enter()
-            let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
-                if let image = image {
-                    imagesByDirection[direction] = image
-                }
-                imageDispatch.leave()
-            })
-            
-            imageRequests.append(request)
-        }
-        
-        imageDispatch.notify(queue: .main) {
-            self.productImages.removeAll()
-            for direction in ImageService.Direction.values { // Provides predetermined order, vs order of fetches finishing. Filters out missing pictures.
-                if let image = imagesByDirection[direction] {
-                    self.productImages.append(image)
-                }
-            }
+        imageRequests = ImageService.instance.imagesForAllDirections(for: product, size: .large) { images in
+            self.productImages = images
             self.productImageCollectionView.reloadData()
         }
     }
@@ -146,6 +120,13 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
             controller.delegate = self
             controller.previousQuantity = quantityButton.currentTitle
             preparePopover(for: controller, sender: sender)
+        } else if segue.identifier == "fullScreenImages" {
+            guard let controller = segue.destination as? ProductImageCollectionViewController else {
+                print("improper controller for this segue")
+                return
+            }
+            
+            controller.product = product
         }
     }
     
@@ -167,7 +148,6 @@ extension ProductDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
-
 }
 
 extension ProductDetailViewController: UICollectionViewDelegate {}
@@ -186,6 +166,10 @@ extension ProductDetailViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "fullScreenImages", sender: self)
     }
 }
 

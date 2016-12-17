@@ -69,6 +69,36 @@ class ImageService {
         return request
     }
     
+    func imagesForAllDirections(for product: Product, size: Size = .medium, completion: @escaping (Array<UIImage>) -> ()) -> Array<DataRequest?> {
+        var imageRequests = Array<DataRequest?>()
+        var imagesByDirection = Dictionary<ImageService.Direction, UIImage>()
+        let imageDispatch = DispatchGroup()
+        
+        for direction in ImageService.Direction.values {
+            imageDispatch.enter()
+            let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
+                if let image = image {
+                    imagesByDirection[direction] = image
+                }
+                imageDispatch.leave()
+            })
+            
+            imageRequests.append(request)
+        }
+        
+        imageDispatch.notify(queue: .main) {
+            var productImages = Array<UIImage>()
+            for direction in ImageService.Direction.values { // Provides predetermined order, vs order of fetches finishing. Filters out missing pictures.
+                if let image = imagesByDirection[direction] {
+                    productImages.append(image)
+                }
+            }
+            completion(productImages)
+        }
+        
+        return imageRequests
+    }
+    
     /// Empties the image cache.
     func clearCache() {
         imageCache.removeAllObjects()

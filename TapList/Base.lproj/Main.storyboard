@@ -302,7 +302,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyR-mP-4qE" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="40" width="70" height="21"/>
+                                            <rect key="frame" x="297" y="40.5" width="70" height="21"/>
                                             <color key="backgroundColor" red="0.99902635809999996" green="0.89185887580000001" blue="0.0009537830483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
@@ -502,7 +502,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="250" height="151"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-5q-a1j">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="nuI-5q-a1j">
                                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="151"/>
                                                                 </imageView>
                                                             </subviews>
@@ -750,11 +750,61 @@
                         <outlet property="scrollView" destination="4tl-lt-MeX" id="sCr-aq-6Fq"/>
                         <outlet property="skuLabel" destination="IcO-Xe-ydD" id="hut-eu-af8"/>
                         <outlet property="specialInstructionTextView" destination="vjo-XX-ziR" id="ZG2-iK-6hC"/>
+                        <segue destination="H0m-F6-kGT" kind="show" identifier="fullScreenImages" id="iXx-xP-VE4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3KH-j6-2q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="926" y="356"/>
+        </scene>
+        <!--Product Image Collection View Controller-->
+        <scene sceneID="ISa-VG-wq5">
+            <objects>
+                <collectionViewController id="H0m-F6-kGT" customClass="ProductImageCollectionViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="Ae1-qQ-ouk">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wWW-KU-43Y">
+                            <size key="itemSize" width="323" height="514"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productImage" id="gZ9-Fh-vdg" customClass="ImageCollectionViewCell" customModule="TapList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="45" width="323" height="514"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="323" height="514"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="JZa-bw-UFr">
+                                            <rect key="frame" x="0.0" y="0.0" width="323" height="514"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="JZa-bw-UFr" secondAttribute="bottom" id="df8-B0-oDn"/>
+                                    <constraint firstItem="JZa-bw-UFr" firstAttribute="top" secondItem="gZ9-Fh-vdg" secondAttribute="top" id="eZS-IR-83g"/>
+                                    <constraint firstItem="JZa-bw-UFr" firstAttribute="leading" secondItem="gZ9-Fh-vdg" secondAttribute="leading" id="qfH-T9-dgP"/>
+                                    <constraint firstAttribute="trailing" secondItem="JZa-bw-UFr" secondAttribute="trailing" id="sSI-d2-Zs0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="JZa-bw-UFr" id="1F2-3j-v4A"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="H0m-F6-kGT" id="sHw-8R-dy6"/>
+                            <outlet property="delegate" destination="H0m-F6-kGT" id="Utv-Wq-wMG"/>
+                        </connections>
+                    </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOp-gu-uWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925.60000000000002" y="1253.5232383808097"/>
         </scene>
         <!--Sale Price View Controller-->
         <scene sceneID="A2s-Mh-k3e">
@@ -926,12 +976,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PlaceholderImage" width="230" height="300"/>
         <image name="cart" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AP6-HC-dne"/>
-        <segue reference="ut8-WC-K0I"/>
-        <segue reference="rzj-eH-HL0"/>
-        <segue reference="Wzk-UR-1Bv"/>
+        <segue reference="1OD-9I-Pss"/>
+        <segue reference="S72-pj-xsK"/>
+        <segue reference="wh9-s1-rFo"/>
+        <segue reference="R6S-P3-OCS"/>
     </inferredMetricsTieBreakers>
 </document>
