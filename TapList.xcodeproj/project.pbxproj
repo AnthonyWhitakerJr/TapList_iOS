@@ -167,11 +167,11 @@
 				9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */,
 				92B5B89B1E045EF1002A1BFB /* ManageCartTableViewController.swift */,
 				92C2C9F71DFB263900FA8E3D /* ProductDetailViewController.swift */,
+				92B5B8A11E04D728002A1BFB /* ProductImageCollectionViewController.swift */,
 				9220538C1DFF2F1A000FC993 /* QuantityTableViewController.swift */,
 				921094131DF626E800333464 /* SalePriceViewController.swift */,
 				9210943F1DF8804300333464 /* TestViewController.swift */,
 				92E0ADD61DF468EF00D26606 /* ViewController.swift */,
-				92B5B8A11E04D728002A1BFB /* ProductImageCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -236,18 +236,18 @@
 		92E0AE091DF4838D00D26606 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */,
 				929043051DF4C8DF005AF5BF /* CustomButton.swift */,
 				92C2C9F91DFB2A5400FA8E3D /* ImageCollectionViewCell.swift */,
 				92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */,
 				92E0ADD81DF468EF00D26606 /* Main.storyboard */,
+				92B5B89F1E04B1E7002A1BFB /* OrderSummaryTableViewCell.swift */,
 				926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */,
 				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
 				92C2C9FC1DFB868600FA8E3D /* ProductView.swift */,
 				9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */,
 				92EF65081E01F448008B842B /* QuantityViewDataSource.swift */,
 				926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */,
-				92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */,
-				92B5B89F1E04B1E7002A1BFB /* OrderSummaryTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
