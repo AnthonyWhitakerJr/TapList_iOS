@@ -59,6 +59,8 @@ class CartItem {
             if let product = product {
                 if let offerPrice = product.offerPrice {
                     completion(offerPrice, UnitPriceType.offerPrice)
+                } else if let listPrice = product.listPrice {
+                    completion(listPrice, UnitPriceType.listPrice)
                 }
             }
         })

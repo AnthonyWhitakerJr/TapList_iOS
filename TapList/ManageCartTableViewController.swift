@@ -42,16 +42,24 @@ class ManageCartTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartItems.count
+        return cartItems.count + 1
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as? CartItemTableViewCell {
-            let cartItem = cartItems[indexPath.row]
-            cell.delegate = self
-            cell.configureCell(cartItem: cartItem)
-
-            return cell
+        
+        if indexPath.row == cartItems.count { // Last cell in table.
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "orderSummary", for: indexPath) as? OrderSummaryTableViewCell {
+                cell.configureCell()
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as? CartItemTableViewCell {
+                let cartItem = cartItems[indexPath.row]
+                cell.delegate = self
+                cell.configureCell(cartItem: cartItem)
+                
+                return cell
+            }
         }
         return UITableViewCell()
     }
