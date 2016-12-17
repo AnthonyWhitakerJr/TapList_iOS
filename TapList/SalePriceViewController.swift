@@ -25,8 +25,8 @@ class SalePriceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataService.instance.offer(for: product.sku, completion: { result in
-            self.offer = result
+        DataService.instance.offer(for: product.sku, completion: { offer in
+            self.offer = offer
             self.configureSalePrice()
         })
     }
