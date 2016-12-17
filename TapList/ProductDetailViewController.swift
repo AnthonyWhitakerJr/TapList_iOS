@@ -60,25 +60,28 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
         
         var imagesByDirection = Dictionary<ImageService.Direction, UIImage>()
         
+        let imageDispatch = DispatchGroup()
+        
         for direction in ImageService.Direction.values {
+            imageDispatch.enter()
             let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
-                imagesByDirection[direction] = image
-                
-                //TODO: Refactor to use semaphores.
-                // After all images have been fetched:
-//                if imagesByDirection.count == ImageService.Direction.values.count { //FIXME: Failed requests do NOT return nil ergo this does not work as expected.
-                    self.productImages.removeAll()
-                    for direction in ImageService.Direction.values { // Provides predetermined order, vs order of fetches finishing. Filters out missing pictures.
-                        if let image = imagesByDirection[direction] {
-                            self.productImages.append(image)
-                        }
-                    }
-                    self.productImageCollectionView.reloadData()
-//                }
-                
+                if let image = image {
+                    imagesByDirection[direction] = image
+                }
+                imageDispatch.leave()
             })
             
             imageRequests.append(request)
+        }
+        
+        imageDispatch.notify(queue: .main) {
+            self.productImages.removeAll()
+            for direction in ImageService.Direction.values { // Provides predetermined order, vs order of fetches finishing. Filters out missing pictures.
+                if let image = imagesByDirection[direction] {
+                    self.productImages.append(image)
+                }
+            }
+            self.productImageCollectionView.reloadData()
         }
     }
     

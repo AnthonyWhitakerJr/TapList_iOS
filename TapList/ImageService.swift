@@ -45,7 +45,7 @@ class ImageService {
     /// Asynchronus request for product image. If image does not exist, completion block will NOT be executed.
     /// - completion: Code to be executed once image has been retrieved.
     /// - returns: The request used to feth the image. Can be used to prematurely cancel if image is no longer needed.
-    func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage) -> ()) -> DataRequest? {
+    func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
         let sku = product.sku
         
         var request: DataRequest? = nil
@@ -59,11 +59,13 @@ class ImageService {
                     if let image = UIImage(data: data) {
                         self.imageCache.setObject(image, forKey: url as NSString)
                         completion(image)
+                    } else {
+                        completion(nil)
                     }
                 }
             })
         }
-        
+
         return request
     }
     
