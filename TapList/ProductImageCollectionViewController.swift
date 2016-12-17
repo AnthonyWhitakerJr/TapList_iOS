@@ -12,6 +12,7 @@ import Alamofire
 class ProductImageCollectionViewController: UICollectionViewController {
 
     var product: Product!
+    var initialIndex: IndexPath?
     var productImages = Array<UIImage>()
     var imageRequests = Array<DataRequest?>()
     
@@ -31,7 +32,15 @@ class ProductImageCollectionViewController: UICollectionViewController {
         imageRequests = ImageService.instance.imagesForAllDirections(for: product, size: .large) { images in
             self.productImages = images
             self.collectionView?.reloadData()
+            self.scrollToInitialCell()
         }
+    }
+    
+    func scrollToInitialCell() {
+        if let initialIndex = initialIndex {
+            collectionView?.scrollToItem(at: initialIndex, at: .centeredHorizontally, animated: false)
+        }
+        initialIndex = nil
     }
 
     override func didReceiveMemoryWarning() {

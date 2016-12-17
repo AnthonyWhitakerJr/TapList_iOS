@@ -127,6 +127,9 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
             }
             
             controller.product = product
+            if let index = sender as? IndexPath {
+                controller.initialIndex = index
+            }
         }
     }
     
@@ -169,7 +172,7 @@ extension ProductDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "fullScreenImages", sender: self)
+        performSegue(withIdentifier: "fullScreenImages", sender: indexPath)
     }
 }
 
