@@ -44,7 +44,13 @@ class SalePriceViewController: UIViewController {
             saleTitleLabel.text = formatter.string(from: NSNumber(value: product.offerPrice!))! // TODO: Determine best way to handle failure here.
             offerDescriptionLabel.text = offer.offerDescription
             offerShortDescriptionLabel.isHidden = true
-            expirationDateLabel.isHidden = true
+            
+            if let endDate = offer.endDate {
+                expirationDateLabel.isHidden = false
+                expirationDateLabel.text = "exp \(endDate)"
+            } else {
+                expirationDateLabel.isHidden = true
+            }
         } else if offer.offerType == .n {
             saleTitleLabel.text = "\(offer.offerQuantity!)\(offer.stringDivider!)\(offer.currency!)\(offer.offerPriceTitle!)" // TODO: Determine best way to handle failure here.
             offerDescriptionLabel.text = offer.offerDescription
