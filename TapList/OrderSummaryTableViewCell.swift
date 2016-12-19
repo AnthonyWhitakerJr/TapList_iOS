@@ -27,7 +27,6 @@ class OrderSummaryTableViewCell: UITableViewCell {
         formatter.numberStyle = .currency
         
         DataService.instance.cart.subtotal { subtotal in
-            print("SUBTOTAL: \(subtotal)")
             self.subtotalLabel.text = formatter.string(from: NSNumber(value: subtotal))
             let estimatedTotal = subtotal + 4.95
             self.estimatedTotalLabel.text = formatter.string(from: NSNumber(value: estimatedTotal))
