@@ -12,16 +12,16 @@ class QuantityTextField: UITextField {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = self
+        self.delegate = QuantityTextFieldDelegate()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.delegate = self
+        self.delegate = QuantityTextFieldDelegate()
     }
 }
 
-extension QuantityTextField: UITextFieldDelegate {
+class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     /// Restricts input to 2 or less numbers (0 - 99).
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -28,14 +28,14 @@ class PlaceholderTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         placeholder = PlaceholderLabel(textView: self)
         setBorder()
-        self.delegate = self
+        self.delegate = PlaceholderTextViewDelegate()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         placeholder = PlaceholderLabel(textView: self)
         setBorder()
-        self.delegate = self
+        self.delegate = PlaceholderTextViewDelegate()
     }
     
     private func setBorder() {
@@ -50,7 +50,7 @@ class PlaceholderTextView: UITextView {
     }
 }
 
-extension PlaceholderTextView: UITextViewDelegate {
+class PlaceholderTextViewDelegate: NSObject, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if let textView = textView as? PlaceholderTextView {
@@ -60,7 +60,8 @@ extension PlaceholderTextView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         textView.text = textView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        refresh()
+        let placeholderView = textView as? PlaceholderTextView
+        placeholderView?.refresh()
     }
 }
 
