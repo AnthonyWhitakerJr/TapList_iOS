@@ -8,10 +8,7 @@
 
 import UIKit
 
-class TestViewController: UIViewController , QuantityView {
-    
-    @IBOutlet weak var quantityButton: UIButton!
-    @IBOutlet weak var quantityTextField: QuantityTextField!
+class TestViewController: UIViewController {
     
     @IBOutlet weak var quantityEntryView: QuantityEntryView!
     
@@ -26,7 +23,6 @@ class TestViewController: UIViewController , QuantityView {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureQuantityView(previousQuantity: 5)
         quantityEntryView.configureQuantityView(previousQuantity: 2)
         quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTouched(_:)), for: .touchUpInside)
     }
@@ -48,15 +44,8 @@ class TestViewController: UIViewController , QuantityView {
             
             preparePopover(for: controller, sender: sender)
             
-            if let sender = sender as? UIButton {
-                if sender == quantityButton {
-                    controller.delegate = self
-                    controller.previousQuantity = "\(quantityButton.currentTitle!)"
-                } else {
-                    controller.delegate = quantityEntryView
-                    controller.previousQuantity = "\(quantityEntryView.quantity)"
-                }
-            }
+            controller.delegate = quantityEntryView
+            controller.previousQuantity = "\(quantityEntryView.quantity)"
         }
     }
     
