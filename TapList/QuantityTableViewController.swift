@@ -11,11 +11,7 @@ import UIKit
 class QuantityTableViewController: UITableViewController {
     
     /// Set before segue to this controller to mark user's previous selection.
-    var previousQuantity: String? {
-        didSet {
-            print("Set prevQ: \(previousQuantity)")
-        }
-    }
+    var previousQuantity: String?
     var delegate: QuantityTableViewControllerDelegate?
 
     override func viewWillAppear(_ animated: Bool) {

@@ -26,17 +26,16 @@ class TestViewController: UIViewController , QuantityView {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureQuantityView(previousQuantity: 4)
-        quantityEntryView.configureQuantityView(previousQuantity: 3)
+        configureQuantityView(previousQuantity: 5)
+        quantityEntryView.configureQuantityView(previousQuantity: 2)
         quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTouched(_:)), for: .touchUpInside)
-
     }
     
     @IBAction func quantityButtonTouched(_ sender: UIButton) {
         performSegue(withIdentifier: "quantityPopover", sender: sender)
     }
     
-    @IBAction func quantityTouched(_ sender: QuantityEntryView) {
+    @IBAction func quantityUpdated(_ sender: QuantityEntryView) {
         print("Quantity: \(sender.quantity)")
     }
     
@@ -49,18 +48,15 @@ class TestViewController: UIViewController , QuantityView {
             
             preparePopover(for: controller, sender: sender)
             
-            controller.delegate = self
-            controller.previousQuantity = "\(quantityButton.currentTitle!)"
-            
-//            if let sender = sender as? UIButton {
-//                if sender == quantityButton {
-//                    controller.delegate = self
-//                    controller.previousQuantity = "\(quantityButton.currentTitle)"
-//                } else {
-//                    controller.delegate = quantityEntryView
-//                    controller.previousQuantity = "\(quantityEntryView.quantity)"
-//                }
-//            }
+            if let sender = sender as? UIButton {
+                if sender == quantityButton {
+                    controller.delegate = self
+                    controller.previousQuantity = "\(quantityButton.currentTitle!)"
+                } else {
+                    controller.delegate = quantityEntryView
+                    controller.previousQuantity = "\(quantityEntryView.quantity)"
+                }
+            }
         }
     }
     

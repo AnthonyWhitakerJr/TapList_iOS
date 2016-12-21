@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -259,7 +260,7 @@
                                     <constraint firstAttribute="height" constant="30" id="S7I-nN-oC0"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="quantityTouched:" destination="68b-R6-fSw" eventType="valueChanged" id="K8R-bE-rEx"/>
+                                    <action selector="quantityUpdated:" destination="68b-R6-fSw" eventType="valueChanged" id="I4U-Kf-PEk"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -274,11 +275,6 @@
                             <constraint firstItem="nou-NH-qXK" firstAttribute="centerY" secondItem="xgJ-hK-KqI" secondAttribute="centerY" id="d0I-Qe-lI5"/>
                             <constraint firstItem="nou-NH-qXK" firstAttribute="top" secondItem="qUP-5H-JlK" secondAttribute="bottom" id="kjs-S9-zhr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dSt-NI-QCr"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="quantityButton" destination="xgJ-hK-KqI" id="dFD-O0-HZP"/>
@@ -1034,8 +1030,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1OD-9I-Pss"/>
-        <segue reference="S72-pj-xsK"/>
         <segue reference="R6S-P3-OCS"/>
+        <segue reference="S72-pj-xsK"/>
         <segue reference="wIQ-Es-RnF"/>
     </inferredMetricsTieBreakers>
 </document>

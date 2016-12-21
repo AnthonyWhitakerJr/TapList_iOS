@@ -73,7 +73,6 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
         quantityButton.contentHorizontalAlignment = .center
         quantityButton.contentVerticalAlignment = .center
         quantityButton.frame = self.bounds
-        quantityButton.setTitle("1", for: .normal)
         quantityButton.setTitleColor(textColor, for: .normal)
     }
     
@@ -105,13 +104,8 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
         sendActions(for: .valueChanged)
     }
 
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        quantityButton.setTitle("1", for: .normal)
     }
-    */
-
 }

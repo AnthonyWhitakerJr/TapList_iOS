@@ -22,7 +22,7 @@ class QuantityTextField: UITextField, UITextFieldDelegate {
         }
         set {
             if let delegate = delegate as? QuantityTextFieldDelegate {
-                delegate.actionDelegate = actionDelegate
+                delegate.actionDelegate = newValue
             }
         }
     }
@@ -74,7 +74,7 @@ class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
         if text.isEmpty {
             textField.text = "0"
         }
-        actionDelegate?.quantityTextFieldValueChanged()
+        actionDelegate!.quantityTextFieldValueChanged()
     }
 }
 
