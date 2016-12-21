@@ -180,13 +180,12 @@ extension ManageCartTableViewController: CartCellDelegate {
     func handleQuantityUpdate(cell: CartItemTableViewCell, newQuantity: Int) {
         let cartItem = CartItem(sku: cell.cartItem.sku, quantity: newQuantity, specialInstructions: cell.cartItem.specialInstructions)
         DataService.instance.update(cartItem: cartItem) {
-            if newQuantity == 0 { // Item has been removed; easier to reload entire table.
+            // Reload only the updated cell & order summary
+            if newQuantity != 0, let indexpath = self.tableView.indexPath(for: cell) {
+                let orderSummaryIndexPath = IndexPath(row: self.tableView.numberOfRows(inSection: indexpath.section) - 1, section: indexpath.section)
+                self.tableView.reloadRows(at: [indexpath, orderSummaryIndexPath], with: .fade)
+            } else { // Item has been removed; easier to reload entire table.
                 self.tableView.reloadData()
-            } else {
-                // Reload only the updated cell & order summary
-                let indexpath = self.tableView.indexPath(for: cell)
-                let orderSummaryIndexPath = IndexPath(row: self.cartItems.count, section: indexpath!.section)
-                self.tableView.reloadRows(at: [indexpath!, orderSummaryIndexPath], with: .fade)
             }
         }
     }
