@@ -8,20 +8,39 @@
 
 import UIKit
 
-class QuantityTextField: UITextField {
+class QuantityTextField: UITextField, UITextFieldDelegate {
 
+    /// Strong reference to custom delegate.
+    private let _delegate = QuantityTextFieldDelegate()
+    
+    var actionDelegate: QuantityTextFieldActionDelegate? {
+        get{
+            if let delegate = delegate as? QuantityTextFieldDelegate {
+                return delegate.actionDelegate
+            }
+            return nil
+        }
+        set {
+            if let delegate = delegate as? QuantityTextFieldDelegate {
+                delegate.actionDelegate = newValue
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = self
+        self.delegate = _delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.delegate = self
+        self.delegate = _delegate
     }
 }
 
-extension QuantityTextField: UITextFieldDelegate {
+class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
+
+    var actionDelegate: QuantityTextFieldActionDelegate?
     
     /// Restricts input to 2 or less numbers (0 - 99).
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -55,5 +74,10 @@ extension QuantityTextField: UITextFieldDelegate {
         if text.isEmpty {
             textField.text = "0"
         }
+        actionDelegate!.quantityTextFieldValueChanged()
     }
+}
+
+protocol QuantityTextFieldActionDelegate {
+    func quantityTextFieldValueChanged()
 }

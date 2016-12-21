@@ -8,13 +8,15 @@
 
 import UIKit
 
-//FIXME: Making this IBDesignable will cause IB & Xcode to crash. Xcode bug??
-//@IBDesignable
+@IBDesignable
 class PlaceholderTextView: UITextView {
     
     private(set) var placeholder: PlaceholderLabel!
     
-    @IBInspectable var placeHolderText: String? {
+    /// Strong reference to custom delegate.
+    private let _delegate = PlaceholderTextViewDelegate()
+
+    @IBInspectable var placeholderText: String? {
         get {
             return placeholder.text
         }
@@ -27,18 +29,16 @@ class PlaceholderTextView: UITextView {
     override init(frame: CGRect, textContainer: NSTextContainer? = nil) {
         super.init(frame: frame, textContainer: textContainer)
         placeholder = PlaceholderLabel(textView: self)
-        setBorder()
-        self.delegate = self
+        self.delegate = _delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         placeholder = PlaceholderLabel(textView: self)
-        setBorder()
-        self.delegate = self
+        self.delegate = _delegate
     }
     
-    private func setBorder() {
+    override func layoutSubviews() {
         self.layer.cornerRadius = 5
         self.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.5).cgColor
         self.layer.borderWidth = 0.5
@@ -48,9 +48,16 @@ class PlaceholderTextView: UITextView {
     func refresh() {
         placeholder.isHidden = !text.isEmpty
     }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        let tempText = placeholder.text
+        placeholder = PlaceholderLabel(textView: self)
+        placeholderText = tempText
+    }
 }
 
-extension PlaceholderTextView: UITextViewDelegate {
+class PlaceholderTextViewDelegate: NSObject, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         if let textView = textView as? PlaceholderTextView {
@@ -60,15 +67,19 @@ extension PlaceholderTextView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         textView.text = textView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        refresh()
+        let placeholderView = textView as? PlaceholderTextView
+        placeholderView?.refresh()
     }
 }
 
 class PlaceholderLabel: UILabel {
-    let textView: PlaceholderTextView
     
     init(textView: PlaceholderTextView) {
-        self.textView = textView
+        guard textView.font != nil else { // Should only happen inside Interface Builder.
+            super.init(frame: CGRect.zero)
+            return
+        }
+        
         super.init(frame: CGRect(x: 5, y: (textView.font?.pointSize)! / 2, width: textView.frame.width - 10, height: textView.frame.height - (textView.font?.pointSize)!))
         self.numberOfLines = 0
         self.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)

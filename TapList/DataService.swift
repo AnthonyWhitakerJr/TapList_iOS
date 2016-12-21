@@ -28,7 +28,6 @@ class DataService {
                 
                 if let cartData = snapshot.value as? Dictionary<String, Any> {
                     self.cart = Cart(data: cartData)
-                    print(self.cart)
                 }
             }
         })
@@ -60,10 +59,6 @@ class DataService {
         })
     }
     
-//    func touchUser(uid: String) {
-//        DataService.ref.user.child(uid).
-//    }
-    
     func addToCart(productSku: String, quantity: Int = 1, specialInstructions: String? = nil) {
         if let existingCartItem = cart.cartItems[productSku] {
             existingCartItem.quantity += 1
@@ -77,13 +72,17 @@ class DataService {
         }
     }
     
-    func update(cartItem: CartItem) {
+    func update(cartItem: CartItem, completion: (() -> ())? = nil) {
         let itemRef = DataService.ref.cart?.child("cartItems").child(cartItem.sku)
 
         if cartItem.quantity != 0 {
-            itemRef?.setValue(cartItem.asDictionary)
+            itemRef?.setValue(cartItem.asDictionary, withCompletionBlock: { error, ref in
+                completion?()
+            })
         } else {
-            itemRef?.removeValue()
+            itemRef?.removeValue(completionBlock: { error, ref in
+                completion?()
+            })
         }
     }
 

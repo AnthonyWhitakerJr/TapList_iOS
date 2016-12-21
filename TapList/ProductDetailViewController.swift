@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ProductDetailViewController: UIViewController, ProductView, QuantityViewDataSource {
+class ProductDetailViewController: UIViewController, ProductView {
 
     @IBOutlet weak var productImageCollectionView: UICollectionView!
     @IBOutlet weak var specialInstructionTextView: PlaceholderTextView!
@@ -25,17 +25,13 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityViewDa
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
     
-    @IBOutlet weak var quantityButton: UIButton!
-    @IBOutlet weak var quantityTextField: QuantityTextField!
+    @IBOutlet weak var quantityEntryView: QuantityEntryView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var keyboardHandler: KeyboardHandler!
-    
     var product: Product!
     var productImages = Array<UIImage>()
-    
     var imageRequests = Array<DataRequest?>()
-    
     var quantityInCart: Int = 0
     
     override func viewDidLoad() {
@@ -55,30 +51,10 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityViewDa
         for imageRequest in imageRequests {
             imageRequest?.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
         }
-        self.imageRequests.removeAll()
         
-        
-        var imagesByDirection = Dictionary<ImageService.Direction, UIImage>()
-        
-        for direction in ImageService.Direction.values {
-            let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
-                imagesByDirection[direction] = image
-                
-                //TODO: Refactor to use semaphores.
-                // After all images have been fetched:
-//                if imagesByDirection.count == ImageService.Direction.values.count { //FIXME: Failed requests do NOT return nil ergo this does not work as expected.
-                    self.productImages.removeAll()
-                    for direction in ImageService.Direction.values { // Provides predetermined order, vs order of fetches finishing. Filters out missing pictures.
-                        if let image = imagesByDirection[direction] {
-                            self.productImages.append(image)
-                        }
-                    }
-                    self.productImageCollectionView.reloadData()
-//                }
-                
-            })
-            
-            imageRequests.append(request)
+        imageRequests = ImageService.instance.imagesForAllDirections(for: product, size: .large) { images in
+            self.productImages = images
+            self.productImageCollectionView.reloadData()
         }
     }
     
@@ -99,19 +75,25 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityViewDa
             }
         }
         
-        configureQuantityView(previousQuantity: quantityInCart)
+        quantityEntryView.configureQuantityView(previousQuantity: quantityInCart)
+        quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTouched(_:)), for: .touchUpInside)
     }
 
+    func quantityButtonTouched(_ sender: UIButton) {
+        performSegue(withIdentifier: "quantityPopover", sender: sender)
+    }
+    
+    
     @IBAction func updateCartPressed(_ sender: UIButton) {
         var specialInstructions: String? = nil
         if let newInstructions = specialInstructionTextView.text, !newInstructions.isEmpty {
             specialInstructions = newInstructions
         }
         
-        quantityInCart = quantity
+        quantityInCart = quantityEntryView.quantity
         updateCartQuantityLabel()
         
-        let cartItem = CartItem(sku: product.sku, quantity: quantity, specialInstructions: specialInstructions)
+        let cartItem = CartItem(sku: product.sku, quantity: quantityEntryView.quantity, specialInstructions: specialInstructions)
         DataService.instance.update(cartItem: cartItem)
         
 //        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
@@ -140,9 +122,19 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityViewDa
                 return
             }
             
-            controller.delegate = self
-            controller.previousQuantity = quantityButton.currentTitle
+            controller.delegate = quantityEntryView
+            controller.previousQuantity = "\(quantityEntryView.quantity)"
             preparePopover(for: controller, sender: sender)
+        } else if segue.identifier == "fullScreenImages" {
+            guard let controller = segue.destination as? ProductImageCollectionViewController else {
+                print("improper controller for this segue")
+                return
+            }
+            
+            controller.product = product
+            if let index = sender as? IndexPath {
+                controller.initialIndex = index
+            }
         }
     }
     
@@ -164,7 +156,6 @@ extension ProductDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
-
 }
 
 extension ProductDetailViewController: UICollectionViewDelegate {}
@@ -183,6 +174,10 @@ extension ProductDetailViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "fullScreenImages", sender: indexPath)
     }
 }
 

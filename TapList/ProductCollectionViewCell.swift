@@ -10,11 +10,6 @@ import UIKit
 import Alamofire
 
 class ProductCollectionViewCell: UICollectionViewCell, ProductView {
-
-    var product: Product!
-    var quantityInCart: Int = 0
-    var imageRequest: DataRequest?
-    var delegate: ProductCellDelegate?
     
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -26,9 +21,13 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
     
+    var delegate: ProductCellDelegate?
+    var imageRequest: DataRequest?
+    var product: Product!
+    var quantityInCart: Int = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         layer.cornerRadius = 1
     }
     
@@ -41,13 +40,7 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
             self.quantityInCart = 0
         }
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        
         setImage()
-        
-        productNameLabel.text = product.name
-        
         configureProductView()
     }
     
@@ -56,9 +49,11 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
             imageRequest.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
         }
         
-        self.productImageView.image = nil // TODO: Replace with placeholder image.
+        self.productImageView.image = #imageLiteral(resourceName: "PlaceholderImage")
         imageRequest = ImageService.instance.image(for: product, completion: {image in
-            self.productImageView.image = image
+            if let image = image {
+                self.productImageView.image = image
+            }
         })
     }
     

@@ -38,7 +38,6 @@ class QuantityTableViewController: UITableViewController {
             }
             
             let wasSelected = label == previousQuantity
-            
             cell.configureCell(label: label, wasSelected: wasSelected)
             
             return cell
@@ -50,7 +49,6 @@ class QuantityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! QuantityTableViewCell
         delegate?.update(selectedQuantity: cell.quantityLabel.text!)
-        
         dismiss(animated: true)
     }
 
