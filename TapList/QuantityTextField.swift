@@ -10,6 +10,14 @@ import UIKit
 
 class QuantityTextField: UITextField {
 
+    var actionDelegate: QuantityTextFieldActionDelegate? {
+        didSet {
+            if let delegate = delegate as? QuantityTextFieldDelegate {
+                delegate.actionDelegate = actionDelegate
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.delegate = QuantityTextFieldDelegate()
@@ -22,6 +30,8 @@ class QuantityTextField: UITextField {
 }
 
 class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
+    
+    var actionDelegate: QuantityTextFieldActionDelegate?
     
     /// Restricts input to 2 or less numbers (0 - 99).
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -55,5 +65,10 @@ class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
         if text.isEmpty {
             textField.text = "0"
         }
+        actionDelegate?.quantityTextFieldValueChanged()
     }
+}
+
+protocol QuantityTextFieldActionDelegate {
+    func quantityTextFieldValueChanged()
 }

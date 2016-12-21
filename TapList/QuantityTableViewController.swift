@@ -11,7 +11,11 @@ import UIKit
 class QuantityTableViewController: UITableViewController {
     
     /// Set before segue to this controller to mark user's previous selection.
-    var previousQuantity: String?
+    var previousQuantity: String? {
+        didSet {
+            print("Set prevQ: \(previousQuantity)")
+        }
+    }
     var delegate: QuantityTableViewControllerDelegate?
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +42,6 @@ class QuantityTableViewController: UITableViewController {
             }
             
             let wasSelected = label == previousQuantity
-            
             cell.configureCell(label: label, wasSelected: wasSelected)
             
             return cell
@@ -50,7 +53,6 @@ class QuantityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! QuantityTableViewCell
         delegate?.update(selectedQuantity: cell.quantityLabel.text!)
-        
         dismiss(animated: true)
     }
 

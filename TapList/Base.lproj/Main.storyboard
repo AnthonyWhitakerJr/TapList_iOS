@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="siu-zt-Xx6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="68b-R6-fSw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -230,8 +230,61 @@
                     <view key="view" contentMode="scaleToFill" id="xpq-v4-r4V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nou-NH-qXK" customClass="QuantityTextField" customModule="TapList" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="45" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="Zd8-f1-F2t"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgJ-hK-KqI">
+                                <rect key="frame" x="16" y="20" width="45" height="30"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2mA-t0-UTe" kind="popoverPresentation" identifier="quantityPopover" popoverAnchorView="xgJ-hK-KqI" id="wIQ-Es-RnF">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-NI-QCr" customClass="QuantityEntryView" customModule="TapList" customModuleProvider="target">
+                                <rect key="frame" x="16" y="318.5" width="45" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="OUA-gl-Wgg"/>
+                                    <constraint firstAttribute="height" constant="30" id="S7I-nN-oC0"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="quantityTouched:" destination="68b-R6-fSw" eventType="valueChanged" id="K8R-bE-rEx"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nou-NH-qXK" firstAttribute="centerX" secondItem="xgJ-hK-KqI" secondAttribute="centerX" id="44P-g3-kse"/>
+                            <constraint firstItem="nou-NH-qXK" firstAttribute="leading" secondItem="xpq-v4-r4V" secondAttribute="leadingMargin" id="BD0-E7-0iO"/>
+                            <constraint firstItem="xgJ-hK-KqI" firstAttribute="width" secondItem="nou-NH-qXK" secondAttribute="width" id="JUR-VE-Ovb"/>
+                            <constraint firstItem="dSt-NI-QCr" firstAttribute="centerY" secondItem="xpq-v4-r4V" secondAttribute="centerY" id="OLb-eD-pc8"/>
+                            <constraint firstItem="dSt-NI-QCr" firstAttribute="leading" secondItem="xpq-v4-r4V" secondAttribute="leadingMargin" id="RNq-FS-2e7"/>
+                            <constraint firstItem="xgJ-hK-KqI" firstAttribute="height" secondItem="nou-NH-qXK" secondAttribute="height" id="UFS-4Y-uru"/>
+                            <constraint firstItem="nou-NH-qXK" firstAttribute="centerY" secondItem="xgJ-hK-KqI" secondAttribute="centerY" id="d0I-Qe-lI5"/>
+                            <constraint firstItem="nou-NH-qXK" firstAttribute="top" secondItem="qUP-5H-JlK" secondAttribute="bottom" id="kjs-S9-zhr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dSt-NI-QCr"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="quantityButton" destination="xgJ-hK-KqI" id="dFD-O0-HZP"/>
+                        <outlet property="quantityEntryView" destination="dSt-NI-QCr" id="pH3-Or-0Hl"/>
+                        <outlet property="quantityTextField" destination="nou-NH-qXK" id="wwX-Pb-IbW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meb-5p-dqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,7 +355,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyR-mP-4qE" customClass="CustomButton" customModule="TapList" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="40.5" width="70" height="21"/>
+                                            <rect key="frame" x="297" y="40" width="70" height="21"/>
                                             <color key="backgroundColor" red="0.99902635809999996" green="0.89185887580000001" blue="0.0009537830483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
@@ -982,7 +1035,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1OD-9I-Pss"/>
         <segue reference="S72-pj-xsK"/>
-        <segue reference="wh9-s1-rFo"/>
         <segue reference="R6S-P3-OCS"/>
+        <segue reference="wIQ-Es-RnF"/>
     </inferredMetricsTieBreakers>
 </document>
