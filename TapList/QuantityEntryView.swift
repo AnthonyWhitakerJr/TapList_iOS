@@ -48,6 +48,7 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
     }
     
     private func addSubviews() {
+        backgroundColor = .clear
         quantityButton = UIButton(type: .system)
         quantityTextField = QuantityTextField(frame: self.bounds)
         quantityTextField.actionDelegate = self
