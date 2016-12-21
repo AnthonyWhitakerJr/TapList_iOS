@@ -9,14 +9,13 @@
 import UIKit
 import Alamofire
 
-class CartItemTableViewCell: UITableViewCell, QuantityView {
+class CartItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var quantityButton: UIButton!
-    @IBOutlet weak var quantityTextField: QuantityTextField!
+    @IBOutlet weak var quantityEntryView: QuantityEntryView!
     @IBOutlet weak var offerPriceButton: UIButton!
     
     var delegate: CartCellDelegate?
@@ -32,7 +31,8 @@ class CartItemTableViewCell: UITableViewCell, QuantityView {
     func configureCell(cartItem: CartItem) {
         self.cartItem = cartItem
         
-        configureQuantityView(previousQuantity: cartItem.quantity)
+        quantityEntryView.configureQuantityView(previousQuantity: cartItem.quantity)
+        quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTapped(_:)), for: .touchUpInside)
         
         DataService.instance.product(for: cartItem.sku) { product in
             if let product = product {
@@ -93,11 +93,15 @@ class CartItemTableViewCell: UITableViewCell, QuantityView {
         delegate?.handleProductImageButtonTapped(product: product, sender: sender)
     }
     
-    @IBAction func quantityButtonTapped(_ sender: UIButton) {
-        delegate?.handleQuantityButtonTapped(sender)
+    func quantityButtonTapped(_ sender: UIButton) {
+        delegate?.handleQuantityButtonTapped(quantityEntryView: quantityEntryView, sender: sender)
+    }
+    
+    @IBAction func quantityUpdated(_ sender: QuantityEntryView) {
+        print("Quantity: \(sender.quantity)")
     }
 }
 
 protocol CartCellDelegate: ProductCellDelegate {
-    func handleQuantityButtonTapped(_ sender: UIButton)
+    func handleQuantityButtonTapped(quantityEntryView: QuantityEntryView, sender: UIButton)
 }

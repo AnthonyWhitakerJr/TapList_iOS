@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ProductDetailViewController: UIViewController, ProductView, QuantityView {
+class ProductDetailViewController: UIViewController, ProductView {
 
     @IBOutlet weak var productImageCollectionView: UICollectionView!
     @IBOutlet weak var specialInstructionTextView: PlaceholderTextView!
@@ -25,8 +25,7 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var cartQuantityLabel: UILabel!
     
-    @IBOutlet weak var quantityButton: UIButton!
-    @IBOutlet weak var quantityTextField: QuantityTextField!
+    @IBOutlet weak var quantityEntryView: QuantityEntryView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var keyboardHandler: KeyboardHandler!
@@ -76,19 +75,25 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
             }
         }
         
-        configureQuantityView(previousQuantity: quantityInCart)
+        quantityEntryView.configureQuantityView(previousQuantity: quantityInCart)
+        quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTouched(_:)), for: .touchUpInside)
     }
 
+    func quantityButtonTouched(_ sender: UIButton) {
+        performSegue(withIdentifier: "quantityPopover", sender: sender)
+    }
+    
+    
     @IBAction func updateCartPressed(_ sender: UIButton) {
         var specialInstructions: String? = nil
         if let newInstructions = specialInstructionTextView.text, !newInstructions.isEmpty {
             specialInstructions = newInstructions
         }
         
-        quantityInCart = quantity
+        quantityInCart = quantityEntryView.quantity
         updateCartQuantityLabel()
         
-        let cartItem = CartItem(sku: product.sku, quantity: quantity, specialInstructions: specialInstructions)
+        let cartItem = CartItem(sku: product.sku, quantity: quantityEntryView.quantity, specialInstructions: specialInstructions)
         DataService.instance.update(cartItem: cartItem)
         
 //        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
@@ -117,8 +122,8 @@ class ProductDetailViewController: UIViewController, ProductView, QuantityView {
                 return
             }
             
-            controller.delegate = self
-            controller.previousQuantity = quantityButton.currentTitle
+            controller.delegate = quantityEntryView
+            controller.previousQuantity = "\(quantityEntryView.quantity)"
             preparePopover(for: controller, sender: sender)
         } else if segue.identifier == "fullScreenImages" {
             guard let controller = segue.destination as? ProductImageCollectionViewController else {

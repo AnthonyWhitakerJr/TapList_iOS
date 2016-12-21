@@ -27,7 +27,7 @@ class TestViewController: UIViewController {
         quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTouched(_:)), for: .touchUpInside)
     }
     
-    @IBAction func quantityButtonTouched(_ sender: UIButton) {
+    func quantityButtonTouched(_ sender: UIButton) {
         performSegue(withIdentifier: "quantityPopover", sender: sender)
     }
     

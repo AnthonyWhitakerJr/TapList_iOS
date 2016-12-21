@@ -10,7 +10,9 @@ import UIKit
 
 class ManageCartTableViewController: UITableViewController {
 
+    var keyboardHandler: KeyboardHandler!
     var productForSegue: Product? // Certainly there is a better way of doing this...
+    var quantityEntryViewForSegue: QuantityEntryView?
     
     var cart: Cart {
         return DataService.instance.cart
@@ -23,9 +25,9 @@ class ManageCartTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
+        keyboardHandler = KeyboardHandler(contextView: self.view)
+        keyboardHandler.startDismissingKeyboardOnTap()
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -114,6 +116,7 @@ class ManageCartTableViewController: UITableViewController {
             }
             
             controller.product = productForSegue
+            self.productForSegue = nil
             preparePopover(for: controller, sender: sender)
         } else if segue.identifier == "productDetail" {
             guard let productForSegue = productForSegue else {
@@ -126,14 +129,20 @@ class ManageCartTableViewController: UITableViewController {
             }
             
             controller.product = productForSegue
+            self.productForSegue = nil
         } else if segue.identifier == "quantityPopover" {
+            guard let quantityEntryViewForSegue = quantityEntryViewForSegue else {
+                print("quantityEntryView not set before segue to QuantityTableViewController.")
+                return
+            }
             guard let controller = segue.destination as? QuantityTableViewController else {
                 print("improper controller for this segue")
                 return
             }
             
-//            controller.delegate = self
-//            controller.previousQuantity = quantityButton.currentTitle
+            controller.delegate = quantityEntryViewForSegue
+            controller.previousQuantity = "\(quantityEntryViewForSegue.quantity)"
+            self.quantityEntryViewForSegue = nil
             preparePopover(for: controller, sender: sender)
         }
     }
@@ -163,8 +172,9 @@ extension ManageCartTableViewController: CartCellDelegate {
         performSegue(withIdentifier: "productDetail", sender: sender)
     }
     
-    func handleQuantityButtonTapped(_ sender: UIButton) {
-//        performSegue(withIdentifier: "quantityPopover", sender: sender)
+    func handleQuantityButtonTapped(quantityEntryView: QuantityEntryView, sender: UIButton) {
+        quantityEntryViewForSegue = quantityEntryView
+        performSegue(withIdentifier: "quantityPopover", sender: sender)
     }
 }
 

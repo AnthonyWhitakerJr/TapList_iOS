@@ -108,4 +108,12 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
         super.prepareForInterfaceBuilder()
         quantityButton.setTitle("1", for: .normal)
     }
+    
+    override var forFirstBaselineLayout: UIView {
+        return quantityTextField.forFirstBaselineLayout
+    }
+    
+    override var forLastBaselineLayout: UIView {
+        return quantityTextField.forLastBaselineLayout
+    }
 }
