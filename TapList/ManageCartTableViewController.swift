@@ -176,6 +176,20 @@ extension ManageCartTableViewController: CartCellDelegate {
         quantityEntryViewForSegue = quantityEntryView
         performSegue(withIdentifier: "quantityPopover", sender: sender)
     }
+    
+    func handleQuantityUpdate(cell: CartItemTableViewCell, newQuantity: Int) {
+        let cartItem = CartItem(sku: cell.cartItem.sku, quantity: newQuantity, specialInstructions: cell.cartItem.specialInstructions)
+        DataService.instance.update(cartItem: cartItem) {
+            if newQuantity == 0 { // Item has been removed; easier to reload entire table.
+                self.tableView.reloadData()
+            } else {
+                // Reload only the updated cell & order summary
+                let indexpath = self.tableView.indexPath(for: cell)
+                let orderSummaryIndexPath = IndexPath(row: self.cartItems.count, section: indexpath!.section)
+                self.tableView.reloadRows(at: [indexpath!, orderSummaryIndexPath], with: .fade)
+            }
+        }
+    }
 }
 
 extension ManageCartTableViewController: UIPopoverPresentationControllerDelegate {

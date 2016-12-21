@@ -98,10 +98,11 @@ class CartItemTableViewCell: UITableViewCell {
     }
     
     @IBAction func quantityUpdated(_ sender: QuantityEntryView) {
-        print("Quantity: \(sender.quantity)")
+        delegate?.handleQuantityUpdate(cell: self, newQuantity: sender.quantity)
     }
 }
 
 protocol CartCellDelegate: ProductCellDelegate {
     func handleQuantityButtonTapped(quantityEntryView: QuantityEntryView, sender: UIButton)
+    func handleQuantityUpdate(cell: CartItemTableViewCell, newQuantity: Int)
 }

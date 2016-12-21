@@ -72,13 +72,17 @@ class DataService {
         }
     }
     
-    func update(cartItem: CartItem) {
+    func update(cartItem: CartItem, completion: (() -> ())? = nil) {
         let itemRef = DataService.ref.cart?.child("cartItems").child(cartItem.sku)
 
         if cartItem.quantity != 0 {
-            itemRef?.setValue(cartItem.asDictionary)
+            itemRef?.setValue(cartItem.asDictionary, withCompletionBlock: { error, ref in
+                completion?()
+            })
         } else {
-            itemRef?.removeValue()
+            itemRef?.removeValue(completionBlock: { error, ref in
+                completion?()
+            })
         }
     }
 
