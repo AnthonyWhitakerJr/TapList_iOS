@@ -17,24 +17,25 @@
 		164781197625A3149B3BDBCAA2AC8CC3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5949609B3E2E1BA18520D887571F009E /* Validation.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D67C553367971234CE8C67F24CDC7F3 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ED67707C258751E7888DAC2AB3D8501 /* GTMSessionFetcherLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D6D0389E3044C6A43E1F5D5F6ACB5F9 /* GTMSessionFetcherLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F7D1912D18F25106E503C592E61D8D4 /* Pods-TapListUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E82DEAC6B9F5693060A20B747CE4BF8B /* Pods-TapListUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F9B999DFAA1052294448B64C77434B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4690263E3C2DD3C24DEAC554FFBD486 /* Foundation.framework */; };
 		204944D67267632DD7CD4BEFB60AC389 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E5D69BDFD1C5318B8BC6F66ACFDEB6 /* Response.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		29FF8AB1F76B0AAADFD6D47FFDE55D7F /* Pods-TapListTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACBF41CD87D3119EBD3901507DB4F19 /* Pods-TapListTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B58B070F9D7324583D01EE906BC918C /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5FBC57B95B8C7CAB97B76A956C79B /* SessionManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2E0245E9799665685998A20B4A59AFD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4690263E3C2DD3C24DEAC554FFBD486 /* Foundation.framework */; };
 		2E9D3D0D9FF2B94293539ACC42041EBE /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9FC40D0BD3BFAC4BF3F7D1069D5D89 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		32CF9BB4493C89CB01FFADD6DB754927 /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E48327B5C7D6EF25B06B7EB4F6781C /* GoogleToolboxForMac-dummy.m */; };
 		343B30C989188B77FB1149FED753A63C /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361944259225AF64B5B651020BFF1296 /* ServerTrustPolicy.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		3798D1004E36E3C069C9EE00526D0345 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F8EB2C41A8CCC73206DD4756023AA4 /* GTMNSString+URLArguments.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3DCB1DFFBFCDEF0A95860264172A9315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4690263E3C2DD3C24DEAC554FFBD486 /* Foundation.framework */; };
+		3D18D93673D023E574BB21D179EB835E /* Pods-TapListTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C44D0FF83B3466467976A287354D2 /* Pods-TapListTests-dummy.m */; };
 		4F2AB5BFF7D9DE66B8B242ACE69AE0D9 /* GTMDebugThreadValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = D628F978D27733D7D868CF605CB20D47 /* GTMDebugThreadValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4FF45924EAD755097E02A69E8ED59995 /* GTMSessionFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 938F8BA409A7CD6764C3FA62F22DA00B /* GTMSessionFetcherService.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		51C276CC757E20047A747D42DECC732A /* GTMSessionFetcher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDBCF2AED88BA4DCAFBE772AFF11FE4 /* GTMSessionFetcher-dummy.m */; };
 		58812AABBC0A1E7AE019752424DF31A7 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28662ED866F5B528B04E49F7EDF88756 /* MultipartFormData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5E25BCD30BDE2E7A68D1A6FAF7253AD4 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91220F1B2210B92F7885E22EBAE21D99 /* DispatchQueue+Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		614A461C45522DEF386F0AC0B43AC787 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4690263E3C2DD3C24DEAC554FFBD486 /* Foundation.framework */; };
 		6540CC4D369A32F6DE54AFA8D5D6FAF9 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E4274C8F1541987E77C519EFFF7A1 /* Alamofire-dummy.m */; };
 		65B56BD3DBC9B81BB008219D0BA735A9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAFD15069DBFFAF7E7CD48183E2D230C /* Security.framework */; };
 		6898B9EBDC67DAB6F04E17EDEB179A1E /* GTMSessionUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEEC9333F36EB3C500E658C4DABF66D /* GTMSessionUploadFetcher.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6C6972B23F9A3976D47E431AA8B70037 /* Pods-TapListTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C44D0FF83B3466467976A287354D2 /* Pods-TapListTests-dummy.m */; };
 		78F4229B4A746A38341474FEB9DADB25 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DD58CD907602EDE85EAADA0E9CAF03 /* ParameterEncoding.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		8852FD9AFC242520924D98BE9C4E2477 /* GTMSessionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D58BE7091F80ACBFFEE58E6CABCB6F /* GTMSessionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F5C0849D2757FC5A7C81B81BA3813C3 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAB41E65BB2E595CC4685F7E8723403 /* ResponseSerialization.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -45,26 +46,39 @@
 		AD2C576F50E67B2417C1D17FBF5E32B2 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB691A76001D7F5429FCAA29F8C0DAE /* AFError.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		B05C496A6F67CE9F60DC711F402AB20A /* GTMDebugSelectorValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E88A90AE091FF2972162DDAB339B3B /* GTMDebugSelectorValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9A04CBBF007CB8AAF75D61C5EF4D81F /* GTMMethodCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 69139F0A626C1B4DD401E05FF081E23B /* GTMMethodCheck.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFD33585ADC168B3EE9BB92D6B6CF25A /* Pods-TapListUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E82DEAC6B9F5693060A20B747CE4BF8B /* Pods-TapListUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C34E24520624B382515A0F58185E6926 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = A84E92398E974F1CBFCBB72E04D91EF4 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5FD57751548EFFA6567AFD2EB47CD56 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF8F3545CC594B62E2618566ABD9B5 /* Request.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C94EB5CD058F3FC8356777764C8D2D71 /* Pods-TapList-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BF24E6263AC3D439C46CD150D0B4CC /* Pods-TapList-dummy.m */; };
 		D28734EDC84B2A7FBC4D5DCF95177BF8 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = C57AA669FA846DF79513B3C8DDEC0E6C /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F381B45ADFDDE51CA31F1E141236CA /* GTMSessionFetcher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B1665A1F09EE041BEE70C41DC6F6D61 /* GTMSessionFetcher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D565EFC8DC702E60487DDBC043A8B9D0 /* Pods-TapListUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F114FF44EDD637949B28B9839203B687 /* Pods-TapListUITests-dummy.m */; };
 		D5686072DEC1A0E14F8C100FCC873F73 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3300149E609A402DC6E86AB383AA49B6 /* TaskDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DA23A15F188748B9A7372DC64024215F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4690263E3C2DD3C24DEAC554FFBD486 /* Foundation.framework */; };
 		DA2F5A299DC9A8ECC5F73A66172E64BC /* GTMNSString+URLArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 83BC5A3F10D4DE8A1A115163421022B7 /* GTMNSString+URLArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF9559C3822E3C6119BE43E4EDFD7EEE /* GTMSessionFetcherService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4868549713336AD33F6878A076D68016 /* GTMSessionFetcherService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E198F398404F07805E5189165F3C1E64 /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142E2B4414ED010B0F40B958C3C5A07 /* Timeline.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EADB177D23624226C580351200E9C5C1 /* Pods-TapListTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACBF41CD87D3119EBD3901507DB4F19 /* Pods-TapListTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBA0781A1E2822CF7DFD56ACD394A63E /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4FC6CC0322C6E2BFF6E983826BF4 /* Alamofire.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		ED5337FE5DCA0343B7E085524A87C847 /* Pods-TapListUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F114FF44EDD637949B28B9839203B687 /* Pods-TapListUITests-dummy.m */; };
 		F09EDD53B94234F5F8DAC4DCD5CD969E /* GTMSessionUploadFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A29E9B186AE9C6E20AB95EDE4B2A57E /* GTMSessionUploadFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1670E8CE4C40D9ED46A5B6BD8ACEDAA /* GTMSessionFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F3B62C6F6E8B6F0BB8BC2BF8AD6A9 /* GTMSessionFetcherLogging.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		FD9AC9B3BEEDD0756C2B3F305BF997BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4690263E3C2DD3C24DEAC554FFBD486 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		10CD78A118411A9248E1F676A179CEF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 107A9565F9DF88517DFD3E28C05B2B96;
+			remoteInfo = GoogleToolboxForMac;
+		};
 		18244196EFB03AE915DAEEF98F7228AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C052BEBFBD0AB5218CC64BA3450F6547;
+			remoteInfo = GTMSessionFetcher;
+		};
+		22086DC3F8C13AA3942DED220030B995 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -78,12 +92,40 @@
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
 		};
+		A696C0354CC338BDEA70784678718817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C052BEBFBD0AB5218CC64BA3450F6547;
+			remoteInfo = GTMSessionFetcher;
+		};
 		BD562AE14B02FC28D51C3006D6613FE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 107A9565F9DF88517DFD3E28C05B2B96;
 			remoteInfo = GoogleToolboxForMac;
+		};
+		C65FC3CA48DAFA233407B55EC0A4BAFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 107A9565F9DF88517DFD3E28C05B2B96;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		CEC1FF59AD2951982A2D08E51973D41D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
+		F11A4314FE66A509F693C77317DA0EBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -192,11 +234,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4D4A37820E37094CF18ABA77E0DFDFFC /* Frameworks */ = {
+		1BE81CF50E34B5F29482C0C29E30DE66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				614A461C45522DEF386F0AC0B43AC787 /* Foundation.framework in Frameworks */,
+				2E0245E9799665685998A20B4A59AFD7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,11 +275,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE4B241F7348FB3DECCFCF6781AFD6A1 /* Frameworks */ = {
+		C1DB6D9D5CA5D0ED09F05EF3D6126824 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DCB1DFFBFCDEF0A95860264172A9315 /* Foundation.framework in Frameworks */,
+				DA23A15F188748B9A7372DC64024215F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +701,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0C5C3B1924E2007890BD1CC41C257E6F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FF8AB1F76B0AAADFD6D47FFDE55D7F /* Pods-TapListTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F4143713A5BA42AC37E071FE0F7F51 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F7D1912D18F25106E503C592E61D8D4 /* Pods-TapListUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82D993B88C10479096F17ADDEAB85D94 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -676,14 +734,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B381A000EF28EB3A9473721F65A2571 /* Pods-TapList-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A3C7CFDC9DD92A301FAC164272E2B730 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BFD33585ADC168B3EE9BB92D6B6CF25A /* Pods-TapListUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,14 +760,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9F8839DADF76CFDA033C4698AEF2B8B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EADB177D23624226C580351200E9C5C1 /* Pods-TapListTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -738,6 +780,26 @@
 			productReference = 30626753B1FC8A6D0E4878EE16886701 /* GoogleToolboxForMac.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		353C3B78B9D22D65FFC781AC86B8EBC8 /* Pods-TapListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2FBA33A9C95CA64ED779288634D0E8A /* Build configuration list for PBXNativeTarget "Pods-TapListTests" */;
+			buildPhases = (
+				FBBF4CF18D98FE0F3A0A89E34A741003 /* Sources */,
+				1BE81CF50E34B5F29482C0C29E30DE66 /* Frameworks */,
+				0C5C3B1924E2007890BD1CC41C257E6F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B18885D73E64BEAF38EB2BCBE8FD126 /* PBXTargetDependency */,
+				9DDAEDA6506F27A9700BB888198088C9 /* PBXTargetDependency */,
+				A0AC779836588E3B5542E87558D17705 /* PBXTargetDependency */,
+			);
+			name = "Pods-TapListTests";
+			productName = "Pods-TapListTests";
+			productReference = 48A37FEC30B5A4BDB9DC93FEE2F1576C /* Pods_TapListTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		6133289DE2D386C0F4A2FDC4F838E1C4 /* Pods-TapList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA98F7B5AA93492F8D2B267ACE37E5C8 /* Build configuration list for PBXNativeTarget "Pods-TapList" */;
@@ -756,6 +818,26 @@
 			name = "Pods-TapList";
 			productName = "Pods-TapList";
 			productReference = FF4C21B36C3A464207082A06E2FA68CB /* Pods_TapList.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7B54131379BB59967ECB243816A6BB22 /* Pods-TapListUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B960E37A4FA2BE8D1E95C0FE37F6B07 /* Build configuration list for PBXNativeTarget "Pods-TapListUITests" */;
+			buildPhases = (
+				A407E8626BE1D6B2F182B29FAA44302F /* Sources */,
+				C1DB6D9D5CA5D0ED09F05EF3D6126824 /* Frameworks */,
+				22F4143713A5BA42AC37E071FE0F7F51 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09676AACC81E191B1EDC25C5EA996441 /* PBXTargetDependency */,
+				5D773C98072DD052872049BC0C984197 /* PBXTargetDependency */,
+				8FB00B26907FA0F79B86B82F2462DFFA /* PBXTargetDependency */,
+			);
+			name = "Pods-TapListUITests";
+			productName = "Pods-TapListUITests";
+			productReference = 3B744A96505F52108237262A83577912 /* Pods_TapListUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */ = {
@@ -792,40 +874,6 @@
 			productReference = 1561E10581A9D5C96229C2B1755C81FD /* GTMSessionFetcher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E6ECD7CDCA6F5AC5219BB31E5560F9F7 /* Pods-TapListUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AFA906686588BD2FB93655738B3E6133 /* Build configuration list for PBXNativeTarget "Pods-TapListUITests" */;
-			buildPhases = (
-				8EF2BDA822DEEFC2E4427EF454B51E7B /* Sources */,
-				4D4A37820E37094CF18ABA77E0DFDFFC /* Frameworks */,
-				A3C7CFDC9DD92A301FAC164272E2B730 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-TapListUITests";
-			productName = "Pods-TapListUITests";
-			productReference = 3B744A96505F52108237262A83577912 /* Pods_TapListUITests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		F5E8D8103B9BC8E0BA3F08575122136B /* Pods-TapListTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 36320B577AE1938562B8A402BF566287 /* Build configuration list for PBXNativeTarget "Pods-TapListTests" */;
-			buildPhases = (
-				02C5316BC0024A6F3466A5DED85AD572 /* Sources */,
-				AE4B241F7348FB3DECCFCF6781AFD6A1 /* Frameworks */,
-				F9F8839DADF76CFDA033C4698AEF2B8B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-TapListTests";
-			productName = "Pods-TapListTests";
-			productReference = 48A37FEC30B5A4BDB9DC93FEE2F1576C /* Pods_TapListTests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -851,21 +899,13 @@
 				107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */,
 				C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */,
 				6133289DE2D386C0F4A2FDC4F838E1C4 /* Pods-TapList */,
-				F5E8D8103B9BC8E0BA3F08575122136B /* Pods-TapListTests */,
-				E6ECD7CDCA6F5AC5219BB31E5560F9F7 /* Pods-TapListUITests */,
+				353C3B78B9D22D65FFC781AC86B8EBC8 /* Pods-TapListTests */,
+				7B54131379BB59967ECB243816A6BB22 /* Pods-TapListUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		02C5316BC0024A6F3466A5DED85AD572 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C6972B23F9A3976D47E431AA8B70037 /* Pods-TapListTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		222F0DC2D2D238CAB82346DE258E5472 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -914,11 +954,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8EF2BDA822DEEFC2E4427EF454B51E7B /* Sources */ = {
+		A407E8626BE1D6B2F182B29FAA44302F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED5337FE5DCA0343B7E085524A87C847 /* Pods-TapListUITests-dummy.m in Sources */,
+				D565EFC8DC702E60487DDBC043A8B9D0 /* Pods-TapListUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,20 +970,64 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBBF4CF18D98FE0F3A0A89E34A741003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D18D93673D023E574BB21D179EB835E /* Pods-TapListTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		09676AACC81E191B1EDC25C5EA996441 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = CEC1FF59AD2951982A2D08E51973D41D /* PBXContainerItemProxy */;
+		};
+		0B18885D73E64BEAF38EB2BCBE8FD126 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = F11A4314FE66A509F693C77317DA0EBE /* PBXContainerItemProxy */;
+		};
 		5A348112CAF2021D0CC1F9BB0CB12B1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleToolboxForMac;
 			target = 107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */;
 			targetProxy = BD562AE14B02FC28D51C3006D6613FE9 /* PBXContainerItemProxy */;
 		};
+		5D773C98072DD052872049BC0C984197 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */;
+			targetProxy = 22086DC3F8C13AA3942DED220030B995 /* PBXContainerItemProxy */;
+		};
 		7F8AE76C38EB0748C3754C6C7BA07E1E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GTMSessionFetcher;
 			target = C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */;
 			targetProxy = 18244196EFB03AE915DAEEF98F7228AD /* PBXContainerItemProxy */;
+		};
+		8FB00B26907FA0F79B86B82F2462DFFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = 107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */;
+			targetProxy = 10CD78A118411A9248E1F676A179CEF4 /* PBXContainerItemProxy */;
+		};
+		9DDAEDA6506F27A9700BB888198088C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GTMSessionFetcher;
+			target = C052BEBFBD0AB5218CC64BA3450F6547 /* GTMSessionFetcher */;
+			targetProxy = A696C0354CC338BDEA70784678718817 /* PBXContainerItemProxy */;
+		};
+		A0AC779836588E3B5542E87558D17705 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = 107A9565F9DF88517DFD3E28C05B2B96 /* GoogleToolboxForMac */;
+			targetProxy = C65FC3CA48DAFA233407B55EC0A4BAFB /* PBXContainerItemProxy */;
 		};
 		B521632EFDE59E84511099F60DCEAB32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1030,6 +1114,42 @@
 			};
 			name = Debug;
 		};
+		3440874EEE1A31928FCFF5A20DA1323A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43544077E2EFE8892A0B9D296698CC28 /* Pods-TapListUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TapListUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapListUITests/Pods-TapListUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TapListUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		3AF861AEADA89A377F12178D493BED95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E1B277673B6BF692B9685FC4CD39510 /* GoogleToolboxForMac.xcconfig */;
@@ -1097,76 +1217,6 @@
 			};
 			name = Release;
 		};
-		5F9AFF5EB6B80C72CB5ADE8C5DC29482 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A4C1E843EBC7E0A93D1B6639BCAB50C /* Pods-TapListTests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TapListTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TapListTests/Pods-TapListTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TapListTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6AA97A7155858991FE8E71A84490F33D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43544077E2EFE8892A0B9D296698CC28 /* Pods-TapListUITests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TapListUITests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TapListUITests/Pods-TapListUITests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TapListUITests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		881B19BB9961D509DACE94450066151E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E1B277673B6BF692B9685FC4CD39510 /* GoogleToolboxForMac.xcconfig */;
@@ -1199,7 +1249,42 @@
 			};
 			name = Release;
 		};
-		AC8F901345E620D2774B3D350C41A773 /* Release */ = {
+		9F1BC70F09132C07F35EA3311F3D87A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FBFBBB57674E4C1AEC83D4F8FFB1038 /* Pods-TapListTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TapListTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TapListTests/Pods-TapListTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TapListTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A80AE8451806F1C05CEC35CD363B7864 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E44A75BE0654E08968CE4EBDFB557AF /* Pods-TapListUITests.release.xcconfig */;
 			buildSettings = {
@@ -1234,15 +1319,15 @@
 			};
 			name = Release;
 		};
-		AD8A99120E910A65DDC38DE9B00560F7 /* Release */ = {
+		B5D72012DA1DD83D66F147CB107F2E2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FBFBBB57674E4C1AEC83D4F8FFB1038 /* Pods-TapListTests.release.xcconfig */;
+			baseConfigurationReference = 3A4C1E843EBC7E0A93D1B6639BCAB50C /* Pods-TapListTests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1255,7 +1340,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-TapListTests/Pods-TapListTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1263,11 +1348,12 @@
 				PRODUCT_NAME = Pods_TapListTests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		B9C7324D0ADEABED7BC7B2D9C608C5E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1445,6 +1531,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B960E37A4FA2BE8D1E95C0FE37F6B07 /* Build configuration list for PBXNativeTarget "Pods-TapListUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3440874EEE1A31928FCFF5A20DA1323A /* Debug */,
+				A80AE8451806F1C05CEC35CD363B7864 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1459,15 +1554,6 @@
 			buildConfigurations = (
 				3AF861AEADA89A377F12178D493BED95 /* Debug */,
 				881B19BB9961D509DACE94450066151E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		36320B577AE1938562B8A402BF566287 /* Build configuration list for PBXNativeTarget "Pods-TapListTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F9AFF5EB6B80C72CB5ADE8C5DC29482 /* Debug */,
-				AD8A99120E910A65DDC38DE9B00560F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1490,20 +1576,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFA906686588BD2FB93655738B3E6133 /* Build configuration list for PBXNativeTarget "Pods-TapListUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6AA97A7155858991FE8E71A84490F33D /* Debug */,
-				AC8F901345E620D2774B3D350C41A773 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D7CC8559AB6F51830204F1A9CE54BF3E /* Build configuration list for PBXNativeTarget "GTMSessionFetcher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9C7324D0ADEABED7BC7B2D9C608C5E0 /* Debug */,
 				ED969C86CBBA712335D5E741625E75B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2FBA33A9C95CA64ED779288634D0E8A /* Build configuration list for PBXNativeTarget "Pods-TapListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5D72012DA1DD83D66F147CB107F2E2A /* Debug */,
+				9F1BC70F09132C07F35EA3311F3D87A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
