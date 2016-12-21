@@ -14,6 +14,9 @@ class PlaceholderTextView: UITextView {
     
     private(set) var placeholder: PlaceholderLabel!
     
+    /// Strong reference to custom delegate.
+    private let _delegate = PlaceholderTextViewDelegate()
+
     @IBInspectable var placeHolderText: String? {
         get {
             return placeholder.text
@@ -28,14 +31,14 @@ class PlaceholderTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         placeholder = PlaceholderLabel(textView: self)
         setBorder()
-        self.delegate = PlaceholderTextViewDelegate()
+        self.delegate = _delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         placeholder = PlaceholderLabel(textView: self)
         setBorder()
-        self.delegate = PlaceholderTextViewDelegate()
+        self.delegate = _delegate
     }
     
     private func setBorder() {
@@ -66,10 +69,8 @@ class PlaceholderTextViewDelegate: NSObject, UITextViewDelegate {
 }
 
 class PlaceholderLabel: UILabel {
-    let textView: PlaceholderTextView
     
     init(textView: PlaceholderTextView) {
-        self.textView = textView
         super.init(frame: CGRect(x: 5, y: (textView.font?.pointSize)! / 2, width: textView.frame.width - 10, height: textView.frame.height - (textView.font?.pointSize)!))
         self.numberOfLines = 0
         self.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)

@@ -8,10 +8,19 @@
 
 import UIKit
 
-class QuantityTextField: UITextField {
+class QuantityTextField: UITextField, UITextFieldDelegate {
 
+    /// Strong reference to custom delegate.
+    private let _delegate = QuantityTextFieldDelegate()
+    
     var actionDelegate: QuantityTextFieldActionDelegate? {
-        didSet {
+        get{
+            if let delegate = delegate as? QuantityTextFieldDelegate {
+                return delegate.actionDelegate
+            }
+            return nil
+        }
+        set {
             if let delegate = delegate as? QuantityTextFieldDelegate {
                 delegate.actionDelegate = actionDelegate
             }
@@ -20,17 +29,17 @@ class QuantityTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = QuantityTextFieldDelegate()
+        self.delegate = _delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.delegate = QuantityTextFieldDelegate()
+        self.delegate = _delegate
     }
 }
 
 class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
-    
+
     var actionDelegate: QuantityTextFieldActionDelegate?
     
     /// Restricts input to 2 or less numbers (0 - 99).
