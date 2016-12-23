@@ -46,6 +46,8 @@
 		92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE0B1DF488CB00D26606 /* Product.swift */; };
 		92E0AE0F1DF4898100D26606 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE0E1DF4898100D26606 /* ImageService.swift */; };
 		92EF65091E01F448008B842B /* QuantityViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF65081E01F448008B842B /* QuantityViewDataSource.swift */; };
+		92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73031E0CC8430025962A /* CartItemTests.swift */; };
+		92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73051E0DDFE30025962A /* TestUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		92E0AE0B1DF488CB00D26606 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		92E0AE0E1DF4898100D26606 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		92EF65081E01F448008B842B /* QuantityViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityViewDataSource.swift; sourceTree = "<group>"; };
+		92FD73031E0CC8430025962A /* CartItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTests.swift; sourceTree = "<group>"; };
+		92FD73051E0DDFE30025962A /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		96956E28DCDF7071483BD03A /* Pods-TapList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapList.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapList/Pods-TapList.release.xcconfig"; sourceTree = "<group>"; };
 		D5B0C5438C72B7AF3C225A83 /* Pods-TapListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapListTests/Pods-TapListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -222,6 +226,8 @@
 			children = (
 				92E0ADEC1DF468F000D26606 /* TapListTests.swift */,
 				92E0ADEE1DF468F000D26606 /* Info.plist */,
+				92FD73031E0CC8430025962A /* CartItemTests.swift */,
+				92FD73051E0DDFE30025962A /* TestUtils.swift */,
 			);
 			path = TapListTests;
 			sourceTree = "<group>";
@@ -610,6 +616,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */,
+				92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */,
 				92E0ADED1DF468F000D26606 /* TapListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

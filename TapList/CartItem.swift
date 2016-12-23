@@ -14,6 +14,8 @@ class CartItem {
     var quantity: Int
     var specialInstructions: String?
     
+    unowned var dataService = DataService.instance
+    
     var asDictionary: Dictionary<String, Any> {
         var result: Dictionary<String, Any> = [
             DataKey.quantity.rawValue: quantity
@@ -55,7 +57,7 @@ class CartItem {
     
     // Fetches most up-to-date price for this item.
     func unitPrice(completion: @escaping (Double, UnitPriceType) -> ()) {
-        DataService.instance.product(for: sku, completion: { product in
+        self.dataService.product(for: sku, completion: { product in
             if let product = product {
                 if let offerPrice = product.offerPrice {
                     completion(offerPrice, UnitPriceType.offerPrice)
@@ -72,13 +74,20 @@ class CartItem {
             completion(result)
         }
     }
-    
-    
 
 }
 
 extension CartItem: CustomStringConvertible {
     var description: String {
         return "sku: \(sku), quantity: \(quantity), specialInstructions: \(specialInstructions)"
+    }
+}
+
+extension CartItem: Equatable {
+    static func ==(lhs: CartItem, rhs: CartItem) -> Bool {
+        return lhs.sku == rhs.sku &&
+            lhs.quantity == rhs.quantity &&
+            lhs.specialInstructions == rhs.specialInstructions
+        
     }
 }
