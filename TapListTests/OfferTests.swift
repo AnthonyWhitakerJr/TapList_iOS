@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import TapList
 
 class OfferTests: XCTestCase {
     
