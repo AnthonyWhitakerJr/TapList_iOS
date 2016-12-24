@@ -79,3 +79,9 @@ class Product {
         }
     }
 }
+
+extension Product: CustomStringConvertible {
+    var description: String {
+        return "SKU: \(sku), Name: \(name), List Price: \(listPrice)"
+    }
+}

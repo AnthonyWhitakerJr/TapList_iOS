@@ -49,6 +49,7 @@
 		92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73031E0CC8430025962A /* CartItemTests.swift */; };
 		92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73051E0DDFE30025962A /* TestUtils.swift */; };
 		92FD730A1E0E50950025962A /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73091E0E50950025962A /* MockDataService.swift */; };
+		92FD730C1E0E52460025962A /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD730B1E0E52460025962A /* CartTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		92FD73031E0CC8430025962A /* CartItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTests.swift; sourceTree = "<group>"; };
 		92FD73051E0DDFE30025962A /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		92FD73091E0E50950025962A /* MockDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
+		92FD730B1E0E52460025962A /* CartTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		96956E28DCDF7071483BD03A /* Pods-TapList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapList.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapList/Pods-TapList.release.xcconfig"; sourceTree = "<group>"; };
 		D5B0C5438C72B7AF3C225A83 /* Pods-TapListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapListTests/Pods-TapListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,11 +228,11 @@
 		92E0ADEB1DF468F000D26606 /* TapListTests */ = {
 			isa = PBXGroup;
 			children = (
+				92FD730D1E0E5C1E0025962A /* Mock */,
+				92FD730E1E0E5C390025962A /* Model Tests */,
 				92E0ADEC1DF468F000D26606 /* TapListTests.swift */,
+				92FD730F1E0E5C5D0025962A /* Util */,
 				92E0ADEE1DF468F000D26606 /* Info.plist */,
-				92FD73031E0CC8430025962A /* CartItemTests.swift */,
-				92FD73091E0E50950025962A /* MockDataService.swift */,
-				92FD73051E0DDFE30025962A /* TestUtils.swift */,
 			);
 			path = TapListTests;
 			sourceTree = "<group>";
@@ -282,6 +284,31 @@
 				926D89CF1DFA24E500C0E26C /* DataService.swift */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		92FD730D1E0E5C1E0025962A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				92FD73091E0E50950025962A /* MockDataService.swift */,
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
+		92FD730E1E0E5C390025962A /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				92FD730B1E0E52460025962A /* CartTests.swift */,
+				92FD73031E0CC8430025962A /* CartItemTests.swift */,
+			);
+			name = "Model Tests";
+			sourceTree = "<group>";
+		};
+		92FD730F1E0E5C5D0025962A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				92FD73051E0DDFE30025962A /* TestUtils.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 		9C82A0696EDD525A26352360 /* Pods */ = {
@@ -623,6 +650,7 @@
 				92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */,
 				92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */,
 				92E0ADED1DF468F000D26606 /* TapListTests.swift in Sources */,
+				92FD730C1E0E52460025962A /* CartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
