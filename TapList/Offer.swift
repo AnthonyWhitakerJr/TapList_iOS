@@ -43,6 +43,8 @@ class Offer {
         self.offerShortDescription = offerShortDescription
     }
     
+    /// Creates a `Offer` from a dictionary.
+    /// - returns: A `Offer` with given product sku, based on given dictionary.
     convenience init?(productSku: String, data: Dictionary<String, Any>) {
         let endDate = data[DataKey.endDate.rawValue] as? String
         let offerTypeString = data[DataKey.offerType.rawValue] as? String
