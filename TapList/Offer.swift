@@ -25,7 +25,7 @@ class Offer {
     }
     
     var productSku: String
-    var endDate: String? // TODO: Change to Date. 
+    var endDate: String? // TODO: Change to Date.
     var offerType: OfferType?
     var offerQuantity: Int?
     var stringDivider: String? // Is this needed? Hard-code?
@@ -54,7 +54,7 @@ class Offer {
         
         var offerType: OfferType? = nil
         if let offerTypeString = offerTypeString {
-             offerType = OfferType(rawValue: offerTypeString)
+            offerType = OfferType(rawValue: offerTypeString)
         }
         
         let offerQuantity = data[DataKey.offerQuantity.rawValue] as? Int
@@ -65,5 +65,5 @@ class Offer {
         self.init(productSku: productSku, endDate: endDate, offerType: offerType, offerQuantity: offerQuantity,
                   offerPriceTitle: offerPriceTitle, offerDescription: offerDescription, offerShortDescription: offerShortDescription)
     }
-
+    
 }

@@ -38,9 +38,9 @@ class Product {
     }
     
     init(sku: String, name: String,
-                     listPrice: Double, offerPrice: Double? = nil,
-                     detail: String,
-                     soldBy: SoldBy? = nil, orderBy: OrderBy? = nil) {
+         listPrice: Double, offerPrice: Double? = nil,
+         detail: String,
+         soldBy: SoldBy? = nil, orderBy: OrderBy? = nil) {
         self.sku = sku
         self.name = name
         self.listPrice = listPrice
@@ -67,8 +67,7 @@ class Product {
         if let orderByString = orderByString {
             orderBy = OrderBy(rawValue: orderByString)
         }
-
-
+        
         if let name = name, let listPrice = listPrice, let detail = detail {
             self.init(sku: sku, name: name,
                       listPrice: listPrice, offerPrice: offerPrice,

@@ -50,6 +50,8 @@
 		92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73051E0DDFE30025962A /* TestUtils.swift */; };
 		92FD730A1E0E50950025962A /* MockDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73091E0E50950025962A /* MockDataService.swift */; };
 		92FD730C1E0E52460025962A /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD730B1E0E52460025962A /* CartTests.swift */; };
+		92FD73111E0E77CB0025962A /* OfferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73101E0E77CB0025962A /* OfferTests.swift */; };
+		92FD73131E0E77DF0025962A /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD73121E0E77DF0025962A /* ProductTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		92FD73051E0DDFE30025962A /* TestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		92FD73091E0E50950025962A /* MockDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDataService.swift; sourceTree = "<group>"; };
 		92FD730B1E0E52460025962A /* CartTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
+		92FD73101E0E77CB0025962A /* OfferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTests.swift; sourceTree = "<group>"; };
+		92FD73121E0E77DF0025962A /* ProductTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
 		96956E28DCDF7071483BD03A /* Pods-TapList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapList.release.xcconfig"; path = "Pods/Target Support Files/Pods-TapList/Pods-TapList.release.xcconfig"; sourceTree = "<group>"; };
 		D5B0C5438C72B7AF3C225A83 /* Pods-TapListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TapListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TapListTests/Pods-TapListTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,6 +303,8 @@
 			children = (
 				92FD730B1E0E52460025962A /* CartTests.swift */,
 				92FD73031E0CC8430025962A /* CartItemTests.swift */,
+				92FD73101E0E77CB0025962A /* OfferTests.swift */,
+				92FD73121E0E77DF0025962A /* ProductTests.swift */,
 			);
 			name = "Model Tests";
 			sourceTree = "<group>";
@@ -648,8 +654,10 @@
 			files = (
 				92FD730A1E0E50950025962A /* MockDataService.swift in Sources */,
 				92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */,
+				92FD73131E0E77DF0025962A /* ProductTests.swift in Sources */,
 				92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */,
 				92E0ADED1DF468F000D26606 /* TapListTests.swift in Sources */,
+				92FD73111E0E77CB0025962A /* OfferTests.swift in Sources */,
 				92FD730C1E0E52460025962A /* CartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
