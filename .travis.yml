@@ -3,3 +3,4 @@ osx_image: xcode8.2
 xcode_workspace: TapList.xcworkspace
 xcode_scheme: TapList
 xcode_sdk: iphonesimulator10.1
+script: xcodebuild test -workspace TapList.xcworkspace -scheme TapList -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
