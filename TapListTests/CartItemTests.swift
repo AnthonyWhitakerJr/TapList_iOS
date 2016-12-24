@@ -19,8 +19,8 @@ class CartItemTests: XCTestCase {
         let cartItem = CartItem(sku: sku, quantity: quantity, specialInstructions: specialInstructions)
         
         var expected: Dictionary<String, Any> = [CartItem.DataKey.quantity.rawValue: quantity,
-                        CartItem.DataKey.specialInstructions.rawValue: specialInstructions]
-
+                                                 CartItem.DataKey.specialInstructions.rawValue: specialInstructions]
+        
         assertEqual(expected, cartItem.asDictionary)
         
         expected = [CartItem.DataKey.quantity.rawValue: quantity]
@@ -77,14 +77,61 @@ class CartItemTests: XCTestCase {
         XCTAssertEqual(expected, cartItem)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testUnitPrice1() {
+        let dataService = MockDataService()
+        let cartItem = CartItem(sku: "0001234567890", quantity: 6)
+        cartItem.dataService = dataService
+        
+        let contract = expectation(description: "Unit Price")
+        cartItem.unitPrice { (price, priceType) in
+            XCTAssertEqual(4.99, price)
+            XCTAssertEqual(CartItem.UnitPriceType.listPrice, priceType)
+            contract.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("Unit price took too long! \(error)")
+            }
         }
     }
-
     
+    func testUnitPrice2() {
+        let dataService = MockDataService()
+        let cartItem = CartItem(sku: "0009876543210", quantity: 4)
+        cartItem.dataService = dataService
+        
+        let contract = expectation(description: "Unit Price")
+        cartItem.unitPrice { (price, priceType) in
+            XCTAssertEqual(1.99, price)
+            XCTAssertEqual(CartItem.UnitPriceType.offerPrice, priceType)
+            contract.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("Unit price took too long! \(error)")
+            }
+        }
+    }
+    
+    func testItemTotal() {
+        let dataService = MockDataService()
+        let cartItem = CartItem(sku: "0001234567890", quantity: 6)
+        cartItem.dataService = dataService
+        
+        let contract = expectation(description: "Unit Price")
+        cartItem.itemTotal { total in
+            XCTAssertEqual(29.94, total)
+            contract.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1) { error in
+            if let error = error {
+                XCTFail("Item total took too long! \(error)")
+            }
+        }
+    }
     
 }
 
