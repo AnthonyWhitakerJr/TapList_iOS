@@ -24,7 +24,7 @@ class CartTests: XCTestCase {
                              cartItem3.sku: cartItem3]
     }
     
-    func testConvenienceInit1() {
+    func testConvenienceInit() {
         var dict = Dictionary<String, Dictionary<String, Any>>()
         for (sku, item) in expectedCartItems {
             dict[sku] = item.asDictionary
@@ -35,12 +35,12 @@ class CartTests: XCTestCase {
         XCTAssertEqual(expectedCartItems, cart.cartItems)
     }
     
-    func testConvenienceInit2() {
+    func testConvenienceInit_malformedData1() {
         let cart = Cart(data: expectedCartItems)
         XCTAssertTrue(cart.cartItems.isEmpty)
     }
     
-    func testConvenienceInit3() {
+    func testConvenienceInit_malformedData2() {
         var data = Dictionary<String, Dictionary<String, Any>>()
         for (sku, item) in expectedCartItems {
             data[sku] = item.asDictionary

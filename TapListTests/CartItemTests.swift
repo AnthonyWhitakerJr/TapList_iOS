@@ -11,7 +11,7 @@ import XCTest
 
 class CartItemTests: XCTestCase {
     
-    func testAsDictionary1() {
+    func testAsDictionary() {
         let sku = "00012345678900"
         let quantity = 4
         let specialInstructions = "Do the Hokey Pokey."
@@ -27,7 +27,7 @@ class CartItemTests: XCTestCase {
         assertNotEqual(expected, cartItem.asDictionary)
     }
     
-    func testAsDictionary2() {
+    func testAsDictionary_noSpecialInstructions() {
         let sku = "00012345678900"
         let quantity = 4
         
@@ -38,7 +38,7 @@ class CartItemTests: XCTestCase {
         assertEqual(expected, cartItem.asDictionary)
     }
     
-    func testConvenienceInit1() {
+    func testConvenienceInit() {
         let sku = "00012345678900"
         let quantity = 4
         let specialInstructions = "Do the Hokey Pokey."
@@ -53,7 +53,7 @@ class CartItemTests: XCTestCase {
         XCTAssertEqual(expected, cartItem)
     }
     
-    func testConvenienceInit2() {
+    func testConvenienceInit_noQuantity() {
         let sku = "00012345678900"
         let specialInstructions = "Do the Hokey Pokey."
         
@@ -64,7 +64,7 @@ class CartItemTests: XCTestCase {
         XCTAssertNil(cartItem)
     }
     
-    func testConvenienceInit3() {
+    func testConvenienceInit_noSpecialInstructions() {
         let sku = "00012345678900"
         let quantity = 4
         
@@ -77,7 +77,7 @@ class CartItemTests: XCTestCase {
         XCTAssertEqual(expected, cartItem)
     }
     
-    func testUnitPrice1() {
+    func testUnitPrice_listPrice() {
         let dataService = MockDataService()
         let cartItem = CartItem(sku: "0001234567890", quantity: 6)
         cartItem.dataService = dataService
@@ -96,7 +96,7 @@ class CartItemTests: XCTestCase {
         }
     }
     
-    func testUnitPrice2() {
+    func testUnitPrice_offerPrice() {
         let dataService = MockDataService()
         let cartItem = CartItem(sku: "0009876543210", quantity: 4)
         cartItem.dataService = dataService
