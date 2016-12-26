@@ -1,5 +1,6 @@
-# TapList_iOS ![Build Badge](https://travis-ci.org/AnthonyWhitakerJr/TapList_iOS.svg)
-
+# TapList_iOS 
+![Build Badge](https://travis-ci.org/AnthonyWhitakerJr/TapList_iOS.svg)
+[![codecov](https://codecov.io/gh/AnthonyWhitakerJr/TapList_iOS/branch/master/graph/badge.svg)](https://codecov.io/gh/AnthonyWhitakerJr/TapList_iOS)
 
 ![TapList Logo](https://github.com/AnthonyWhitakerJr/TapList_iOS/blob/master/TapList/Assets.xcassets/TapListLogo.imageset/TapListLogo%403x.png)
 
