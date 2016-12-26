@@ -10,6 +10,7 @@ import Foundation
 
 class Cart {
     
+    /// Dictionary of cart items keyed by product sku.
     var cartItems: Dictionary<String, CartItem>
     
     /// Total amount of products in cart.
@@ -44,7 +45,7 @@ class Cart {
 
     }
     
-    // Subtotal for all products in cart.
+    /// Subtotal for all products in cart.
     func subtotal(completion: @escaping (Double) -> ()) {
         var subtotal: Double = 0
         let subtotalDispatch = DispatchGroup()

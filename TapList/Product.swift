@@ -11,9 +11,16 @@ import Foundation
 class Product {
     /// 14 digit product sku/upc. Stored as String to preserve preceeding zeros.
     var sku: String
+    
+    /// Name of product.
     var name: String
+    
+    /// Regular price of product.
     var listPrice: Double?
+    
+    /// Sale price of product.
     var offerPrice: Double?
+    
     var soldBy: SoldBy?
     var orderBy: OrderBy?
     

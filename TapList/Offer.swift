@@ -15,6 +15,7 @@ class Offer {
         case b
     }
     
+    /// Keys used for dictionary representation of `Offer`.
     enum DataKey: String {
         case endDate
         case offerType

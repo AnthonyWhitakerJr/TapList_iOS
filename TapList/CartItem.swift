@@ -34,7 +34,7 @@ class CartItem {
         return result
     }
     
-    /// Keys used for dictionary representations of `CartItem`s.
+    /// Keys used for dictionary representation of `CartItem`.
     enum DataKey: String {
         case quantity
         case specialInstructions
