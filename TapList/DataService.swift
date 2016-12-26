@@ -16,7 +16,7 @@ class DataService {
     
     var cart: Cart // This may be moved to a more suitable location later.
     
-    private init() {
+    init() {
         cart = Cart()
         loadCart()
     }

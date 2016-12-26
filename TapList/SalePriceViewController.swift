@@ -11,7 +11,7 @@ import UIKit
 /// Displays details for product offers.
 /// Set product before segue to this controller.
 class SalePriceViewController: UIViewController {
-
+    
     var offer: Offer?
     
     /// Set before segue to this controller.
@@ -52,7 +52,7 @@ class SalePriceViewController: UIViewController {
                 expirationDateLabel.isHidden = true
             }
         } else if offer.offerType == .n {
-            saleTitleLabel.text = "\(offer.offerQuantity!)\(offer.stringDivider!)\(offer.currency!)\(offer.offerPriceTitle!)" // TODO: Determine best way to handle failure here.
+            saleTitleLabel.text = "\(offer.offerQuantity!)/$\(offer.offerPriceTitle!)" // TODO: Determine best way to handle failure here.
             offerDescriptionLabel.text = offer.offerDescription
             
             offerShortDescriptionLabel.isHidden = false
@@ -76,6 +76,6 @@ class SalePriceViewController: UIViewController {
         
         self.popoverPresentationController?.backgroundColor = backgroundColor
     }
-
-
+    
+    
 }

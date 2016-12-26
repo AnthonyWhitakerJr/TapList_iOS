@@ -9,15 +9,22 @@
 import Foundation
 
 class Product {
-    // 14 digit product upc. Stored as String to preserve preceeding zeros.
+    /// 14 digit product sku/upc. Stored as String to preserve preceeding zeros.
     var sku: String
+    
+    /// Name of product.
     var name: String
+    
+    /// Regular price of product.
     var listPrice: Double?
+    
+    /// Sale price of product.
     var offerPrice: Double?
-    var regularPrice: Double?
+    
     var soldBy: SoldBy?
     var orderBy: OrderBy?
-    // Catch-all for additional text. TODO: Refactor into specific fields?
+    
+    /// Catch-all for additional text.
     var detail: String?
     
     enum SoldBy: String {
@@ -28,6 +35,7 @@ class Product {
         case unit
     }
     
+    /// Keys used for dictionary representation of `Product`.
     enum DataKey: String {
         case name
         case listPrice
@@ -38,9 +46,9 @@ class Product {
     }
     
     init(sku: String, name: String,
-                     listPrice: Double, offerPrice: Double? = nil,
-                     detail: String,
-                     soldBy: SoldBy? = nil, orderBy: OrderBy? = nil) {
+         listPrice: Double, offerPrice: Double? = nil,
+         detail: String,
+         soldBy: SoldBy? = nil, orderBy: OrderBy? = nil) {
         self.sku = sku
         self.name = name
         self.listPrice = listPrice
@@ -50,6 +58,8 @@ class Product {
         self.orderBy = orderBy
     }
     
+    /// Constructs a Product based on given data.
+    /// returns - Product based on given data. Returns `nil` if `name`, `listPrice` and `detail` are not provided.
     convenience init?(sku: String, data: Dictionary<String, Any>) {
         let name = data[DataKey.name.rawValue] as? String
         let listPrice = data[DataKey.listPrice.rawValue] as? Double
@@ -67,8 +77,7 @@ class Product {
         if let orderByString = orderByString {
             orderBy = OrderBy(rawValue: orderByString)
         }
-
-
+        
         if let name = name, let listPrice = listPrice, let detail = detail {
             self.init(sku: sku, name: name,
                       listPrice: listPrice, offerPrice: offerPrice,
@@ -77,5 +86,11 @@ class Product {
         } else {
             return nil
         }
+    }
+}
+
+extension Product: CustomStringConvertible {
+    var description: String {
+        return "SKU: \(sku), Name: \(name), List Price: \(listPrice)"
     }
 }

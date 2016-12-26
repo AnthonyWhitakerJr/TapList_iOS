@@ -10,8 +10,10 @@ import Foundation
 
 class Cart {
     
+    /// Dictionary of cart items keyed by product sku.
     var cartItems: Dictionary<String, CartItem>
     
+    /// Total amount of products in cart.
     var quantityTotal: Int {
         var total: Int = 0
         for (_, cartItem) in cartItems {
@@ -24,11 +26,15 @@ class Cart {
         self.cartItems = cartItems
     }
     
+    /// - returns: `Cart` populated with items descibed in `data`. If `data` is malformed, returns an empty `Cart`.
     convenience init(data: Dictionary<String, Any>) {
-        let cartItemData = data["cartItems"] as? Dictionary<String, Dictionary<String, Any>>
+        guard let cartItemData = data["cartItems"] as? Dictionary<String, Dictionary<String, Any>> else {
+            self.init()
+            return
+        }
         
         var cartItemDict = Dictionary<String, CartItem>()
-        for item in cartItemData! {
+        for item in cartItemData {
             let cartItem = CartItem(sku: item.key, data: item.value)
             if let cartItem = cartItem {
                 cartItemDict[cartItem.sku] = cartItem
@@ -39,6 +45,7 @@ class Cart {
 
     }
     
+    /// Subtotal for all products in cart.
     func subtotal(completion: @escaping (Double) -> ()) {
         var subtotal: Double = 0
         let subtotalDispatch = DispatchGroup()
@@ -61,6 +68,6 @@ class Cart {
 
 extension Cart: CustomStringConvertible {
     var description: String {
-        return "subtotal: \(subtotal), quantityTotal: \(quantityTotal), cartItems: \(cartItems)"
+        return "quantityTotal: \(quantityTotal), cartItems: \(cartItems)"
     }
 }

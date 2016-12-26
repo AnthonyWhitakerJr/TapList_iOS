@@ -10,10 +10,18 @@ import Foundation
 
 class CartItem {
     
+    /// Product SKU.
     var sku: String
+    
+    /// Quantity of product in cart.
     var quantity: Int
+    
+    /// Order customization options.
     var specialInstructions: String?
     
+    unowned var dataService = DataService.instance
+    
+    /// Dictionary representation of this `CartItem`.
     var asDictionary: Dictionary<String, Any> {
         var result: Dictionary<String, Any> = [
             DataKey.quantity.rawValue: quantity
@@ -26,11 +34,13 @@ class CartItem {
         return result
     }
     
+    /// Keys used for dictionary representation of `CartItem`.
     enum DataKey: String {
         case quantity
         case specialInstructions
     }
     
+    /// Denotes type of unit price. Useful when configuring UI.
     enum UnitPriceType {
         case offerPrice
         case listPrice
@@ -42,6 +52,9 @@ class CartItem {
         self.specialInstructions = specialInstructions
     }
     
+    /// Creates a `CartItem` from a dictionary.
+    /// - returns: A `CartItem` with given sku, based on given dictionary.
+    /// Returns `nil` if given dictionary does not provide all required parameters.
     convenience init?(sku: String, data: Dictionary<String, Any>) {
         let quantity = data[DataKey.quantity.rawValue] as? Int
         let specialInstructions = data[DataKey.specialInstructions.rawValue] as? String
@@ -53,9 +66,9 @@ class CartItem {
         }
     }
     
-    // Fetches most up-to-date price for this item.
+    /// Fetches most up-to-date price for this item.
     func unitPrice(completion: @escaping (Double, UnitPriceType) -> ()) {
-        DataService.instance.product(for: sku, completion: { product in
+        self.dataService.product(for: sku, completion: { product in
             if let product = product {
                 if let offerPrice = product.offerPrice {
                     completion(offerPrice, UnitPriceType.offerPrice)
@@ -66,19 +79,26 @@ class CartItem {
         })
     }
     
+    /// Total price for quantity of this item in the cart.
     func itemTotal(completion: @escaping (Double) -> ()) {
         unitPrice { unitPrice, _ in
             let result = unitPrice * Double(self.quantity)
             completion(result)
         }
     }
-    
-    
 
 }
 
 extension CartItem: CustomStringConvertible {
     var description: String {
         return "sku: \(sku), quantity: \(quantity), specialInstructions: \(specialInstructions)"
+    }
+}
+
+extension CartItem: Equatable {
+    static func ==(lhs: CartItem, rhs: CartItem) -> Bool {
+        return lhs.sku == rhs.sku &&
+            lhs.quantity == rhs.quantity &&
+            lhs.specialInstructions == rhs.specialInstructions
     }
 }

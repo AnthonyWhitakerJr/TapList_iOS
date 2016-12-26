@@ -15,6 +15,7 @@ class Offer {
         case b
     }
     
+    /// Keys used for dictionary representation of `Offer`.
     enum DataKey: String {
         case endDate
         case offerType
@@ -25,36 +26,33 @@ class Offer {
     }
     
     var productSku: String
-    var endDate: String? // TODO: Change to Date. 
+    var endDate: String? // TODO: Change to Date.
     var offerType: OfferType?
     var offerQuantity: Int?
-    var stringDivider: String? // Is this needed? Hard-code?
-    var currency: String? // Should this be determined by localization?
     var offerPriceTitle: String?
     var offerDescription: String?
     var offerShortDescription: String?
     
     init(productSku: String, endDate: String?, offerType: OfferType?, offerQuantity: Int?,
-         stringDivider: String? = "/", currency: String? = "$",
          offerPriceTitle: String?, offerDescription: String?, offerShortDescription: String?) {
         self.productSku = productSku
         self.endDate = endDate
         self.offerType = offerType
         self.offerQuantity = offerQuantity
-        self.stringDivider = stringDivider
-        self.currency = currency
         self.offerPriceTitle = offerPriceTitle
         self.offerDescription = offerDescription
         self.offerShortDescription = offerShortDescription
     }
     
+    /// Creates a `Offer` from a dictionary.
+    /// - returns: A `Offer` with given product sku, based on given dictionary.
     convenience init?(productSku: String, data: Dictionary<String, Any>) {
         let endDate = data[DataKey.endDate.rawValue] as? String
         let offerTypeString = data[DataKey.offerType.rawValue] as? String
         
         var offerType: OfferType? = nil
         if let offerTypeString = offerTypeString {
-             offerType = OfferType(rawValue: offerTypeString)
+            offerType = OfferType(rawValue: offerTypeString)
         }
         
         let offerQuantity = data[DataKey.offerQuantity.rawValue] as? Int
@@ -65,5 +63,5 @@ class Offer {
         self.init(productSku: productSku, endDate: endDate, offerType: offerType, offerQuantity: offerQuantity,
                   offerPriceTitle: offerPriceTitle, offerDescription: offerDescription, offerShortDescription: offerShortDescription)
     }
-
+    
 }

@@ -1,4 +1,5 @@
-# TapList_iOS
+# TapList_iOS ![Build Badge](https://travis-ci.org/AnthonyWhitakerJr/TapList_iOS.svg)
+
 
 ![TapList Logo](https://github.com/AnthonyWhitakerJr/TapList_iOS/blob/master/TapList/Assets.xcassets/TapListLogo.imageset/TapListLogo%403x.png)
 
