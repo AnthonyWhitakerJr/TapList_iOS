@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict />
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>92E0ADD01DF468EF00D26606</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>92E0ADE71DF468F000D26606</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>92E0ADF21DF468F000D26606</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>

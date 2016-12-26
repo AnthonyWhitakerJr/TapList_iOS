@@ -1,5 +1,5 @@
 //
-//  CustomButton.swift
+//  RoundedButton.swift
 //  TapList
 //
 //  Created by Anthony Whitaker on 12/4/16.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class CustomButton: UIButton {
+class RoundedButton: UIButton {
 
     @IBInspectable var cornerRadius: CGFloat {
         get {
