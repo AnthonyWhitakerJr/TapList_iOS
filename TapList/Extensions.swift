@@ -20,12 +20,6 @@ extension UIFont {
         return nil
     }
     
-    /// - returns: Bold style of this font if it is available;
-    /// otherwise returns `nil`.
-    open func boldItalic() -> UIFont? {
-        return with(traits: .traitBold, .traitItalic)
-    }
-    
     /// - returns: Italic style of this font if it is available;
     /// otherwise returns `nil`.
     open func italic() -> UIFont? {
