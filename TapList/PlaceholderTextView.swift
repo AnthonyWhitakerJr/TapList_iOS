@@ -37,8 +37,8 @@ class PlaceholderTextView: UITextView {
         didSet {
             guard let font = self.font else { return }
             
-            placeholder.configureFont(with: font)
-            placeholder.sizeToFit()
+            placeholder?.configureFont(with: font)
+            placeholder?.sizeToFit()
         }
     }
     
