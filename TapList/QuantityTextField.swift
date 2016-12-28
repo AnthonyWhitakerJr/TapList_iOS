@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuantityTextField: UITextField, UITextFieldDelegate {
+class QuantityTextField: UITextField {
 
     /// Strong reference to custom delegate.
     private let _delegate = QuantityTextFieldDelegate()
@@ -45,6 +45,7 @@ class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
     /// Restricts input to 2 or less numbers (0 - 99).
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
+        
         let newLength = text.characters.count + string.characters.count - range.length
         
         let allowedCharacters = CharacterSet.decimalDigits
@@ -62,19 +63,17 @@ class QuantityTextFieldDelegate: NSObject, UITextFieldDelegate {
     /// Select contents before editing.
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
-
     }
     
     /// Defaults contents to '0' if left blank
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else {
-            return
-        }
+        guard let text = textField.text else { return }
         
         if text.isEmpty {
             textField.text = "0"
         }
-        actionDelegate!.quantityTextFieldValueChanged()
+        
+        actionDelegate?.quantityTextFieldValueChanged()
     }
 }
 
