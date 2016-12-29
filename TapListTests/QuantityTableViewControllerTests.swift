@@ -25,10 +25,6 @@ class QuantityTableViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSanityCheck() {
-        XCTAssertNotNil(controller)
-    }
-    
     func testCellForRow() {
         controller.previousQuantity = "4"
         for i in 0...9 {

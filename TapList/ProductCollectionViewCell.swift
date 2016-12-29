@@ -32,6 +32,7 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 1
+        layer.masksToBounds = true
     }
     
     func configureCell(product: Product) {

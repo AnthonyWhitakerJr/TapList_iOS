@@ -34,6 +34,7 @@
 		926D89D21DFA50E800C0E26C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */; };
 		926E25B01E032C7800BD48E6 /* QuantityTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */; };
 		929043061DF4C8DF005AF5BF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929043051DF4C8DF005AF5BF /* RoundedButton.swift */; };
+		929FC5B21E157E130040DA77 /* SalePriceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929FC5B11E157E130040DA77 /* SalePriceViewControllerTests.swift */; };
 		92A549131E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549121E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift */; };
 		92A549151E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549141E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift */; };
 		92A549171E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549161E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift */; };
@@ -113,6 +114,7 @@
 		926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTextField.swift; sourceTree = "<group>"; };
 		929043051DF4C8DF005AF5BF /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		929FC5B11E157E130040DA77 /* SalePriceViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalePriceViewControllerTests.swift; sourceTree = "<group>"; };
 		92A549121E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		92A549141E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCellTests.swift; sourceTree = "<group>"; };
 		92A549161E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewCellTests.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				92A5491D1E14C5A600C5E6B3 /* QuantityTableViewControllerTests.swift */,
+				929FC5B11E157E130040DA77 /* SalePriceViewControllerTests.swift */,
 				92A5491F1E14C8E000C5E6B3 /* ViewControllerTests.swift */,
 			);
 			name = "Controller Tests";
@@ -715,6 +718,7 @@
 				922A07791E1437D2002EEFCC /* ProductViewTests.swift in Sources */,
 				92A549131E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift in Sources */,
 				92A549201E14C8E000C5E6B3 /* ViewControllerTests.swift in Sources */,
+				929FC5B21E157E130040DA77 /* SalePriceViewControllerTests.swift in Sources */,
 				92A5491B1E14B24400C5E6B3 /* MockImageService.swift in Sources */,
 				922A07751E11C444002EEFCC /* PlaceholderTextViewTests.swift in Sources */,
 				92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */,
