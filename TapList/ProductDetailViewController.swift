@@ -81,11 +81,6 @@ class ProductDetailViewController: UIViewController, ProductView {
         quantityEntryView.configureQuantityView(previousQuantity: quantityInCart)
         quantityEntryView.delegate = self
     }
-
-    func quantityButtonTouched(_ sender: UIButton) {
-        performSegue(withIdentifier: "quantityPopover", sender: sender)
-    }
-    
     
     @IBAction func updateCartPressed(_ sender: UIButton) {
         var specialInstructions: String? = nil
@@ -100,12 +95,6 @@ class ProductDetailViewController: UIViewController, ProductView {
         dataService.update(cartItem: cartItem)
         
 //        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Navigation
