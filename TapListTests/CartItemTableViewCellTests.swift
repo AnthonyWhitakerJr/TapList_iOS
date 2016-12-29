@@ -115,4 +115,20 @@ class CartItemTableViewCellTests: XCTestCase {
         }
     }
     
+    func testWithoutProduct() {
+        let cell = CartItemTableViewCell()
+        let cartItem = CartItem(sku: "00no000prod00", quantity: 1)
+        
+        let quantityEntryView = QuantityEntryView()
+        cell.quantityEntryView = quantityEntryView
+        
+        cell.dataService = MockDataService()
+        cell.imageService = MockImageService()
+        
+        cell.configureCell(cartItem: cartItem)
+        cell.offerButtonTapped(UIButton())
+        cell.productImageButtonPressed(UIButton())
+        // No crash == pass
+    }
+    
 }
