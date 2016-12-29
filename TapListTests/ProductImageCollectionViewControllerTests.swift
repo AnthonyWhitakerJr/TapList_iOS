@@ -24,6 +24,7 @@ class ProductImageCollectionViewControllerTests: XCTestCase {
     }
     
     func testStub() {
+        controller.product = MockDataService.TestProduct().regularPriced
         XCTAssertNotNil(controller.view)
     }
     

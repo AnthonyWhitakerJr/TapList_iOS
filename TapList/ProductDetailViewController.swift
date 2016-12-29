@@ -30,7 +30,7 @@ class ProductDetailViewController: UIViewController, ProductView {
     
     var keyboardHandler: KeyboardHandler!
     var product: Product!
-    var productImages = Array<UIImage>()
+    var productImages = Array<ProductImage>()
     var imageRequests = Array<DataRequest?>()
     var quantityInCart: Int = 0
     

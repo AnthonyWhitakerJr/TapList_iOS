@@ -13,7 +13,7 @@ class ProductImageCollectionViewController: UICollectionViewController {
 
     var product: Product!
     var initialIndex: IndexPath?
-    var productImages = Array<UIImage>()
+    var productImages = Array<ProductImage>()
     var imageRequests = Array<DataRequest?>()
     
     var imageService = ImageService.instance

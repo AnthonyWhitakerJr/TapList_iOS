@@ -11,8 +11,8 @@ import Alamofire
 @testable import TapList
 
 class MockImageService: ImageService {
-    override func image(for product: Product, size: Size = .medium, direction: Direction = .front, completion: @escaping (UIImage?) -> ()) -> DataRequest? {
-        completion(#imageLiteral(resourceName: "TapListLogo"))
+    override func image(for product: Product, size: ProductImage.Size = .medium, direction: ProductImage.Direction = .front, completion: @escaping (ProductImage?) -> ()) -> DataRequest? {
+        completion(ProductImage(direction: direction, size: size, data: UIImagePNGRepresentation(#imageLiteral(resourceName: "TapListLogo"))!))
         return nil
     }
 }
