@@ -23,6 +23,7 @@
 		922A07791E1437D2002EEFCC /* ProductViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922A07781E1437D2002EEFCC /* ProductViewTests.swift */; };
 		922A077D1E146B29002EEFCC /* QuantityTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922A077C1E146B29002EEFCC /* QuantityTextFieldTests.swift */; };
 		922A077F1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922A077E1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift */; };
+		922A07831E148455002EEFCC /* QuantityEntryViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922A07821E148455002EEFCC /* QuantityEntryViewTests.swift */; };
 		922F2E691DF5E9DA00B7FAF6 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */; };
 		9241E5571E0239AF00CB81C7 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */; };
 		925F34DA1E085611003B680E /* QuantityEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925F34D91E085611003B680E /* QuantityEntryView.swift */; };
@@ -46,7 +47,6 @@
 		92E0ADDD1DF468EF00D26606 /* TapList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADDB1DF468EF00D26606 /* TapList.xcdatamodeld */; };
 		92E0ADDF1DF468EF00D26606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E0ADDE1DF468EF00D26606 /* Assets.xcassets */; };
 		92E0ADE21DF468EF00D26606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E0ADE01DF468EF00D26606 /* LaunchScreen.storyboard */; };
-		92E0ADED1DF468F000D26606 /* TapListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADEC1DF468F000D26606 /* TapListTests.swift */; };
 		92E0ADF81DF468F000D26606 /* TapListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0ADF71DF468F000D26606 /* TapListUITests.swift */; };
 		92E0AE071DF480BB00D26606 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */; };
 		92E0AE0C1DF488CB00D26606 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E0AE0B1DF488CB00D26606 /* Product.swift */; };
@@ -97,6 +97,7 @@
 		922A07781E1437D2002EEFCC /* ProductViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewTests.swift; sourceTree = "<group>"; };
 		922A077C1E146B29002EEFCC /* QuantityTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTextFieldTests.swift; sourceTree = "<group>"; };
 		922A077E1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTextFieldDelegateTests.swift; sourceTree = "<group>"; };
+		922A07821E148455002EEFCC /* QuantityEntryViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityEntryViewTests.swift; sourceTree = "<group>"; };
 		922F2E681DF5E9DA00B7FAF6 /* CartItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		9241E5561E0239AF00CB81C7 /* KeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		925F34D91E085611003B680E /* QuantityEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityEntryView.swift; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		92E0ADE11DF468EF00D26606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92E0ADE31DF468EF00D26606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E0ADE81DF468F000D26606 /* TapListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		92E0ADEC1DF468F000D26606 /* TapListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapListTests.swift; sourceTree = "<group>"; };
 		92E0ADEE1DF468F000D26606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E0ADF31DF468F000D26606 /* TapListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TapListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E0ADF71DF468F000D26606 /* TapListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapListUITests.swift; sourceTree = "<group>"; };
@@ -190,11 +190,12 @@
 		922A07731E11BE65002EEFCC /* View Tests */ = {
 			isa = PBXGroup;
 			children = (
-				922A07711E11BE61002EEFCC /* RoundedButtonTests.swift */,
 				922A07741E11C444002EEFCC /* PlaceholderTextViewTests.swift */,
 				922A07781E1437D2002EEFCC /* ProductViewTests.swift */,
-				922A077C1E146B29002EEFCC /* QuantityTextFieldTests.swift */,
+				922A07821E148455002EEFCC /* QuantityEntryViewTests.swift */,
 				922A077E1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift */,
+				922A077C1E146B29002EEFCC /* QuantityTextFieldTests.swift */,
+				922A07711E11BE61002EEFCC /* RoundedButtonTests.swift */,
 			);
 			name = "View Tests";
 			sourceTree = "<group>";
@@ -259,7 +260,6 @@
 				92FD730E1E0E5C390025962A /* Model Tests */,
 				92FD730F1E0E5C5D0025962A /* TestUtils */,
 				922A07731E11BE65002EEFCC /* View Tests */,
-				92E0ADEC1DF468F000D26606 /* TapListTests.swift */,
 				92E0ADEE1DF468F000D26606 /* Info.plist */,
 			);
 			path = TapListTests;
@@ -285,9 +285,9 @@
 				926D89D11DFA50E800C0E26C /* PlaceholderTextView.swift */,
 				92E0AE051DF480BB00D26606 /* ProductCollectionViewCell.swift */,
 				92C2C9FC1DFB868600FA8E3D /* ProductView.swift */,
+				925F34D91E085611003B680E /* QuantityEntryView.swift */,
 				9220538A1DFF26AE000FC993 /* QuantityTableViewCell.swift */,
 				926E25AF1E032C7800BD48E6 /* QuantityTextField.swift */,
-				925F34D91E085611003B680E /* QuantityEntryView.swift */,
 				929043051DF4C8DF005AF5BF /* RoundedButton.swift */,
 			);
 			name = View;
@@ -307,8 +307,8 @@
 		92E0AE0D1DF4896C00D26606 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				92E0AE0E1DF4898100D26606 /* ImageService.swift */,
 				926D89CF1DFA24E500C0E26C /* DataService.swift */,
+				92E0AE0E1DF4898100D26606 /* ImageService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -679,10 +679,10 @@
 				92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */,
 				92FD73131E0E77DF0025962A /* ProductTests.swift in Sources */,
 				922A07721E11BE61002EEFCC /* RoundedButtonTests.swift in Sources */,
+				922A07831E148455002EEFCC /* QuantityEntryViewTests.swift in Sources */,
 				922A07791E1437D2002EEFCC /* ProductViewTests.swift in Sources */,
 				922A07751E11C444002EEFCC /* PlaceholderTextViewTests.swift in Sources */,
 				92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */,
-				92E0ADED1DF468F000D26606 /* TapListTests.swift in Sources */,
 				92FD73111E0E77CB0025962A /* OfferTests.swift in Sources */,
 				922A077F1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift in Sources */,
 				922A077D1E146B29002EEFCC /* QuantityTextFieldTests.swift in Sources */,

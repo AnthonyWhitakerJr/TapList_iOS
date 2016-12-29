@@ -32,7 +32,7 @@ class CartItemTableViewCell: UITableViewCell {
         self.cartItem = cartItem
         
         quantityEntryView.configureQuantityView(previousQuantity: cartItem.quantity)
-        quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTapped(_:)), for: .touchUpInside)
+        quantityEntryView.delegate = self
         
         DataService.instance.product(for: cartItem.sku) { product in
             if let product = product {
@@ -93,16 +93,18 @@ class CartItemTableViewCell: UITableViewCell {
         delegate?.handleProductImageButtonTapped(product: product, sender: sender)
     }
     
-    func quantityButtonTapped(_ sender: UIButton) {
-        delegate?.handleQuantityButtonTapped(quantityEntryView: quantityEntryView, sender: sender)
-    }
-    
     @IBAction func quantityUpdated(_ sender: QuantityEntryView) {
         delegate?.handleQuantityUpdate(cell: self, newQuantity: sender.quantity)
     }
 }
 
+extension CartItemTableViewCell: QuantityEntryViewDelegate {
+    func segueToQuantityPopover(_ sender: UIButton) {
+        delegate?.handleSegueToQuantityPopover(quantityEntryView: quantityEntryView, sender: sender)
+    }
+}
+
 protocol CartCellDelegate: ProductCellDelegate {
-    func handleQuantityButtonTapped(quantityEntryView: QuantityEntryView, sender: UIButton)
     func handleQuantityUpdate(cell: CartItemTableViewCell, newQuantity: Int)
+    func handleSegueToQuantityPopover(quantityEntryView: QuantityEntryView, sender: UIButton)
 }

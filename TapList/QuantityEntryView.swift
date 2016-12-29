@@ -9,13 +9,22 @@
 import UIKit
 
 @IBDesignable
-class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, QuantityTextFieldActionDelegate {
+class QuantityEntryView: UIControl {
 
     var quantityButton: UIButton!
     var quantityTextField: QuantityTextField!
+    var delegate: QuantityEntryViewDelegate?
     
     @IBInspectable var fontSize: CGFloat = 15.0
     @IBInspectable var textColor: UIColor = .black
+    
+    override var forFirstBaselineLayout: UIView {
+        return quantityTextField.forFirstBaselineLayout
+    }
+    
+    override var forLastBaselineLayout: UIView {
+        return quantityTextField.forLastBaselineLayout
+    }
     
     var quantity: Int {
         var result: Int?
@@ -50,10 +59,14 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
     private func addSubviews() {
         backgroundColor = .clear
         quantityButton = UIButton(type: .system)
-        quantityTextField = QuantityTextField(frame: self.bounds)
+        quantityTextField = QuantityTextField()
         quantityTextField.actionDelegate = self
+        
         addSubview(quantityTextField)
         addSubview(quantityButton)
+        
+        quantityButton.addTarget(self, action: #selector(quantityButtonPressed(_:)), for: .touchUpInside)
+        quantityTextField.isEnabled = false
     }
 
     override func layoutSubviews() {
@@ -64,7 +77,6 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
         quantityTextField.contentVerticalAlignment = .center
         quantityTextField.borderStyle = .roundedRect
         quantityTextField.textAlignment = .center
-        quantityTextField.minimumFontSize = 17
         quantityTextField.frame = self.bounds
         quantityTextField.keyboardType = .numberPad
         quantityTextField.font = UIFont(name: quantityTextField.font!.fontName, size: fontSize)
@@ -88,6 +100,17 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
         }
     }
     
+    func quantityButtonPressed(_ sender: UIButton) {
+        delegate?.segueToQuantityPopover(sender)
+    }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        quantityButton.setTitle("1", for: .normal)
+    }
+}
+
+extension QuantityEntryView: QuantityTableViewControllerDelegate {
     func update(selectedQuantity: String) {
         if selectedQuantity == "10+" {
             quantityButton.isHidden = true
@@ -100,21 +123,14 @@ class QuantityEntryView: UIControl, QuantityTableViewControllerDelegate, Quantit
             sendActions(for: .valueChanged)
         }
     }
-    
+}
+
+extension QuantityEntryView: QuantityTextFieldActionDelegate {
     func quantityTextFieldValueChanged() {
         sendActions(for: .valueChanged)
     }
+}
 
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        quantityButton.setTitle("1", for: .normal)
-    }
-    
-    override var forFirstBaselineLayout: UIView {
-        return quantityTextField.forFirstBaselineLayout
-    }
-    
-    override var forLastBaselineLayout: UIView {
-        return quantityTextField.forLastBaselineLayout
-    }
+protocol QuantityEntryViewDelegate {
+    func segueToQuantityPopover(_ : UIButton)
 }
