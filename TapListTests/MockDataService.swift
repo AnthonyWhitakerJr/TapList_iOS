@@ -11,6 +11,10 @@ import Foundation
 
 class MockDataService: DataService {
     
+    override func loadCart() {
+        // Do nothing
+    }
+    
     override func product(for sku: String, completion: @escaping (Product?) -> ()) {
         let product: Product?
         switch sku {
