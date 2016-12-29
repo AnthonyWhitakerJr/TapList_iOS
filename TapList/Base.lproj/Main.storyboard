@@ -292,7 +292,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XyR-mP-4qE" customClass="RoundedButton" customModule="TapList" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="40" width="70" height="21"/>
+                                            <rect key="frame" x="297" y="39.5" width="70" height="21"/>
                                             <color key="backgroundColor" red="0.99902635809999996" green="0.89185887580000001" blue="0.0009537830483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
@@ -468,14 +468,14 @@
                         <viewControllerLayoutGuide type="bottom" id="8bU-16-8Sf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I3w-Fg-av4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tl-lt-MeX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EB7-We-MDP" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Mi-4L-Emn">
                                                 <rect key="frame" x="20" y="73" width="335" height="230"/>
@@ -590,7 +590,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-XX-ziR" customClass="PlaceholderTextView" customModule="TapList" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="430.5" width="335" height="87.5"/>
+                                                <rect key="frame" x="20" y="430.5" width="335" height="151.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -601,7 +601,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm1-iQ-bj3" customClass="RoundedButton" customModule="TapList" customModuleProvider="target">
-                                                <rect key="frame" x="257" y="558" width="98" height="29"/>
+                                                <rect key="frame" x="257" y="622" width="98" height="29"/>
                                                 <color key="backgroundColor" red="0.98246759179999998" green="0.44198948139999999" blue="0.0052932919930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="98" id="1vG-mk-p9q"/>
@@ -642,13 +642,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lG-Dt-BMK">
-                                                <rect key="frame" x="20" y="564" width="59" height="17"/>
+                                                <rect key="frame" x="20" y="628" width="59" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKe-QL-PYx" customClass="QuantityEntryView" customModule="TapList" customModuleProvider="target">
-                                                <rect key="frame" x="87" y="557" width="45" height="30"/>
+                                                <rect key="frame" x="87" y="621" width="45" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="WMf-72-TDf"/>
@@ -742,8 +742,8 @@
         <scene sceneID="ISa-VG-wq5">
             <objects>
                 <collectionViewController storyboardIdentifier="ProductImageCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H0m-F6-kGT" customClass="ProductImageCollectionViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" dataMode="prototypes" id="Ae1-qQ-ouk">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="Ae1-qQ-ouk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wWW-KU-43Y">
@@ -754,7 +754,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productImage" id="gZ9-Fh-vdg" customClass="ImageCollectionViewCell" customModule="TapList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="323" height="514"/>
+                                <rect key="frame" x="0.0" y="76.5" width="323" height="514"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="323" height="514"/>
