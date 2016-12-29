@@ -54,7 +54,7 @@ class ImageService {
         
         for direction in ProductImage.Direction.values {
             imageDispatch.enter()
-            let request = ImageService.instance.image(for: product, size: .large, direction: direction, completion: { image in
+            let request = image(for: product, size: .large, direction: direction, completion: { image in
                 if let image = image {
                     imagesByDirection[direction] = image
                 }

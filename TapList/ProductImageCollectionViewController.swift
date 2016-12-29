@@ -20,17 +20,15 @@ class ProductImageCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setImages()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        clearImageRequests()
+    }
+    
     private func setImages() {
-        for imageRequest in imageRequests {
-            imageRequest?.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
-        }
-        self.imageRequests.removeAll()
-        
-        
+        clearImageRequests()
         imageRequests = imageService.imagesForAllDirections(for: product, size: .large) { images in
             self.productImages = images
             self.collectionView?.reloadData()
@@ -38,24 +36,21 @@ class ProductImageCollectionViewController: UICollectionViewController {
         }
     }
     
-    func scrollToInitialCell() {
+    private func clearImageRequests() {
+        for imageRequest in imageRequests {
+            imageRequest?.cancel() // Cancel any ongoing image requests (useful if user navigates away quickly).
+        }
+        self.imageRequests.removeAll()
+    }
+    
+    private func scrollToInitialCell() {
         if let initialIndex = initialIndex {
             collectionView?.scrollToItem(at: initialIndex, at: .centeredHorizontally, animated: false)
         }
         initialIndex = nil
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productImages.count
