@@ -75,4 +75,9 @@ class CartTests: XCTestCase {
         }
     }
     
+    func testDescription() {
+        let cart = Cart(cartItems: expectedCartItems)
+        XCTAssertNotNil(cart.description)
+    }
+    
 }

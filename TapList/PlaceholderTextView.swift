@@ -16,6 +16,7 @@ class PlaceholderTextView: UITextView {
     /// Strong reference to custom delegate.
     private let _delegate = PlaceholderTextViewDelegate()
 
+    /// Text shown by placeholder label. Automatically resizes placeholder label when set.
     @IBInspectable var placeholderText: String? {
         get {
             return placeholder.text
@@ -26,16 +27,42 @@ class PlaceholderTextView: UITextView {
         }
     }
     
+    /// The font of the text.
+    ///
+    /// This property applies to the entire text string. The default font is a 12-point Helvetica plain font.
+    ///
+    /// Automatically sets font of `placeholder` to italicized version of `font`, if available.
+    /// Otherwise will use system italic font.
+    override var font: UIFont? {
+        didSet {
+            guard let font = self.font else { return }
+            
+            placeholder?.configureFont(with: font)
+            placeholder?.sizeToFit()
+        }
+    }
+    
     override init(frame: CGRect, textContainer: NSTextContainer? = nil) {
         super.init(frame: frame, textContainer: textContainer)
+        initializeDefaultFont()
         placeholder = PlaceholderLabel(textView: self)
         self.delegate = _delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        initializeDefaultFont()
         placeholder = PlaceholderLabel(textView: self)
         self.delegate = _delegate
+    }
+    
+    /// `Font` is not initialized until `text` is not empty.
+    /// Needed to properly init `PlaceholderLabel`.
+    private func initializeDefaultFont() {
+        guard font == nil else { return }
+        
+        text = "Temp Text"
+        text = ""
     }
     
     override func layoutSubviews() {
@@ -60,9 +87,8 @@ class PlaceholderTextView: UITextView {
 class PlaceholderTextViewDelegate: NSObject, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        if let textView = textView as? PlaceholderTextView {
-            textView.placeholder.isHidden = !textView.text.isEmpty
-        }
+        let placeholderView = textView as? PlaceholderTextView
+        placeholderView?.refresh()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -74,22 +100,29 @@ class PlaceholderTextViewDelegate: NSObject, UITextViewDelegate {
 
 class PlaceholderLabel: UILabel {
     
-    init(textView: PlaceholderTextView) {
-        guard textView.font != nil else { // Should only happen inside Interface Builder.
-            super.init(frame: CGRect.zero)
-            return
+    init?(textView: PlaceholderTextView) {
+        guard let textViewFont = textView.font else { // One would have to do this on purpose.
+            return nil
         }
         
-        super.init(frame: CGRect(x: 5, y: (textView.font?.pointSize)! / 2, width: textView.frame.width - 10, height: textView.frame.height - (textView.font?.pointSize)!))
+        super.init(frame: CGRect(x: 5, y: textViewFont.pointSize / 2, width: textView.frame.width - 10, height: textView.frame.height - textViewFont.pointSize))
         self.numberOfLines = 0
-        self.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+        configureFont(with: textViewFont)
         self.textColor = UIColor(white: 0, alpha: 0.3)
         textView.addSubview(self)
         self.isHidden = !textView.text.isEmpty
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
+    }
+    
+    func configureFont(with font: UIFont) {
+        if let italic = font.italic() {
+            self.font = italic
+        } else {
+            self.font = UIFont.italicSystemFont(ofSize: font.pointSize)
+        }
     }
     
 }

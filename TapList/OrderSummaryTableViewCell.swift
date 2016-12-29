@@ -15,28 +15,21 @@ class OrderSummaryTableViewCell: UITableViewCell {
     @IBOutlet weak var serviceFeeLabel: UILabel!
     @IBOutlet weak var estimatedTotalLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    var dataService = DataService.instance
     
-    func configureCell() {
-        itemsInOrderLabel.text = "\(DataService.instance.cart.quantityTotal)"
+    func configureCell(completion: (() -> ())? = nil) {
+        itemsInOrderLabel.text = "\(dataService.cart.quantityTotal)"
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
-        DataService.instance.cart.subtotal { subtotal in
+        dataService.cart.subtotal { subtotal in
             self.subtotalLabel.text = formatter.string(from: NSNumber(value: subtotal))
             let estimatedTotal = subtotal + 4.95
             self.estimatedTotalLabel.text = formatter.string(from: NSNumber(value: estimatedTotal))
+            
+            completion!()
         }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

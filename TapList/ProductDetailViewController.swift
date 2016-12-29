@@ -76,7 +76,7 @@ class ProductDetailViewController: UIViewController, ProductView {
         }
         
         quantityEntryView.configureQuantityView(previousQuantity: quantityInCart)
-        quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTouched(_:)), for: .touchUpInside)
+        quantityEntryView.delegate = self
     }
 
     func quantityButtonTouched(_ sender: UIButton) {
@@ -184,5 +184,11 @@ extension ProductDetailViewController: UICollectionViewDataSource {
 extension ProductDetailViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+extension ProductDetailViewController: QuantityEntryViewDelegate {
+    func segueToQuantityPopover(_ sender: UIButton) {
+        performSegue(withIdentifier: "quantityPopover", sender: sender)
     }
 }

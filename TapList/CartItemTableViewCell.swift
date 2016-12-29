@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class CartItemTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -23,18 +23,22 @@ class CartItemTableViewCell: UITableViewCell {
     var cartItem: CartItem!
     var product: Product!
     
+    var dataService = DataService.instance
+    var imageService = ImageService.instance
+
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 1
+        layer.masksToBounds = true
     }
     
-    func configureCell(cartItem: CartItem) {
+    func configureCell(cartItem: CartItem, completion: (() -> ())? = nil) {
         self.cartItem = cartItem
         
         quantityEntryView.configureQuantityView(previousQuantity: cartItem.quantity)
-        quantityEntryView.quantityButton.addTarget(self, action: #selector(quantityButtonTapped(_:)), for: .touchUpInside)
+        quantityEntryView.delegate = self
         
-        DataService.instance.product(for: cartItem.sku) { product in
+        dataService.product(for: cartItem.sku) { product in
             if let product = product {
                 self.product = product
                 
@@ -60,6 +64,8 @@ class CartItemTableViewCell: UITableViewCell {
                 }
                 
                 self.detailLabel.text = product.detail
+                
+                completion?()
             }
         }
     }
@@ -70,7 +76,7 @@ class CartItemTableViewCell: UITableViewCell {
         }
         
         self.productImageView.image = #imageLiteral(resourceName: "PlaceholderImage")
-        imageRequest = ImageService.instance.image(for: product, completion: {image in
+        imageRequest = imageService.image(for: product, completion: {image in
             if let image = image {
                 self.productImageView.image = image
             }
@@ -78,23 +84,15 @@ class CartItemTableViewCell: UITableViewCell {
     }
     
     @IBAction func offerButtonTapped(_ sender: UIButton) {
-        guard let product = product else {
-            return
-        }
+        guard let product = product else { return }
         
         delegate?.handleOfferButtonTapped(product: product, sender: sender)
     }
     
     @IBAction func productImageButtonPressed(_ sender: UIButton) {
-        guard let product = product else {
-            return
-        }
+        guard let product = product else { return }
         
         delegate?.handleProductImageButtonTapped(product: product, sender: sender)
-    }
-    
-    func quantityButtonTapped(_ sender: UIButton) {
-        delegate?.handleQuantityButtonTapped(quantityEntryView: quantityEntryView, sender: sender)
     }
     
     @IBAction func quantityUpdated(_ sender: QuantityEntryView) {
@@ -102,7 +100,13 @@ class CartItemTableViewCell: UITableViewCell {
     }
 }
 
+extension CartItemTableViewCell: QuantityEntryViewDelegate {
+    func segueToQuantityPopover(_ sender: UIButton) {
+        delegate?.handleSegueToQuantityPopover(quantityEntryView: quantityEntryView, sender: sender)
+    }
+}
+
 protocol CartCellDelegate: ProductCellDelegate {
-    func handleQuantityButtonTapped(quantityEntryView: QuantityEntryView, sender: UIButton)
     func handleQuantityUpdate(cell: CartItemTableViewCell, newQuantity: Int)
+    func handleSegueToQuantityPopover(quantityEntryView: QuantityEntryView, sender: UIButton)
 }

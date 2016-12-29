@@ -172,7 +172,7 @@ extension ManageCartTableViewController: CartCellDelegate {
         performSegue(withIdentifier: "productDetail", sender: sender)
     }
     
-    func handleQuantityButtonTapped(quantityEntryView: QuantityEntryView, sender: UIButton) {
+    func handleSegueToQuantityPopover(quantityEntryView: QuantityEntryView, sender: UIButton) {
         quantityEntryViewForSegue = quantityEntryView
         performSegue(withIdentifier: "quantityPopover", sender: sender)
     }
