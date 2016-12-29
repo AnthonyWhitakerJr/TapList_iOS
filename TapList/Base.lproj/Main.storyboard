@@ -230,27 +230,9 @@
                     <view key="view" contentMode="scaleToFill" id="xpq-v4-r4V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-NI-QCr" customClass="QuantityEntryView" customModule="TapList" customModuleProvider="target">
-                                <rect key="frame" x="16" y="318.5" width="45" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="OUA-gl-Wgg"/>
-                                    <constraint firstAttribute="height" constant="30" id="S7I-nN-oC0"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="quantityUpdated:" destination="68b-R6-fSw" eventType="valueChanged" id="I4U-Kf-PEk"/>
-                                </connections>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dSt-NI-QCr" firstAttribute="centerY" secondItem="xpq-v4-r4V" secondAttribute="centerY" id="OLb-eD-pc8"/>
-                            <constraint firstItem="dSt-NI-QCr" firstAttribute="leading" secondItem="xpq-v4-r4V" secondAttribute="leadingMargin" id="RNq-FS-2e7"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="quantityEntryView" destination="dSt-NI-QCr" id="pH3-Or-0Hl"/>
                         <segue destination="2mA-t0-UTe" kind="popoverPresentation" identifier="quantityPopover" popoverAnchorView="xpq-v4-r4V" id="CZm-qb-wto">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -760,7 +742,7 @@
         <scene sceneID="ISa-VG-wq5">
             <objects>
                 <collectionViewController id="H0m-F6-kGT" customClass="ProductImageCollectionViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="Ae1-qQ-ouk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" dataMode="prototypes" id="Ae1-qQ-ouk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -979,9 +961,9 @@
         <image name="cart" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ut8-WC-K0I"/>
+        <segue reference="CZm-qb-wto"/>
         <segue reference="R6S-P3-OCS"/>
+        <segue reference="ut8-WC-K0I"/>
         <segue reference="rzj-eH-HL0"/>
-        <segue reference="Wzk-UR-1Bv"/>
     </inferredMetricsTieBreakers>
 </document>
