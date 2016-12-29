@@ -14,11 +14,6 @@ class SalePriceViewControllerTests: XCTestCase {
     var controller: SalePriceViewController!
     var dataService: DataService!
     
-    var saleTitleLabel: UILabel!
-    var offerDescriptionLabel: UILabel!
-    var offerShortDescriptionLabel: UILabel!
-    var expirationDateLabel: UILabel!
-    
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -26,19 +21,9 @@ class SalePriceViewControllerTests: XCTestCase {
         
         dataService = MockDataService()
         controller.dataService = dataService
-        
-        saleTitleLabel = UILabel()
-        offerDescriptionLabel = UILabel()
-        offerShortDescriptionLabel = UILabel()
-        expirationDateLabel = UILabel()
     }
     
     override func tearDown() {
-        saleTitleLabel = nil
-        offerDescriptionLabel = nil
-        offerShortDescriptionLabel = nil
-        expirationDateLabel = nil
-        
         controller = nil
         dataService = nil
         
