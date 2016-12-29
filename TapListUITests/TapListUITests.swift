@@ -7,13 +7,12 @@
 //
 
 import XCTest
+@testable import TapList
 
 class TapListUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -24,13 +23,46 @@ class TapListUITests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func _testAddToCartButton() {
+        let app = XCUIApplication()
+        let collectionViewsQuery = app.collectionViews
+        let cell = collectionViewsQuery.children(matching: .cell).element(boundBy: 1)
+        let addToCartButton = cell.buttons["Add To Cart"]
+        
+        addToCartButton.tap()
+        XCTAssertTrue(cell.otherElements.containing(.staticText, identifier:"1 in Cart").children(matching: .button).element(boundBy: 0).exists)
+        
+        addToCartButton.tap()
+        XCTAssertTrue(cell.otherElements.containing(.staticText, identifier:"2 in Cart").children(matching: .button).element(boundBy: 0).exists)
+        
+    }
+    
+    func _testPlaceholderTextView() {
+        let app = XCUIApplication()
+        app.collectionViews.children(matching: .cell).element(boundBy: 0).otherElements.containing(.button, identifier:"Add To Cart").children(matching: .button).element(boundBy: 0).tap()
+        
+        let scrollViewsQuery = app.scrollViews
+        let anySpecialInstructionsForThisItemCustomizeYourOrderByUsingCommentsLikeGreenBananasOr12LbThinnlySlicedHamStaticText = scrollViewsQuery.otherElements.textViews.staticTexts["Any special instructions for this item? Customize your order by using comments like \"green bananas\" or \"1/2 lb. thinnly sliced ham.\""]
+        anySpecialInstructionsForThisItemCustomizeYourOrderByUsingCommentsLikeGreenBananasOr12LbThinnlySlicedHamStaticText.tap()
+        anySpecialInstructionsForThisItemCustomizeYourOrderByUsingCommentsLikeGreenBananasOr12LbThinnlySlicedHamStaticText.tap()
+        
+        let textView = scrollViewsQuery.otherElements.containing(.staticText, identifier:"Bananas").children(matching: .textView).element
+        textView.typeText("Text here")
+        
+        let bananasElement = scrollViewsQuery.otherElements.containing(.staticText, identifier:"Bananas").element
+        bananasElement.tap()
+        textView.tap()
+        textView.press(forDuration: 1.8);
+        
+        let deleteKey = app.keys["delete"]
+        deleteKey.tap()
+        deleteKey.tap()
+        bananasElement.tap()
+        
     }
     
 }
