@@ -20,8 +20,8 @@ class ImageService {
     
     private let imageCache = NSCache<NSString, ProductImage>()
         
-    /// Asynchronus request for product image. If image does not exist, completion block will NOT be executed.
-    /// - completion: Code to be executed once image has been retrieved.
+    /// Asynchronus request for product image.
+    /// - completion: Code to be executed once image has been retrieved.  If image does not exist, completion block provide `nil`.
     /// - returns: The request used to feth the image. Can be used to prematurely cancel if image is no longer needed.
     func image(for product: Product, size: ProductImage.Size = .medium, direction: ProductImage.Direction = .front, completion: @escaping (ProductImage?) -> ()) -> DataRequest? {
         let sku = product.sku
