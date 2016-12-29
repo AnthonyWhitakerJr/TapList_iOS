@@ -37,6 +37,8 @@
 		92A549131E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549121E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift */; };
 		92A549151E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549141E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift */; };
 		92A549171E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549161E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift */; };
+		92A549191E14AFEB00C5E6B3 /* CartItemTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A549181E14AFEB00C5E6B3 /* CartItemTableViewCellTests.swift */; };
+		92A5491B1E14B24400C5E6B3 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5491A1E14B24400C5E6B3 /* MockImageService.swift */; };
 		92B5B89C1E045EF1002A1BFB /* ManageCartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5B89B1E045EF1002A1BFB /* ManageCartTableViewController.swift */; };
 		92B5B89E1E045F09002A1BFB /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */; };
 		92B5B8A01E04B1E7002A1BFB /* OrderSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5B89F1E04B1E7002A1BFB /* OrderSummaryTableViewCell.swift */; };
@@ -112,6 +114,8 @@
 		92A549121E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		92A549141E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCellTests.swift; sourceTree = "<group>"; };
 		92A549161E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityTableViewCellTests.swift; sourceTree = "<group>"; };
+		92A549181E14AFEB00C5E6B3 /* CartItemTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCellTests.swift; sourceTree = "<group>"; };
+		92A5491A1E14B24400C5E6B3 /* MockImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
 		92B5B89B1E045EF1002A1BFB /* ManageCartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageCartTableViewController.swift; sourceTree = "<group>"; };
 		92B5B89D1E045F09002A1BFB /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
 		92B5B89F1E04B1E7002A1BFB /* OrderSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -196,15 +200,16 @@
 		922A07731E11BE65002EEFCC /* View Tests */ = {
 			isa = PBXGroup;
 			children = (
+				92A549181E14AFEB00C5E6B3 /* CartItemTableViewCellTests.swift */,
 				92A549121E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift */,
 				92A549141E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift */,
 				922A07741E11C444002EEFCC /* PlaceholderTextViewTests.swift */,
 				922A07781E1437D2002EEFCC /* ProductViewTests.swift */,
 				922A07821E148455002EEFCC /* QuantityEntryViewTests.swift */,
-				922A077E1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift */,
-				922A077C1E146B29002EEFCC /* QuantityTextFieldTests.swift */,
-				922A07711E11BE61002EEFCC /* RoundedButtonTests.swift */,
 				92A549161E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift */,
+				922A077C1E146B29002EEFCC /* QuantityTextFieldTests.swift */,
+				922A077E1E147A4A002EEFCC /* QuantityTextFieldDelegateTests.swift */,
+				922A07711E11BE61002EEFCC /* RoundedButtonTests.swift */,
 			);
 			name = "View Tests";
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				92FD73091E0E50950025962A /* MockDataService.swift */,
+				92A5491A1E14B24400C5E6B3 /* MockImageService.swift */,
 			);
 			name = Mock;
 			sourceTree = "<group>";
@@ -688,11 +694,13 @@
 				92A549151E14A26A00C5E6B3 /* OrderSummaryTableViewCellTests.swift in Sources */,
 				92FD73041E0CC8430025962A /* CartItemTests.swift in Sources */,
 				92FD73131E0E77DF0025962A /* ProductTests.swift in Sources */,
+				92A549191E14AFEB00C5E6B3 /* CartItemTableViewCellTests.swift in Sources */,
 				922A07721E11BE61002EEFCC /* RoundedButtonTests.swift in Sources */,
 				922A07831E148455002EEFCC /* QuantityEntryViewTests.swift in Sources */,
 				92A549171E14AE0400C5E6B3 /* QuantityTableViewCellTests.swift in Sources */,
 				922A07791E1437D2002EEFCC /* ProductViewTests.swift in Sources */,
 				92A549131E14A0B800C5E6B3 /* ImageCollectionViewCellTests.swift in Sources */,
+				92A5491B1E14B24400C5E6B3 /* MockImageService.swift in Sources */,
 				922A07751E11C444002EEFCC /* PlaceholderTextViewTests.swift in Sources */,
 				92FD73061E0DDFE30025962A /* TestUtils.swift in Sources */,
 				92FD73111E0E77CB0025962A /* OfferTests.swift in Sources */,

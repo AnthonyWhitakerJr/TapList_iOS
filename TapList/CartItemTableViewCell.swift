@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class CartItemTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -22,20 +22,23 @@ class CartItemTableViewCell: UITableViewCell {
     var imageRequest: DataRequest?
     var cartItem: CartItem!
     var product: Product!
-    var imageService = ImageService.instance
     
+    var dataService = DataService.instance
+    var imageService = ImageService.instance
+
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 1
+        layer.masksToBounds = true
     }
     
-    func configureCell(cartItem: CartItem) {
+    func configureCell(cartItem: CartItem, completion: (() -> ())? = nil) {
         self.cartItem = cartItem
         
         quantityEntryView.configureQuantityView(previousQuantity: cartItem.quantity)
         quantityEntryView.delegate = self
         
-        DataService.instance.product(for: cartItem.sku) { product in
+        dataService.product(for: cartItem.sku) { product in
             if let product = product {
                 self.product = product
                 
@@ -61,6 +64,8 @@ class CartItemTableViewCell: UITableViewCell {
                 }
                 
                 self.detailLabel.text = product.detail
+                
+                completion?()
             }
         }
     }
@@ -79,17 +84,13 @@ class CartItemTableViewCell: UITableViewCell {
     }
     
     @IBAction func offerButtonTapped(_ sender: UIButton) {
-        guard let product = product else {
-            return
-        }
+        guard let product = product else { return }
         
         delegate?.handleOfferButtonTapped(product: product, sender: sender)
     }
     
     @IBAction func productImageButtonPressed(_ sender: UIButton) {
-        guard let product = product else {
-            return
-        }
+        guard let product = product else { return }
         
         delegate?.handleProductImageButtonTapped(product: product, sender: sender)
     }

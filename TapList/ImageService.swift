@@ -39,9 +39,7 @@ class ImageService {
     let baseUrl = "https://www.kroger.com/product/images"
     
     private let imageCache = NSCache<NSString, UIImage>()
-    
-    private init(){}
-    
+        
     /// Asynchronus request for product image. If image does not exist, completion block will NOT be executed.
     /// - completion: Code to be executed once image has been retrieved.
     /// - returns: The request used to feth the image. Can be used to prematurely cancel if image is no longer needed.
