@@ -13,7 +13,9 @@ class CartItemTableViewCellTests: XCTestCase {
     
     func testConfigureCell_RegularPrice() {
         let cell = CartItemTableViewCell()
-        let cartItem = CartItem(sku: "0001234567890", quantity: 2)
+        let product = MockDataService.TestProduct().regularPriced
+        let quantity = 2
+        let cartItem = CartItem(sku: product.sku, quantity: quantity)
         
         let productImageView = UIImageView()
         let productNameLabel = UILabel()
@@ -36,20 +38,20 @@ class CartItemTableViewCellTests: XCTestCase {
         
         cell.configureCell(cartItem: cartItem) {
             XCTAssertNotNil(cell.cartItem)
-            XCTAssertEqual(2, cell.quantityEntryView.quantity)
+            XCTAssertEqual(quantity, cell.quantityEntryView.quantity)
             
             XCTAssertNotNil(cell.product)
             
             XCTAssertEqual(#imageLiteral(resourceName: "TapListLogo"), cell.productImageView.image)
             
-            XCTAssertEqual("Regular price product", cell.productNameLabel.text)
+            XCTAssertEqual(product.name, cell.productNameLabel.text)
             
             XCTAssertFalse(cell.priceLabel.isHidden)
             XCTAssertTrue(cell.offerPriceButton.isHidden)
             
             XCTAssertEqual("$9.98", cell.priceLabel.text)
             
-            XCTAssertEqual("$4.99 each", cell.detailLabel.text)
+            XCTAssertEqual(product.detail, cell.detailLabel.text)
             
             contract.fulfill()
         }
@@ -63,7 +65,9 @@ class CartItemTableViewCellTests: XCTestCase {
     
     func testConfigureCell_WithSale() {
         let cell = CartItemTableViewCell()
-        let cartItem = CartItem(sku: "0009876543210", quantity: 5)
+        let product = MockDataService.TestProduct().onSale
+        let quantity = 5
+        let cartItem = CartItem(sku: product.sku, quantity: quantity)
         
         let productImageView = UIImageView()
         let productNameLabel = UILabel()
@@ -86,20 +90,20 @@ class CartItemTableViewCellTests: XCTestCase {
         
         cell.configureCell(cartItem: cartItem) {
             XCTAssertNotNil(cell.cartItem)
-            XCTAssertEqual(5, cell.quantityEntryView.quantity)
+            XCTAssertEqual(quantity, cell.quantityEntryView.quantity)
             
             XCTAssertNotNil(cell.product)
             
             XCTAssertEqual(#imageLiteral(resourceName: "TapListLogo"), cell.productImageView.image)
             
-            XCTAssertEqual("Sale item", cell.productNameLabel.text)
+            XCTAssertEqual(product.name, cell.productNameLabel.text)
             
             XCTAssertTrue(cell.priceLabel.isHidden)
             XCTAssertFalse(cell.offerPriceButton.isHidden)
             
             XCTAssertEqual("$9.95", cell.offerPriceButton.currentTitle)
             
-            XCTAssertEqual("14 oz", cell.detailLabel.text)
+            XCTAssertEqual(product.detail, cell.detailLabel.text)
             
             contract.fulfill()
         }
