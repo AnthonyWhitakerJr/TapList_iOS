@@ -34,6 +34,9 @@ class ProductDetailViewController: UIViewController, ProductView {
     var imageRequests = Array<DataRequest?>()
     var quantityInCart: Int = 0
     
+    var dataService = DataService.instance
+    var imageService = ImageService.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -52,14 +55,14 @@ class ProductDetailViewController: UIViewController, ProductView {
             imageRequest?.cancel() // Cancel any ongoing image requests (can happen when user scrolls quickly).
         }
         
-        imageRequests = ImageService.instance.imagesForAllDirections(for: product, size: .large) { images in
+        imageRequests = imageService.imagesForAllDirections(for: product, size: .large) { images in
             self.productImages = images
             self.productImageCollectionView.reloadData()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+        if let cartItem = dataService.cart.cartItems[product.sku] {
             self.quantityInCart = cartItem.quantity
         } else {
             self.quantityInCart = 0
@@ -68,7 +71,7 @@ class ProductDetailViewController: UIViewController, ProductView {
         configureProductView()
         skuLabel.text = "SKU:\(product.sku)"
         
-        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+        if let cartItem = dataService.cart.cartItems[product.sku] {
             if let specialInstructions = cartItem.specialInstructions {
                 specialInstructionTextView.text = specialInstructions
                 specialInstructionTextView.refresh()
@@ -94,7 +97,7 @@ class ProductDetailViewController: UIViewController, ProductView {
         updateCartQuantityLabel()
         
         let cartItem = CartItem(sku: product.sku, quantity: quantityEntryView.quantity, specialInstructions: specialInstructions)
-        DataService.instance.update(cartItem: cartItem)
+        dataService.update(cartItem: cartItem)
         
 //        navigationController?.popViewController(animated: true) //FIXME: Executes before update finishes executing, causing stale data on previous controller.
     }

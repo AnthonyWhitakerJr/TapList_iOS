@@ -16,6 +16,8 @@ class ProductImageCollectionViewController: UICollectionViewController {
     var productImages = Array<UIImage>()
     var imageRequests = Array<DataRequest?>()
     
+    var imageService = ImageService.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +31,7 @@ class ProductImageCollectionViewController: UICollectionViewController {
         self.imageRequests.removeAll()
         
         
-        imageRequests = ImageService.instance.imagesForAllDirections(for: product, size: .large) { images in
+        imageRequests = imageService.imagesForAllDirections(for: product, size: .large) { images in
             self.productImages = images
             self.collectionView?.reloadData()
             self.scrollToInitialCell()

@@ -25,7 +25,7 @@ class QuantityTableViewControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testSanityCheck() {
         XCTAssertNotNil(controller)
     }
     

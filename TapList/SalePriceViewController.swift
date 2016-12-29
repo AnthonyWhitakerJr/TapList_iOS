@@ -22,10 +22,12 @@ class SalePriceViewController: UIViewController {
     @IBOutlet weak var offerShortDescriptionLabel: UILabel!
     @IBOutlet weak var expirationDateLabel: UILabel!
     
+    var dataService = DataService.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataService.instance.offer(for: product.sku, completion: { offer in
+        dataService.offer(for: product.sku, completion: { offer in
             self.offer = offer
             self.configureSalePrice()
         })

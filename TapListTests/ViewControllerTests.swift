@@ -29,7 +29,7 @@ class ViewControllerTests: XCTestCase {
     }
     
     // Use button.sendAction to test button presses.
-    func testExample() {
+    func testSanityCheck() {
         XCTAssertNotNil(controller)
     }
     
