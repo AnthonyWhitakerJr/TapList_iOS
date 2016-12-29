@@ -22,6 +22,7 @@ class CartItemTableViewCell: UITableViewCell {
     var imageRequest: DataRequest?
     var cartItem: CartItem!
     var product: Product!
+    var imageService = ImageService.instance
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,7 +71,7 @@ class CartItemTableViewCell: UITableViewCell {
         }
         
         self.productImageView.image = #imageLiteral(resourceName: "PlaceholderImage")
-        imageRequest = ImageService.instance.image(for: product, completion: {image in
+        imageRequest = imageService.image(for: product, completion: {image in
             if let image = image {
                 self.productImageView.image = image
             }
