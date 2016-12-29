@@ -33,8 +33,8 @@ class Offer {
     var offerDescription: String?
     var offerShortDescription: String?
     
-    init(productSku: String, endDate: String?, offerType: OfferType?, offerQuantity: Int?,
-         offerPriceTitle: String?, offerDescription: String?, offerShortDescription: String?) {
+    init(productSku: String, endDate: String? = nil, offerType: OfferType? = nil, offerQuantity: Int? = nil,
+         offerPriceTitle: String? = nil, offerDescription: String?, offerShortDescription: String? = nil) {
         self.productSku = productSku
         self.endDate = endDate
         self.offerType = offerType

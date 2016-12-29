@@ -42,7 +42,7 @@ class CartItemTableViewCellTests: XCTestCase {
             
             XCTAssertNotNil(cell.product)
             
-            XCTAssertEqual(#imageLiteral(resourceName: "TapListLogo"), cell.productImageView.image)
+            XCTAssertNotNil(cell.productImageView.image)
             
             XCTAssertEqual(product.name, cell.productNameLabel.text)
             
@@ -94,7 +94,7 @@ class CartItemTableViewCellTests: XCTestCase {
             
             XCTAssertNotNil(cell.product)
             
-            XCTAssertEqual(#imageLiteral(resourceName: "TapListLogo"), cell.productImageView.image)
+            XCTAssertNotNil(cell.productImageView.image)
             
             XCTAssertEqual(product.name, cell.productNameLabel.text)
             

@@ -14,12 +14,14 @@ class ManageCartTableViewController: UITableViewController {
     var productForSegue: Product? // Certainly there is a better way of doing this...
     var quantityEntryViewForSegue: QuantityEntryView?
     
+    var dataService = DataService.instance
+    
     var cart: Cart {
-        return DataService.instance.cart
+        return dataService.cart
     }
     
     var cartItems: Array<CartItem> {
-        return Array(DataService.instance.cart.cartItems.values)
+        return Array(dataService.cart.cartItems.values)
     }
     
     override func viewDidLoad() {
@@ -32,16 +34,7 @@ class ManageCartTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartItems.count + 1
@@ -179,7 +172,7 @@ extension ManageCartTableViewController: CartCellDelegate {
     
     func handleQuantityUpdate(cell: CartItemTableViewCell, newQuantity: Int) {
         let cartItem = CartItem(sku: cell.cartItem.sku, quantity: newQuantity, specialInstructions: cell.cartItem.specialInstructions)
-        DataService.instance.update(cartItem: cartItem) {
+        dataService.update(cartItem: cartItem) {
             // Reload only the updated cell & order summary
             if newQuantity != 0, let indexpath = self.tableView.indexPath(for: cell) {
                 let orderSummaryIndexPath = IndexPath(row: self.tableView.numberOfRows(inSection: indexpath.section) - 1, section: indexpath.section)

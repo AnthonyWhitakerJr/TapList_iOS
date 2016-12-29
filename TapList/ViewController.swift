@@ -51,11 +51,6 @@ class ViewController: UIViewController {
             }
         })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
      // MARK: - Navigation
      
@@ -74,7 +69,7 @@ class ViewController: UIViewController {
             preparePopover(for: controller, sender: sender)
         } else if segue.identifier == "productDetail" {
             guard let productForSegue = productForSegue else {
-                print("product not set before segue to sale price controller.")
+                print("product not set before segue to ProductDetailViewController.")
                 return
             }
             guard let controller = segue.destination as? ProductDetailViewController else {

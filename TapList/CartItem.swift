@@ -19,7 +19,7 @@ class CartItem {
     /// Order customization options.
     var specialInstructions: String?
     
-    unowned var dataService = DataService.instance
+    var dataService = DataService.instance
     
     /// Dictionary representation of this `CartItem`.
     var asDictionary: Dictionary<String, Any> {

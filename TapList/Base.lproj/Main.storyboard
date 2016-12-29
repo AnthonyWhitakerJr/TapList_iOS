@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -230,27 +230,9 @@
                     <view key="view" contentMode="scaleToFill" id="xpq-v4-r4V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-NI-QCr" customClass="QuantityEntryView" customModule="TapList" customModuleProvider="target">
-                                <rect key="frame" x="16" y="318.5" width="45" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="OUA-gl-Wgg"/>
-                                    <constraint firstAttribute="height" constant="30" id="S7I-nN-oC0"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="quantityUpdated:" destination="68b-R6-fSw" eventType="valueChanged" id="I4U-Kf-PEk"/>
-                                </connections>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dSt-NI-QCr" firstAttribute="centerY" secondItem="xpq-v4-r4V" secondAttribute="centerY" id="OLb-eD-pc8"/>
-                            <constraint firstItem="dSt-NI-QCr" firstAttribute="leading" secondItem="xpq-v4-r4V" secondAttribute="leadingMargin" id="RNq-FS-2e7"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="quantityEntryView" destination="dSt-NI-QCr" id="pH3-Or-0Hl"/>
                         <segue destination="2mA-t0-UTe" kind="popoverPresentation" identifier="quantityPopover" popoverAnchorView="xpq-v4-r4V" id="CZm-qb-wto">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
@@ -263,7 +245,7 @@
         <!--Manage Cart Table View Controller-->
         <scene sceneID="vIY-Gb-stu">
             <objects>
-                <tableViewController id="Fre-aD-YWf" customClass="ManageCartTableViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ManageCartTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fre-aD-YWf" customClass="ManageCartTableViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="WFa-qY-i7y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -480,7 +462,7 @@
         <!--Product Detail View Controller-->
         <scene sceneID="Pmh-gC-lXf">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="F7p-KG-5nh" customClass="ProductDetailViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F7p-KG-5nh" customClass="ProductDetailViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kus-Nf-2UX"/>
                         <viewControllerLayoutGuide type="bottom" id="8bU-16-8Sf"/>
@@ -759,7 +741,7 @@
         <!--Product Image Collection View Controller-->
         <scene sceneID="ISa-VG-wq5">
             <objects>
-                <collectionViewController id="H0m-F6-kGT" customClass="ProductImageCollectionViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ProductImageCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H0m-F6-kGT" customClass="ProductImageCollectionViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="Ae1-qQ-ouk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -907,7 +889,7 @@
         <!--Quantity Table View Controller-->
         <scene sceneID="rrw-K3-fvc">
             <objects>
-                <tableViewController id="2mA-t0-UTe" customClass="QuantityTableViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="QuantityTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2mA-t0-UTe" customClass="QuantityTableViewController" customModule="TapList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Npi-x4-A3n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -979,9 +961,9 @@
         <image name="cart" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iFq-ru-v4N"/>
         <segue reference="ut8-WC-K0I"/>
         <segue reference="R6S-P3-OCS"/>
-        <segue reference="rzj-eH-HL0"/>
-        <segue reference="Wzk-UR-1Bv"/>
+        <segue reference="S72-pj-xsK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,15 +26,19 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
     var product: Product!
     var quantityInCart: Int = 0
     
+    var dataService = DataService.instance
+    var imageService = ImageService.instance
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 1
+        layer.masksToBounds = true
     }
     
     func configureCell(product: Product) {
         self.product = product
         
-        if let cartItem = DataService.instance.cart.cartItems[product.sku] {
+        if let cartItem = dataService.cart.cartItems[product.sku] {
             self.quantityInCart = cartItem.quantity
         } else {
             self.quantityInCart = 0
@@ -50,7 +54,7 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
         }
         
         self.productImageView.image = #imageLiteral(resourceName: "PlaceholderImage")
-        imageRequest = ImageService.instance.image(for: product, completion: {image in
+        imageRequest = imageService.image(for: product, completion: {image in
             if let image = image {
                 self.productImageView.image = image
             }
@@ -69,7 +73,7 @@ class ProductCollectionViewCell: UICollectionViewCell, ProductView {
         self.quantityInCart = quantityInCart + 1
         updateCartQuantityLabel()
         
-        DataService.instance.addToCart(productSku: product.sku)
+        dataService.addToCart(productSku: product.sku)
     }
     
 

@@ -24,8 +24,6 @@ class DataService {
     func loadCart() {
         DataService.ref.cart?.observe(.value, with: { snapshot in
             if snapshot.value != nil {
-                //Clear cart?
-                
                 if let cartData = snapshot.value as? Dictionary<String, Any> {
                     self.cart = Cart(data: cartData)
                 }
